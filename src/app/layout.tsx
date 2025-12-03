@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// Primary: Montserrat (IEEE CS Standard for headings)
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+// Secondary: Open Sans (IEEE CS Standard for body text)
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "IEEE CS SBC",
+  title: "IEEE CS SBC AVV",
   description: "IEEE Computer Society Student Branch Committee",
 };
 
@@ -17,12 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
+      <body className="font-body antialiased">
         <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          {children}
         </div>
       </body>
     </html>

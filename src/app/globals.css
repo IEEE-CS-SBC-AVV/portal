@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* IEEE Color Theme */
+@theme {
+  /* IEEE Official Colors */
+  --color-ieee-blue: #00629b;
+  --color-ieee-blue-light: #00b5e2;
+  --color-ieee-blue-dark: #002855;
+  --color-ieee-orange: #ffa300;
+  --color-ieee-orange-dark: #e87722;
+  --color-ieee-cyan: #00b5e2;
+  --color-ieee-yellow: #ffd100;
+  --color-ieee-green: #78be20;
+  --color-ieee-teal: #009ca6;
+  --color-ieee-purple: #981d97;
+  --color-ieee-red: #ba0c2f;
+  --color-ieee-gray: #75787b;
+  --color-ieee-black: #000000;
+  --color-ieee-white: #ffffff;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Font Families */
+  --font-family-sans: var(--font-montserrat), system-ui, sans-serif;
+  --font-family-body: var(--font-open-sans), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sans);
+  font-weight: 600;
+  color: var(--color-ieee-blue-dark);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+  }
+  
+  h3 {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+.container-ieee {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-ieee {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-ieee {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.btn-ieee-primary {
+  background-color: var(--color-ieee-orange);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-ieee-primary:hover {
+  background-color: var(--color-ieee-orange-dark);
+}
+
+.btn-ieee-secondary {
+  background-color: var(--color-ieee-blue);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-ieee-secondary:hover {
+  background-color: var(--color-ieee-blue-dark);
 }
