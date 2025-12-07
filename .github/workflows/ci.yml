@@ -1,0 +1,49 @@
+name: CI
+
+# Trigger when code is pushed or PR is created for dev or main
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main", "dev"]
+
+jobs:
+  build:
+    name: Build & Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node with caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Lint code
+      - name: Lint
+        run: npm run lint
+
+      # TypeScript type-check
+      - name: Type check
+        run: npm run type-check
+
+      # Build Next.js project
+      - name: Build
+        run: npm run build
+
+      # Upload artifacts for debugging failed builds (optional but useful)
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: .next
+          retention-days: 3
