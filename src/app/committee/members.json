@@ -1,0 +1,152 @@
+{
+  "facultyAdvisor": {
+    "name": "Dr. Faculty Name",
+    "designation": "Professor & Head of Department",
+    "department": "Computer Science & Engineering",
+    "email": "faculty@university.edu",
+    "phone": "+91-XXXXXXXXXX",
+    "photo": "/images/committee/advisor.jpg",
+    "bio": "Dr. Faculty Name has been guiding the IEEE CS Student Branch for over 5 years, bringing extensive experience in computer science education and research."
+  },
+  "executive": [
+    {
+      "id": "chair",
+      "name": "Student Chairperson",
+      "role": "Chairperson",
+      "department": "Computer Engineering",
+      "year": "Final Year",
+      "email": "chair@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "phone": "+91-XXXXXXXXXX",
+      "photo": "/images/committee/chair.jpg",
+      "bio": "Leading the chapter with vision and dedication to create meaningful impact.",
+      "responsibilities": [
+        "Overall chapter management and strategic planning",
+        "Coordination with IEEE headquarters and regional committees",
+        "Representing the chapter at conferences and events"
+      ]
+    },
+    {
+      "id": "vice-chair",
+      "name": "Student Vice-Chair",
+      "role": "Vice Chairperson",
+      "department": "Computer Science",
+      "year": "Third Year",
+      "email": "vicechair@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "phone": "+91-XXXXXXXXXX",
+      "photo": "/images/committee/vice-chair.jpg",
+      "bio": "Supporting chapter initiatives and driving member engagement.",
+      "responsibilities": [
+        "Assisting chairperson in all activities",
+        "Managing internal communications",
+        "Overseeing committee performance"
+      ]
+    },
+    {
+      "id": "secretary",
+      "name": "Student Secretary",
+      "role": "Secretary",
+      "department": "Information Technology",
+      "year": "Third Year",
+      "email": "secretary@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "phone": "+91-XXXXXXXXXX",
+      "photo": "/images/committee/secretary.jpg",
+      "bio": "Maintaining records and ensuring smooth communication.",
+      "responsibilities": [
+        "Meeting minutes and documentation",
+        "Member database management",
+        "Official correspondence"
+      ]
+    },
+    {
+      "id": "treasurer",
+      "name": "Student Treasurer",
+      "role": "Treasurer",
+      "department": "Computer Engineering",
+      "year": "Third Year",
+      "email": "treasurer@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "phone": "+91-XXXXXXXXXX",
+      "photo": "/images/committee/treasurer.jpg",
+      "bio": "Managing finances and ensuring fiscal responsibility.",
+      "responsibilities": [
+        "Budget planning and management",
+        "Financial reporting",
+        "Sponsorship coordination"
+      ]
+    }
+  ],
+  "technical": [
+    {
+      "id": "tech-lead-1",
+      "name": "Technical Lead 1",
+      "role": "Technical Lead",
+      "department": "Computer Science",
+      "year": "Third Year",
+      "email": "tech1@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "photo": "/images/committee/tech-lead-1.jpg",
+      "bio": "Organizing technical workshops and hackathons."
+    },
+    {
+      "id": "tech-lead-2",
+      "name": "Technical Lead 2",
+      "role": "Technical Lead",
+      "department": "Computer Engineering",
+      "year": "Second Year",
+      "email": "tech2@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "photo": "/images/committee/tech-lead-2.jpg",
+      "bio": "Coordinating coding competitions and technical sessions."
+    }
+  ],
+  "events": [
+    {
+      "id": "event-coord-1",
+      "name": "Event Coordinator 1",
+      "role": "Event Coordinator",
+      "department": "Information Technology",
+      "year": "Second Year",
+      "email": "events1@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "photo": "/images/committee/event-coord-1.jpg",
+      "bio": "Planning and executing memorable events."
+    },
+    {
+      "id": "event-coord-2",
+      "name": "Event Coordinator 2",
+      "role": "Event Coordinator",
+      "department": "Computer Science",
+      "year": "Second Year",
+      "email": "events2@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "photo": "/images/committee/event-coord-2.jpg",
+      "bio": "Managing event logistics and vendor coordination."
+    }
+  ],
+  "publicity": [
+    {
+      "id": "publicity-1",
+      "name": "Publicity Head",
+      "role": "Publicity & Marketing Head",
+      "department": "Computer Engineering",
+      "year": "Second Year",
+      "email": "publicity@student.university.edu",
+      "linkedin": "https://linkedin.com/in/",
+      "photo": "/images/committee/publicity.jpg",
+      "bio": "Managing social media and chapter branding."
+    }
+  ],
+  "webmaster": {
+    "name": "Webmaster",
+    "role": "Webmaster",
+    "department": "Computer Science",
+    "year": "Third Year",
+    "email": "webmaster@student.university.edu",
+    "linkedin": "https://linkedin.com/in/",
+    "photo": "/images/committee/webmaster.jpg",
+    "bio": "Maintaining and developing the chapter website."
+  }
+}
