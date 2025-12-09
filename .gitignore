@@ -52,6 +52,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.
-ext.md
+
+# Some Markdowns
+TODO.md
 ROADMAP.md
-layout.tsx.save 
+if_npm_error.txt
