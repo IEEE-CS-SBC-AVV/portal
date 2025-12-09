@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Mail, MapPin, Phone, Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Facebook,
+} from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -13,7 +21,9 @@ interface ContactFormData {
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const {
     register,
@@ -29,7 +39,7 @@ export default function ContactPage() {
     try {
       // Simulate API call - replace with actual endpoint
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+
       console.log("Form submitted:", data);
       setSubmitStatus("success");
       reset();
@@ -48,8 +58,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Have questions? We&apos;d love to hear from you. Send us a message and
-            we&apos;ll respond as soon as possible.
+            Have questions? We&apos;d love to hear from you. Send us a message
+            and we&apos;ll respond as soon as possible.
           </p>
         </div>
       </section>
@@ -63,7 +73,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Get in Touch
               </h2>
-              
+
               {/* Contact Details */}
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
@@ -95,12 +105,18 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <MapPin className="w-6 h-6 text-ieee-blue mr-3 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Address
+                    </h3>
                     <p className="text-gray-600">
-                      IEEE CS Student Branch<br />
-                      Department of Computer Science<br />
-                      Your University Name<br />
-                      City, State - 123456<br />
+                      IEEE CS Student Branch
+                      <br />
+                      Department of Computer Science
+                      <br />
+                      Your University Name
+                      <br />
+                      City, State - 123456
+                      <br />
                       India
                     </p>
                   </div>
@@ -109,9 +125,7 @@ export default function ContactPage() {
 
               {/* Social Media */}
               <div>
-                <h3 className="font-semibold text-gray-900 mb-4">
-                  Follow Us
-                </h3>
+                <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a
                     href="https://linkedin.com"
@@ -160,11 +174,15 @@ export default function ContactPage() {
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Monday - Friday</dt>
-                    <dd className="text-gray-900 font-medium">10:00 AM - 5:00 PM</dd>
+                    <dd className="text-gray-900 font-medium">
+                      10:00 AM - 5:00 PM
+                    </dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Saturday</dt>
-                    <dd className="text-gray-900 font-medium">10:00 AM - 2:00 PM</dd>
+                    <dd className="text-gray-900 font-medium">
+                      10:00 AM - 2:00 PM
+                    </dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Sunday</dt>
@@ -244,7 +262,9 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.subject && (
-                      <p className="ieee-error-text">{errors.subject.message}</p>
+                      <p className="ieee-error-text">
+                        {errors.subject.message}
+                      </p>
                     )}
                   </div>
 
@@ -266,15 +286,17 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.message && (
-                      <p className="ieee-error-text">{errors.message.message}</p>
+                      <p className="ieee-error-text">
+                        {errors.message.message}
+                      </p>
                     )}
                   </div>
 
                   {/* Submit Status Messages */}
                   {submitStatus === "success" && (
                     <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                      ✓ Thank you! Your message has been sent successfully. We&apos;ll
-                      get back to you soon.
+                      ✓ Thank you! Your message has been sent successfully.
+                      We&apos;ll get back to you soon.
                     </div>
                   )}
 

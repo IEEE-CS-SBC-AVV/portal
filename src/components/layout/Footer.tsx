@@ -15,8 +15,9 @@ export function Footer() {
               IEEE Computer Society Student Branch
             </h3>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              Empowering students through technology, innovation, and professional
-              development. Join us in advancing technology for humanity.
+              Empowering students through technology, innovation, and
+              professional development. Join us in advancing technology for
+              humanity.
             </p>
             <div className="flex space-x-4">
               <a
@@ -67,7 +68,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -106,7 +109,9 @@ export function Footer() {
 
           {/* Visit IEEE */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Visit IEEE</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">
+              Visit IEEE
+            </h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -158,8 +163,8 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-500 text-sm text-center md:text-left">
-              &copy; {currentYear} IEEE Computer Society Student Branch Committee.
-              All rights reserved.
+              &copy; {currentYear} IEEE Computer Society Student Branch
+              Committee. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
               <a

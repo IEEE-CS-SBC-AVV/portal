@@ -5,31 +5,31 @@
 
 :root {
   /* IEEE Primary Colors */
-  --ieee-blue: #00629B;           /* Official IEEE Blue (PMS 3015 C) */
-  --ieee-blue-dark: #004B76;      /* Darker shade for hover states */
-  --ieee-blue-light: #E6F2F8;     /* Light background tint */
-  
+  --ieee-blue: #00629b; /* Official IEEE Blue (PMS 3015 C) */
+  --ieee-blue-dark: #004b76; /* Darker shade for hover states */
+  --ieee-blue-light: #e6f2f8; /* Light background tint */
+
   /* Neutral Colors */
-  --gray-900: #1A1A1A;            /* Headings, primary text */
-  --gray-800: #2D2D2D;            /* Body text */
-  --gray-700: #4A4A4A;            /* Secondary text */
-  --gray-600: #6B7280;            /* Tertiary text */
-  --gray-500: #9CA3AF;            /* Disabled text */
-  --gray-400: #D1D5DB;            /* Borders */
-  --gray-300: #E5E7EB;            /* Dividers */
-  --gray-200: #F3F4F6;            /* Background light */
-  --gray-100: #F9FAFB;            /* Background lighter */
-  --white: #FFFFFF;
-  
+  --gray-900: #1a1a1a; /* Headings, primary text */
+  --gray-800: #2d2d2d; /* Body text */
+  --gray-700: #4a4a4a; /* Secondary text */
+  --gray-600: #6b7280; /* Tertiary text */
+  --gray-500: #9ca3af; /* Disabled text */
+  --gray-400: #d1d5db; /* Borders */
+  --gray-300: #e5e7eb; /* Dividers */
+  --gray-200: #f3f4f6; /* Background light */
+  --gray-100: #f9fafb; /* Background lighter */
+  --white: #ffffff;
+
   /* Extended IEEE Palette (from guidelines) */
-  --ieee-teal: #00B5AD;           /* Accent color option */
-  --ieee-orange: #FF6F00;         /* Warning/alert */
-  --ieee-green: #10B981;          /* Success states */
-  --ieee-red: #EF4444;            /* Error states */
-  
+  --ieee-teal: #00b5ad; /* Accent color option */
+  --ieee-orange: #ff6f00; /* Warning/alert */
+  --ieee-green: #10b981; /* Success states */
+  --ieee-red: #ef4444; /* Error states */
+
   /* Background & Foreground */
   --background: #ffffff;
-  --foreground: #1A1A1A;
+  --foreground: #1a1a1a;
 }
 
 @layer utilities {
@@ -55,11 +55,10 @@
     --color-gray-100: var(--gray-100);
 
     /* Typography - IEEE uses Helvetica/Arial stack */
-    --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-mono: 'Courier New', monospace;
+    --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: "Courier New", monospace;
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -73,7 +72,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -184,11 +183,15 @@ body {
 /* GRADIENT OVERLAYS */
 
 .ieee-gradient-overlay {
-  background: linear-gradient(135deg, var(--ieee-blue) 0%, var(--ieee-blue-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--ieee-blue) 0%,
+    var(--ieee-blue-dark) 100%
+  );
 }
 
 .ieee-hero-overlay::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

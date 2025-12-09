@@ -26,7 +26,7 @@ export default function ComingSoonPage({
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           {title}
         </h1>
-        
+
         <p className="text-xl text-blue-100 mb-8 leading-relaxed">
           {description}
         </p>
@@ -55,9 +55,7 @@ export default function ComingSoonPage({
 
         {/* Additional Info */}
         <div className="mt-12 text-blue-100">
-          <p className="mb-4">
-            Want to be notified when this page launches?
-          </p>
+          <p className="mb-4">Want to be notified when this page launches?</p>
           <Link
             href="/contact"
             className="text-white underline hover:no-underline"

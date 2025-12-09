@@ -138,9 +138,7 @@ function EventCard({ event }: { event: Event }) {
       <div className="space-y-2 mb-4 text-gray-600">
         <div className="flex items-center">
           <Calendar className="w-4 h-4 mr-2 text-ieee-blue" />
-          <span className="text-sm">
-            {format(event.date, "MMMM d, yyyy")}
-          </span>
+          <span className="text-sm">{format(event.date, "MMMM d, yyyy")}</span>
         </div>
         <div className="flex items-center">
           <Clock className="w-4 h-4 mr-2 text-ieee-blue" />
@@ -208,8 +206,12 @@ export default function EventsPage() {
     return event.status === filter;
   });
 
-  const upcomingCount = sampleEvents.filter((e) => e.status === "upcoming").length;
-  const completedCount = sampleEvents.filter((e) => e.status === "completed").length;
+  const upcomingCount = sampleEvents.filter(
+    (e) => e.status === "upcoming"
+  ).length;
+  const completedCount = sampleEvents.filter(
+    (e) => e.status === "completed"
+  ).length;
 
   return (
     <div>
@@ -218,8 +220,8 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Join us for workshops, seminars, hackathons, and more to enhance your
-            skills and network with peers
+            Join us for workshops, seminars, hackathons, and more to enhance
+            your skills and network with peers
           </p>
         </div>
       </section>
@@ -316,8 +318,8 @@ export default function EventsPage() {
             Want to Organize an Event?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            We&apos;re always looking for new ideas and passionate organizers. Get in
-            touch with us!
+            We&apos;re always looking for new ideas and passionate organizers.
+            Get in touch with us!
           </p>
           <a
             href="/contact"

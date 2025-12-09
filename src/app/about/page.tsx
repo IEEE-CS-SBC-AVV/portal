@@ -17,9 +17,7 @@ export default function AboutPage() {
       {/* Chapter Introduction */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Who We Are
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
           <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
             <p>
               The IEEE Computer Society Student Branch Committee is a vibrant
@@ -29,17 +27,18 @@ export default function AboutPage() {
               campus.
             </p>
             <p>
-              As part of the world&apos;s largest technical professional organization,
-              we provide our members with unparalleled opportunities to connect
-              with peers, industry leaders, and cutting-edge technology. Our
-              activities span workshops, seminars, hackathons, technical
-              competitions, and community outreach programs.
+              As part of the world&apos;s largest technical professional
+              organization, we provide our members with unparalleled
+              opportunities to connect with peers, industry leaders, and
+              cutting-edge technology. Our activities span workshops, seminars,
+              hackathons, technical competitions, and community outreach
+              programs.
             </p>
             <p>
-              We believe in the power of collaboration and knowledge sharing. Our
-              diverse membership includes students from various disciplines, all
-              united by a common goal: to advance technology for the benefit of
-              humanity.
+              We believe in the power of collaboration and knowledge sharing.
+              Our diverse membership includes students from various disciplines,
+              all united by a common goal: to advance technology for the benefit
+              of humanity.
             </p>
           </div>
         </div>
@@ -55,12 +54,14 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  The IEEE Computer Society is the world&apos;s premier organization
-                  of computing professionals, with over 60,000 members worldwide.
-                  It is the largest of IEEE&apos;s 39 societies.
+                  The IEEE Computer Society is the world&apos;s premier
+                  organization of computing professionals, with over 60,000
+                  members worldwide. It is the largest of IEEE&apos;s 39
+                  societies.
                 </p>
                 <p>
-                  The Computer Society serves computing professionals by offering:
+                  The Computer Society serves computing professionals by
+                  offering:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Technical publications and digital libraries</li>
