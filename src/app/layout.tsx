@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
-
-// Primary: Montserrat (IEEE CS Standard for headings)
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-// Secondary: Open Sans (IEEE CS Standard for body text)
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-  display: "swap",
-});
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "IEEE CS SBC AVV",
-  description: "IEEE Computer Society Student Branch Committee",
+  title: "IEEE CS SBC - Computer Society Student Branch",
+  description:
+    "IEEE Computer Society Student Branch Committee - Empowering students through technology, innovation, and professional development.",
+  keywords: [
+    "IEEE",
+    "Computer Society",
+    "Student Branch",
+    "Technology",
+    "Engineering",
+    "Student Organization",
+  ],
+  authors: [{ name: "IEEE CS SBC" }],
+  openGraph: {
+    type: "website",
+    title: "IEEE CS SBC - Computer Society Student Branch",
+    description:
+      "Join our vibrant community of technology enthusiasts and innovators.",
+    siteName: "IEEE CS SBC",
+  },
 };
 
 export default function RootLayout({
@@ -27,10 +31,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
-      <body className="font-body antialiased">
+    <html lang="en">
+      <body>
+        {/* Skip to main content for accessibility */}
+        <a href="#main-content" className="skip-to-main">
+          Skip to main content
+        </a>
+
         <div className="flex flex-col min-h-screen">
-          {children}
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>
