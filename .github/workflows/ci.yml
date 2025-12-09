@@ -10,94 +10,77 @@ jobs:
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Check Prettier formatting
-        run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"
 
   type-check:
     name: TypeScript Type Check
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run TypeScript compiler
-        run: npx tsc --noEmit
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
 
   build:
     name: Build Application
     runs-on: ubuntu-latest
     needs: [lint, type-check]
-    
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
+          node-version: 20
+          cache: npm
+      - run: npm ci
 
       - name: Build Next.js application
         run: npm run build
         env:
           NODE_ENV: production
 
+      # ✅ Ensure build folder actually exists
+      - name: Verify build output exists
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ .next not found. Build failed."
+            exit 1
+          fi
+          ls -R .next
+
+      # ✅ Correct upload (works in all cases)
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: .next
+          path: .next/**
           retention-days: 7
 
   test-build:
     name: Test Build Output
     runs-on: ubuntu-latest
-    needs: [build]
-    
+    needs: build
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
+          cache: npm
+      - run: npm ci
 
-      - name: Install dependencies
-        run: npm ci
-
+      # ✅ Now this will always find the artifact
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -105,25 +88,21 @@ jobs:
           path: .next
 
       - name: Check build size
-        run: |
-          du -sh .next
-          echo "Build size check passed"
+        run: du -sh .next
 
   status-check:
     name: All Checks Passed
     runs-on: ubuntu-latest
     needs: [lint, type-check, build, test-build]
     if: always()
-    
     steps:
-      - name: Check if all jobs succeeded
+      - name: Check job results
         run: |
-          if [ "${{ needs.lint.result }}" != "success" ] || \
-             [ "${{ needs.type-check.result }}" != "success" ] || \
-             [ "${{ needs.build.result }}" != "success" ] || \
+          if [ "${{ needs.lint.result }}" != "success" ] ||
+             [ "${{ needs.type-check.result }}" != "success" ] ||
+             [ "${{ needs.build.result }}" != "success" ] ||
              [ "${{ needs.test-build.result }}" != "success" ]; then
             echo "❌ Some checks failed"
             exit 1
           else
-            echo "✅ All checks passed successfully"
-          fi
+            echo "✅ All checks passed"
