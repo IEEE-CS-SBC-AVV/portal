@@ -8,7 +8,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Learn about our chapter's history, mission, and commitment to
+            Learn about our chapter&apos;s history, mission, and commitment to
             advancing technology
           </p>
         </div>
@@ -29,7 +29,7 @@ export default function AboutPage() {
               campus.
             </p>
             <p>
-              As part of the world's largest technical professional organization,
+              As part of the world&apos;s largest technical professional organization,
               we provide our members with unparalleled opportunities to connect
               with peers, industry leaders, and cutting-edge technology. Our
               activities span workshops, seminars, hackathons, technical
@@ -55,9 +55,9 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  The IEEE Computer Society is the world's premier organization
+                  The IEEE Computer Society is the world&apos;s premier organization
                   of computing professionals, with over 60,000 members worldwide.
-                  It is the largest of IEEE's 39 societies.
+                  It is the largest of IEEE&apos;s 39 societies.
                 </p>
                 <p>
                   The Computer Society serves computing professionals by offering:
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 🌍 Global Community
               </h3>
               <p className="text-gray-600">
-                Be part of the world's largest technical professional
+                Be part of the world&apos;s largest technical professional
                 organization
               </p>
             </div>

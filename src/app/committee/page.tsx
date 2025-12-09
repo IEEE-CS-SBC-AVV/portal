@@ -181,7 +181,7 @@ export default function CommitteePage() {
             Our Committee
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Meet the dedicated team driving our chapter's success
+            Meet the dedicated team driving our chapter&apos;s success
           </p>
         </div>
       </section>
@@ -247,7 +247,7 @@ export default function CommitteePage() {
             Interested in Joining Our Team?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            We're always looking for passionate students to join our committee and
+            We&apos;re always looking for passionate students to join our committee and
             help drive our chapter forward.
           </p>
           <a
