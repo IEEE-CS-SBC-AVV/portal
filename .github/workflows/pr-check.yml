@@ -1,0 +1,209 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  pr-info:
+    name: PR Information
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print PR details
+        run: |
+          echo "📝 PR Title: ${{ github.event.pull_request.title }}"
+          echo "👤 Author: ${{ github.event.pull_request.user.login }}"
+          echo "🌿 Branch: ${{ github.head_ref }} → ${{ github.base_ref }}"
+          echo "📊 Files changed: ${{ github.event.pull_request.changed_files }}"
+
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"
+
+  type-check:
+    name: TypeScript Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npx tsc --noEmit
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: [lint, type-check]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build Next.js application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Verify build output
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ Build directory .next not found"
+            exit 1
+          fi
+          echo "✅ Build directory exists"
+          du -sh .next || true
+
+      - name: Package build output (tar.gz)
+        run: |
+          tar -C .next -czf build-output.tar.gz .
+          echo "Created build-output.tar.gz"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build-output.tar.gz
+          retention-days: 3
+
+  test-build:
+    name: Test Build Output
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: .
+
+      - name: Extract & verify build artifact
+        run: |
+          if [ ! -f "build-output.tar.gz" ]; then
+            echo "❌ build-output.tar.gz missing"
+            exit 1
+          fi
+          mkdir -p .next
+          tar -C .next -xzf build-output.tar.gz
+          du -sh .next || true
+
+      - name: Build size check
+        run: |
+          SIZE_MB=$(du -sm .next | cut -f1)
+          echo "📦 Build size: ${SIZE_MB}MB"
+          if [ $SIZE_MB -gt 100 ]; then
+            echo "⚠️ Warning: Build size exceeds 100MB"
+          else
+            echo "✅ Build size is acceptable"
+          fi
+
+  todo-check:
+    name: Check TODO/FIXME in PR diff
+    runs-on: ubuntu-latest
+    needs: [lint]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Search TODO/FIXME
+        run: |
+          echo "Checking for TODO/FIXME comments..."
+          git diff origin/${{ github.base_ref }}...HEAD | grep -E "TODO|FIXME" && \
+          echo "⚠️ TODO/FIXME found" || echo "✅ No TODO/FIXME found"
+
+  preview-deployment:
+    name: Preview Deployment Info
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 **Preview Build Complete**\n\nVercel will automatically create a preview deployment for this PR.'
+            })
+
+  pr-summary:
+    name: PR Summary
+    runs-on: ubuntu-latest
+    needs: [pr-info, lint, type-check, build, test-build, todo-check, preview-deployment]
+    if: always()
+
+    steps:
+      - name: Summary
+        run: |
+          echo "## 🧪 PR Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "- PR Info: ${{ needs.pr-info.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Lint: ${{ needs.lint.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Type Check: ${{ needs.type-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Build: ${{ needs.build.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Test Build: ${{ needs.test-build.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- TODO Check: ${{ needs.todo-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Preview Deployment: ${{ needs.preview-deployment.result }}" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ needs.lint.result }}" != "success" ] || \
+             [ "${{ needs.type-check.result }}" != "success" ] || \
+             [ "${{ needs.build.result }}" != "success" ] || \
+             [ "${{ needs.test-build.result }}" != "success" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "❌ Some checks failed. Please review and fix." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **All PR checks passed! Ready for review.**" >> $GITHUB_STEP_SUMMARY
