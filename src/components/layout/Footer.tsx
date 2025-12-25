@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { Mail, Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Facebook,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,60 +16,61 @@ export function Footer() {
     <footer className="bg-gray-900 text-white mt-auto">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
-          <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4 text-white">
-              IEEE Computer Society Student Branch
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-white">
+              IEEE CS Student Branch
             </h3>
-            <p className="text-gray-400 mb-4 leading-relaxed">
+            <p className="text-gray-400 mb-4 text-sm leading-relaxed">
               Empowering students through technology, innovation, and
-              professional development. Join us in advancing technology for
-              humanity.
+              professional development. Part of the world&apos;s largest
+              technical professional organization.
             </p>
-            <div className="flex space-x-4">
+            {/* Social Media */}
+            <div className="flex space-x-3">
               <a
                 href="mailto:contact@ieeecs.edu"
-                className="text-gray-400 hover:text-ieee-blue transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Email"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-4 w-4" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-ieee-blue transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-ieee-blue transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-ieee-blue transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5" />
+                <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-ieee-blue transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -71,7 +80,15 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-white">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/about"
@@ -98,10 +115,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/gallery"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-gray-400 hover:text-ieee-blue transition"
                 >
-                  Contact
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -112,7 +137,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-white">
               Visit IEEE
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href="https://www.ieee.org/"
@@ -130,7 +155,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-ieee-blue transition"
                 >
-                  IEEE Xplore
+                  IEEE Xplore Digital Library
                 </a>
               </li>
               <li>
@@ -145,6 +170,26 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href="http://standards.ieee.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  IEEE Standards
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://spectrum.ieee.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  IEEE Spectrum
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://students.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -155,43 +200,119 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">
+              Contact Us
+            </h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start">
+                <Mail className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <a
+                  href="mailto:contact@ieeecs.edu"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  contact@ieeecs.edu
+                </a>
+              </li>
+              <li className="flex items-start">
+                <Phone className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <a
+                  href="tel:+911234567890"
+                  className="text-gray-400 hover:text-ieee-blue transition"
+                >
+                  +91 123 456 7890
+                </a>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-400">
+                  Department of Computer Science
+                  <br />
+                  [Your University Name]
+                  <br />
+                  [City, State - ZIP]
+                  <br />
+                  India
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* IEEE Legal Footer */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-500 text-sm text-center md:text-left">
-              &copy; {currentYear} IEEE Computer Society Student Branch
-              Committee. All rights reserved.
+          {/* IEEE Required Links */}
+          <div className="flex flex-wrap justify-center gap-4 text-xs mb-4">
+            <a
+              href="http://www.ieee.org/sitemap.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              Sitemap
+            </a>
+            <span className="text-gray-700">•</span>
+            <a
+              href="https://www.ieee.org/accessibility-statement.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              Accessibility
+            </a>
+            <span className="text-gray-700">•</span>
+            <a
+              href="https://www.ieee.org/about/corporate/governance/p9-26.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              Nondiscrimination Policy
+            </a>
+            <span className="text-gray-700">•</span>
+            <a
+              href="http://www.ieee-ethics-reporting.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              IEEE Ethics Reporting
+            </a>
+            <span className="text-gray-700">•</span>
+            <a
+              href="http://www.ieee.org/site_terms_conditions.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              Terms & Conditions
+            </a>
+            <span className="text-gray-700">•</span>
+            <a
+              href="https://www.ieee.org/security_privacy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-ieee-blue transition"
+            >
+              Privacy Policy
+            </a>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-gray-500 text-xs mb-2">
+              © Copyright {currentYear} IEEE – All rights reserved. Use of this
+              website signifies your agreement to the IEEE Terms and Conditions.
             </p>
-            <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-              <a
-                href="https://www.ieee.org/about/help/site-terms-conditions.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-ieee-blue transition"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="https://www.ieee.org/security-privacy.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-ieee-blue transition"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="https://www.ieee.org/about/corporate/governance/p9-26.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-ieee-blue transition"
-              >
-                Nondiscrimination Policy
-              </a>
-            </div>
+            <p className="text-gray-600 text-xs">
+              A public charity, IEEE is the world&apos;s largest technical
+              professional organization dedicated to advancing technology for
+              the benefit of humanity.
+            </p>
           </div>
         </div>
       </div>
