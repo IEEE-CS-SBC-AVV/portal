@@ -90,11 +90,11 @@ export default function Home() {
             {/* Left: Vision Text */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                IEEE SSIT SB VISION
+                IEEE AVV SBC VISION
               </h2>
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  IEEE SIT is a prolific student chapter that aims to inspire
+                  IEEE AVV is a prolific student chapter that aims to inspire
                   professionalism and empower students, help them learn and
                   implement new skills and technologies, gain exemplary
                   knowledge through various engaging workshops and webinars.
@@ -217,11 +217,11 @@ export default function Home() {
             {/* Right: Mission Text */}
             <div className="order-1 lg:order-2">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                IEEE SSIT SB MISSION
+                IEEE CS SBC AVV MISSION
               </h2>
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  IEEE SIT promotes excellence in the field of technical
+                  IEEE AVV promotes excellence in the field of technical
                   advancement and innovation for the benefit of human society.
                   To outline how IEEE continues to make a mark in all
                   engineering and technology sectors, as its technologies

@@ -111,11 +111,13 @@ export default function ContactPage() {
                     <p className="text-gray-600">
                       IEEE CS Student Branch
                       <br />
-                      Department of Computer Science
+                      Department of Artificial Intelligence 
                       <br />
-                      Your University Name
+                      Amrita Vishwa Vidyapeetham, Coimbatore Campus
                       <br />
-                      City, State - 123456
+                      Coimbatore - 641112
+                      <br />
+                      Tamil Nadu
                       <br />
                       India
                     </p>
