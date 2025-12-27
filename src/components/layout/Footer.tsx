@@ -228,11 +228,13 @@ export function Footer() {
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400">
-                  Department of Computer Science
+                  Department of Artificial Intelligence 
                   <br />
-                  [Your University Name]
+                  Amrita Vishwa Vidyapeetham, Coimbatore Campus
                   <br />
-                  [City, State - ZIP]
+                  Coimbatore - 641112
+                  <br />  
+                  Tamil Nadu
                   <br />
                   India
                 </span>

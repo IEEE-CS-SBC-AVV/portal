@@ -100,7 +100,7 @@ export default function AboutPage() {
                     Institution
                   </dt>
                   <dd className="text-lg text-gray-900">
-                    [Your University Name]
+                    [Amrita Vishwa Vidyapeetham, Coimbatore Campus]
                   </dd>
                 </div>
               </dl>

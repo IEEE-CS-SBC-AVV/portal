@@ -5,7 +5,7 @@ export default function GalleryComingSoon() {
     <ComingSoonPage
       title="Gallery Coming Soon"
       description="We're currently curating our best event photos and memories to share with you. Check back soon for an amazing visual journey through our chapter's activities!"
-      expectedDate="January 2025"
+      expectedDate="January 2026"
     />
   );
 }
