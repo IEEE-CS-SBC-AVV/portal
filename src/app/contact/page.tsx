@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <p className="text-gray-600">
                       IEEE CS Student Branch
                       <br />
-                      Department of Artificial Intelligence 
+                      Department of Artificial Intelligence
                       <br />
                       Amrita Vishwa Vidyapeetham, Coimbatore Campus
                       <br />
