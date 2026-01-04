@@ -4,9 +4,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "IEEE CS SBC - Computer Society Student Branch",
+  title: {
+    default: "IEEE CS SBC AVV - Computer Society Student Branch",
+    template: "%s | IEEE CS SBC AVV",
+  },
   description:
-    "IEEE Computer Society Student Branch Committee - Empowering students through technology, innovation, and professional development.",
+    "IEEE Computer Society Student Branch Committee at Amrita Vishwa Vidyapeetham - Empowering students through technology, innovation, and professional development.",
   keywords: [
     "IEEE",
     "Computer Society",
@@ -14,14 +17,27 @@ export const metadata: Metadata = {
     "Technology",
     "Engineering",
     "Student Organization",
+    "Amrita",
+    "AVV",
+    "Coimbatore",
   ],
-  authors: [{ name: "IEEE CS SBC" }],
+  authors: [{ name: "IEEE CS SBC AVV" }],
   openGraph: {
     type: "website",
-    title: "IEEE CS SBC - Computer Society Student Branch",
+    locale: "en_US",
+    title: "IEEE CS SBC AVV - Computer Society Student Branch",
     description:
-      "Join our vibrant community of technology enthusiasts and innovators.",
-    siteName: "IEEE CS SBC",
+      "Join our vibrant community of technology enthusiasts and innovators at Amrita Vishwa Vidyapeetham.",
+    siteName: "IEEE CS SBC AVV",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IEEE CS SBC AVV",
+    description: "Advancing technology for humanity through student innovation",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -32,8 +48,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* 
+          IEEE Digital Typography Guidelines:
+          Open Sans is recommended for digital applications
+          Minimum font size: 15px, Line height: 1.5
+        */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
-        {/* Skip to main content for accessibility */}
+        {/* Accessibility: Skip to main content link (WCAG Requirement) */}
         <a href="#main-content" className="skip-to-main">
           Skip to main content
         </a>

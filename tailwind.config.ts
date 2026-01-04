@@ -1,14 +1,4 @@
-// tailwind.config.ts
 import type { Config } from "tailwindcss";
-import {
-  ieeeColors,
-  ieeeTypography,
-  ieeeSpacing,
-  ieeeBorderRadius,
-  ieeeShadows,
-  ieeeBreakpoints,
-  ieeeAnimations,
-} from "./src/config/ieee-design-system";
 
 const config: Config = {
   content: [
@@ -18,278 +8,81 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // ===== COLORS =====
       colors: {
-        // IEEE Primary Brand Colors
-        "ieee-blue": ieeeColors.primary,
-        "ieee-teal": ieeeColors.secondary.teal,
-        "ieee-orange": ieeeColors.secondary.orange,
-        
-        // Semantic Colors
-        success: ieeeColors.semantic.success,
-        warning: ieeeColors.semantic.warning,
-        error: ieeeColors.semantic.error,
-        info: ieeeColors.semantic.info,
-        
-        // Neutral Grays
-        gray: ieeeColors.neutral,
-        
-        // Special
-        white: ieeeColors.white,
-        black: ieeeColors.black,
+        // IEEE Official Brand Colors (IEEE Brand Identity Guidelines)
+        // Reference: https://brand-experience.ieee.org/guidelines/digital/style-guide/branding-visual-elements/
 
-        // Backwards compatibility (keep existing color names)
-        "ieee-blue-dark": ieeeColors.primary[700],
-        "ieee-blue-light": ieeeColors.primary[50],
-        "ieee-green": ieeeColors.semantic.success,
-        "ieee-red": ieeeColors.semantic.error,
+        // Primary IEEE Blue (PMS 3015 C) - Use this for primary actions and branding
+        "ieee-blue": "#00629B",
+        "ieee-blue-dark": "#002855", // PMS 295 - Dark palette
+        "ieee-blue-light": "#E6F2F8", // Light tint
+
+        // IEEE Extended Palette - Bright Colors
+        "ieee-orange": "#FFA300", // PMS 137 C - Accent
+        "ieee-yellow": "#FFD100", // PMS 109 C
+        "ieee-cyan": "#00B5E2", // PMS Process Cyan
+        "ieee-green": "#78BE20", // PMS 368 C
+        "ieee-teal": "#009CA6", // PMS 320 C
+        "ieee-red": "#BA0C2F", // PMS 200 C
+        "ieee-purple": "#981D97", // PMS 254 C
+
+        // Additional utility colors
+        "ieee-gray": "#75787B", // Cool Gray 9 C
+        "ieee-success": "#00843D", // PMS 348 C
+        "ieee-error": "#BA0C2F", // PMS 200 C
+        "ieee-warning": "#FFA300", // PMS 137 C
       },
-
-      // ===== TYPOGRAPHY =====
       fontFamily: {
-        sans: ieeeTypography.fonts.sans.split(", "),
-        mono: ieeeTypography.fonts.mono.split(", "),
+        // IEEE Digital Typography Guidelines
+        // Open Sans for digital applications (minimum 15px)
+        sans: [
+          "Open Sans",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
       },
-      fontSize: ieeeTypography.fontSize,
-      fontWeight: ieeeTypography.fontWeight,
-      lineHeight: ieeeTypography.lineHeight,
-
-      // ===== SPACING =====
-      spacing: ieeeSpacing,
-
-      // ===== BORDER RADIUS =====
-      borderRadius: ieeeBorderRadius,
-
-      // ===== SHADOWS =====
+      fontSize: {
+        // Ensuring minimum 15px (0.9375rem) per IEEE guidelines
+        xs: ["0.75rem", { lineHeight: "1.5" }], // 12px
+        sm: ["0.875rem", { lineHeight: "1.5" }], // 14px
+        base: ["1rem", { lineHeight: "1.6" }], // 16px
+        lg: ["1.125rem", { lineHeight: "1.6" }], // 18px
+        xl: ["1.25rem", { lineHeight: "1.5" }], // 20px
+        "2xl": ["1.5rem", { lineHeight: "1.4" }], // 24px
+        "3xl": ["1.875rem", { lineHeight: "1.3" }], // 30px
+        "4xl": ["2.25rem", { lineHeight: "1.2" }], // 36px
+        "5xl": ["3rem", { lineHeight: "1.1" }], // 48px
+        "6xl": ["3.75rem", { lineHeight: "1.1" }], // 60px
+        "7xl": ["4.5rem", { lineHeight: "1" }], // 72px
+        "8xl": ["6rem", { lineHeight: "1" }], // 96px
+      },
+      lineHeight: {
+        // IEEE minimum line-height is 1.5
+        tight: "1.3",
+        snug: "1.4",
+        normal: "1.6", // Default for body text
+        relaxed: "1.75",
+        loose: "2",
+      },
       boxShadow: {
-        ...ieeeShadows,
-        // Custom IEEE shadows
-        'ieee-sm': ieeeShadows.ieee,
-        'ieee-md': '0 15px 30px rgba(0, 98, 155, 0.2)',
-        'ieee-lg': '0 20px 40px rgba(0, 98, 155, 0.25)',
+        ieee: "0 8px 20px rgba(0, 98, 155, 0.12)",
+        "ieee-lg": "0 12px 28px rgba(0, 98, 155, 0.15)",
+        "ieee-hover": "0 4px 12px rgba(0, 98, 155, 0.3)",
       },
-
-      // ===== BREAKPOINTS =====
-      screens: ieeeBreakpoints,
-
-      // ===== ANIMATIONS =====
-      transitionDuration: ieeeAnimations.transition,
-      transitionTimingFunction: ieeeAnimations.easing,
-
-      // ===== CUSTOM ANIMATIONS =====
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInRight: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-        slideInLeft: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.9)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
-        bounce: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
+      minHeight: {
+        touch: "44px", // WCAG touch target minimum
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out',
-        'slide-in-right': 'slideInRight 0.5s ease-out',
-        'slide-in-left': 'slideInLeft 0.5s ease-out',
-        'scale-in': 'scaleIn 0.4s ease-out',
-        'bounce-slow': 'bounce 2s infinite',
-      },
-
-      // ===== GRADIENTS =====
-      backgroundImage: {
-        'ieee-gradient': 'linear-gradient(135deg, #00629B 0%, #004B76 100%)',
-        'ieee-gradient-radial': 'radial-gradient(circle, #00629B 0%, #004B76 100%)',
-        'ieee-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-      },
-
-      // ===== CONTAINER =====
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem',
-          sm: '1.5rem',
-          lg: '2rem',
-          xl: '2.5rem',
-          '2xl': '3rem',
-        },
-        screens: {
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
-          '2xl': '1536px',
-        },
-      },
-
-      // ===== ASPECT RATIO =====
-      aspectRatio: {
-        auto: 'auto',
-        square: '1 / 1',
-        video: '16 / 9',
-        '4/3': '4 / 3',
-        '21/9': '21 / 9',
-      },
-
-      // ===== Z-INDEX =====
-      zIndex: {
-        dropdown: '1000',
-        sticky: '1020',
-        fixed: '1030',
-        'modal-backdrop': '1040',
-        modal: '1050',
-        popover: '1060',
-        tooltip: '1070',
+      minWidth: {
+        touch: "44px", // WCAG touch target minimum
       },
     },
   },
-  plugins: [
-    // Custom plugin for IEEE-specific utilities
-    function ({ addUtilities, theme }: any) {
-      const newUtilities = {
-        // IEEE Card Styles
-        '.ieee-card': {
-          backgroundColor: theme('colors.white'),
-          borderRadius: theme('borderRadius.lg'),
-          boxShadow: theme('boxShadow.DEFAULT'),
-          transition: 'all 0.3s ease',
-          border: `1px solid ${theme('colors.gray.300')}`,
-          '&:hover': {
-            boxShadow: theme('boxShadow.ieee-sm'),
-            transform: 'translateY(-2px)',
-          },
-        },
-        
-        // IEEE Button Primary
-        '.btn-ieee-primary': {
-          backgroundColor: theme('colors.ieee-blue.DEFAULT'),
-          color: theme('colors.white'),
-          padding: '0.75rem 1.5rem',
-          borderRadius: theme('borderRadius.DEFAULT'),
-          fontWeight: theme('fontWeight.semibold'),
-          transition: 'all 0.2s ease',
-          border: `2px solid ${theme('colors.ieee-blue.DEFAULT')}`,
-          '&:hover': {
-            backgroundColor: theme('colors.ieee-blue.700'),
-            borderColor: theme('colors.ieee-blue.700'),
-            transform: 'translateY(-1px)',
-            boxShadow: theme('boxShadow.ieee-sm'),
-          },
-          '&:active': {
-            transform: 'translateY(0)',
-          },
-        },
-        
-        // IEEE Button Secondary
-        '.btn-ieee-secondary': {
-          backgroundColor: theme('colors.white'),
-          color: theme('colors.ieee-blue.DEFAULT'),
-          padding: '0.75rem 1.5rem',
-          borderRadius: theme('borderRadius.DEFAULT'),
-          fontWeight: theme('fontWeight.semibold'),
-          transition: 'all 0.2s ease',
-          border: `2px solid ${theme('colors.ieee-blue.DEFAULT')}`,
-          '&:hover': {
-            backgroundColor: theme('colors.ieee-blue.50'),
-          },
-        },
-        
-        // IEEE Input
-        '.ieee-input': {
-          width: '100%',
-          padding: '0.75rem 1rem',
-          border: `2px solid ${theme('colors.gray.400')}`,
-          borderRadius: theme('borderRadius.DEFAULT'),
-          fontSize: theme('fontSize.base'),
-          transition: 'all 0.2s ease',
-          '&:focus': {
-            outline: 'none',
-            borderColor: theme('colors.ieee-blue.DEFAULT'),
-            boxShadow: `0 0 0 3px ${theme('colors.ieee-blue.50')}`,
-          },
-        },
-        
-        // IEEE Input Error State
-        '.ieee-input-error': {
-          borderColor: theme('colors.error'),
-        },
-        
-        // IEEE Label
-        '.ieee-label': {
-          display: 'block',
-          fontWeight: theme('fontWeight.semibold'),
-          marginBottom: '0.5rem',
-          color: theme('colors.gray.800'),
-        },
-        
-        // IEEE Error Text
-        '.ieee-error-text': {
-          color: theme('colors.error'),
-          fontSize: theme('fontSize.sm'),
-          marginTop: '0.25rem',
-        },
-        
-        // IEEE Section
-        '.ieee-section': {
-          paddingTop: theme('spacing.16'),
-          paddingBottom: theme('spacing.16'),
-        },
-        
-        // IEEE Container
-        '.ieee-container': {
-          maxWidth: '1280px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingLeft: theme('spacing.4'),
-          paddingRight: theme('spacing.4'),
-        },
-        
-        // IEEE Gradient Overlay
-        '.ieee-gradient-overlay': {
-          background: 'linear-gradient(135deg, #00629B 0%, #004B76 100%)',
-        },
-        
-        // IEEE Heading Styles
-        '.ieee-heading-xl': {
-          fontSize: theme('fontSize.5xl'),
-          fontWeight: theme('fontWeight.bold'),
-          lineHeight: theme('lineHeight.tight'),
-          color: theme('colors.gray.900'),
-        },
-        '.ieee-heading-lg': {
-          fontSize: theme('fontSize.4xl'),
-          fontWeight: theme('fontWeight.bold'),
-          lineHeight: theme('lineHeight.tight'),
-          color: theme('colors.gray.900'),
-        },
-        '.ieee-heading-md': {
-          fontSize: theme('fontSize.3xl'),
-          fontWeight: theme('fontWeight.semibold'),
-          lineHeight: theme('lineHeight.snug'),
-          color: theme('colors.gray.900'),
-        },
-        '.ieee-heading-sm': {
-          fontSize: theme('fontSize.2xl'),
-          fontWeight: theme('fontWeight.semibold'),
-          lineHeight: theme('lineHeight.snug'),
-          color: theme('colors.gray.900'),
-        },
-      };
-      
-      addUtilities(newUtilities);
-    },
-  ],
+  plugins: [],
 };
 
 export default config;

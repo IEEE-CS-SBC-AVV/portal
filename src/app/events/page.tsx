@@ -103,16 +103,16 @@ const sampleEvents: Event[] = [
 
 function EventCard({ event }: { event: Event }) {
   const typeColors = {
-    workshop: "bg-blue-100 text-blue-800",
-    seminar: "bg-green-100 text-green-800",
-    hackathon: "bg-purple-100 text-purple-800",
-    webinar: "bg-yellow-100 text-yellow-800",
-    competition: "bg-red-100 text-red-800",
+    workshop: "bg-ieee-blue-light text-ieee-blue-dark",
+    seminar: "bg-ieee-green-light text-ieee-green-dark",
+    hackathon: "bg-ieee-purple-light text-ieee-purple-dark",
+    webinar: "bg-ieee-yellow-light text-ieee-yellow-dark",
+    competition: "bg-ieee-red-light text-ieee-red-dark",
   };
 
   const statusColors = {
-    upcoming: "bg-green-500",
-    completed: "bg-gray-500",
+    upcoming: "bg-ieee-green",
+    completed: "bg-ieee-gray",
   };
 
   return (

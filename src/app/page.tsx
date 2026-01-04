@@ -1,4 +1,4 @@
-import { Users, Calendar, BookOpen, Award, CheckCircle } from 'lucide-react';
+import { Users, Calendar, BookOpen, Award, CheckCircle } from "lucide-react";
 
 export default function HomePage() {
   return (
