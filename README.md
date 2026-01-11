@@ -1,51 +1,103 @@
 # IEEE CS SBC — Website
 
-This repository builds the official website for the IEEE Computer Society Student Branch Committee.
+This repository builds the official website for the IEEE Computer Society Student Branch Chapter at Amrita Vishwa Vidyapeetham, Coimbatore.
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
-- **Styling:** TailwindCSS
-- **Components:** shadcn/ui
+- **Styling:** TailwindCSS v4
+- **UI Components:** React 19, Lucide Icons
+- **Forms:** React Hook Form
 - **Deployment:** Vercel
-- **Future Backend:** Supabase (Auth, Postgres, Storage)
+- **CI/CD:** GitHub Actions
+
+## Project Structure
+
+```
+portal/
+├── src/
+│   ├── app/              # Pages (Home, About, Committee, Events, etc.)
+│   ├── components/       # Reusable components (Navbar, Footer)
+│   ├── config/           # IEEE design system configuration
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utilities and constants
+│   └── types/            # TypeScript definitions
+├── public/               # Static assets
+└── .github/workflows/    # CI/CD pipelines
+```
+
+## Development
+
+```bash
+# Install dependencies
+npm ci
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+
+# Format code
+npm run format
+
+# Type check
+npm run type-check
+```
+
+## Pages
+
+- **Home** - Hero, vision, mission with IEEE membership CTAs
+- **About Us** - Chapter history, values, benefits, achievements
+- **Committee** - Faculty advisor and student team members
+- **Events** - Workshops, seminars, hackathons with filtering
+- **Gallery** - Event photos (coming soon)
+- **Contact** - Contact form and location details
+- **Join** - IEEE membership information and benefits
+- **Collabratec** - IEEE Collabratec platform information
+- **Membership** - Member directory (members-only, Phase 2)
+- **Scope Members** - Active member listing
+
+## Design System
+
+Follows **IEEE Brand Guidelines** with official colors, typography, and accessibility standards (WCAG AA compliant).
+
+- **Primary Color:** IEEE Blue (#00629B)
+- **Typography:** Open Sans, 16px minimum
+- **Accessibility:** 44px touch targets, proper contrast, semantic HTML
 
 ## Project Approach
 
-**Static-first → Dynamic**
-
-We're building this in phases:
-
-1. **Phase 1 (Current):** Static website with content in Markdown/JSON
-2. **Phase 2 (Future):** Dynamic features with Supabase backend and admin dashboard
+**Phase 1 (Current):** Static website with Markdown/JSON content  
+**Phase 2 (Planned):** Dynamic features with Supabase backend and admin dashboard
 
 ## Features
 
-### Current (Static MVP)
-
+### Current
 - Responsive, accessible design
-- Pages: Home, About, Team, Events, Projects, Resources, Join, Contact
-- Content management via Markdown/JSON
+- IEEE brand-compliant styling
+- Contact form with validation
+- Event filtering and search
 - Automated CI/CD with GitHub Actions
-- Vercel deployment with preview builds
 
-### Planned (Dynamic Phase)
-
-- Admin dashboard for content management
-- Event registration system
+### Planned
+- Admin dashboard
 - User authentication
+- Event registration system
 - Image uploads
 - Newsletter integration
+- Blog/News section
 
-## Security & Privacy
+## Security
 
 - Never commit secrets or API keys
-- Use `.env.example` as a reference for required environment variables
+- Use `.env.local` for environment variables
 - Store sensitive data in GitHub/Vercel environment variables
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Note:** This is an active development project. The static MVP is our current focus, with dynamic features planned for Phase 2.
+MIT License - see [LICENSE](LICENSE) file for details.
