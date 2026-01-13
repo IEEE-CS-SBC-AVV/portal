@@ -1,14 +1,5 @@
 import Link from "next/link";
-import {
-  Lock,
-  Users,
-  Mail,
-  Phone,
-  MapPin,
-  Calendar,
-  FileText,
-  Shield,
-} from "lucide-react";
+import { Lock, Users, Mail, Calendar, FileText, Shield } from "lucide-react";
 
 export default function MembershipDirectoryPage() {
   return (

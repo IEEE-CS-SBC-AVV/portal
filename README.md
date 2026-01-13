@@ -78,6 +78,7 @@ Follows **IEEE Brand Guidelines** with official colors, typography, and accessib
 ## Features
 
 ### Current
+
 - Responsive, accessible design
 - IEEE brand-compliant styling
 - Contact form with validation
@@ -85,6 +86,7 @@ Follows **IEEE Brand Guidelines** with official colors, typography, and accessib
 - Automated CI/CD with GitHub Actions
 
 ### Planned
+
 - Admin dashboard
 - User authentication
 - Event registration system
