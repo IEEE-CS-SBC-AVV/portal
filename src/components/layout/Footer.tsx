@@ -23,7 +23,7 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="mailto:computersociety.avv@gmail.com"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00629B] hover:bg-gray-700 transition"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
@@ -32,7 +32,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/computer-society-avv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00629B] hover:bg-gray-700 transition"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
@@ -41,7 +41,7 @@ export function Footer() {
                 href="https://www.instagram.com/cs_asai_cbe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00629B] hover:bg-gray-700 transition"
                 aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4" />
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   Home
                 </Link>
@@ -66,7 +66,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   About Us
                 </Link>
@@ -74,7 +74,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/committee"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   Committee
                 </Link>
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/events"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   Events
                 </Link>
@@ -90,7 +90,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   Gallery
                 </Link>
@@ -98,7 +98,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   Contact Us
                 </Link>
@@ -117,7 +117,7 @@ export function Footer() {
                   href="https://www.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE.org
                 </a>
@@ -127,7 +127,7 @@ export function Footer() {
                   href="http://ieeexplore.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE Xplore Digital Library
                 </a>
@@ -137,7 +137,7 @@ export function Footer() {
                   href="https://www.computer.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE Computer Society
                 </a>
@@ -147,7 +147,7 @@ export function Footer() {
                   href="http://standards.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE Standards
                 </a>
@@ -157,7 +157,7 @@ export function Footer() {
                   href="http://spectrum.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE Spectrum
                 </a>
@@ -167,7 +167,7 @@ export function Footer() {
                   href="https://students.ieee.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   IEEE Student Activities
                 </a>
@@ -185,7 +185,7 @@ export function Footer() {
                 <Mail className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:computersociety.avv@gmail.com"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   computersociety.avv@gmail.com
                 </a>
@@ -194,7 +194,7 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
                   href="tel:+917397468974"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   +91-7397468974
                 </a>
@@ -225,7 +225,7 @@ export function Footer() {
               href="http://www.ieee.org/sitemap.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               Sitemap
             </a>
@@ -234,7 +234,7 @@ export function Footer() {
               href="https://www.ieee.org/accessibility-statement.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               Accessibility
             </a>
@@ -243,7 +243,7 @@ export function Footer() {
               href="https://www.ieee.org/about/corporate/governance/p9-26.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               Nondiscrimination Policy
             </a>
@@ -252,7 +252,7 @@ export function Footer() {
               href="http://www.ieee-ethics-reporting.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               IEEE Ethics Reporting
             </a>
@@ -261,7 +261,7 @@ export function Footer() {
               href="http://www.ieee.org/site_terms_conditions.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               Terms & Conditions
             </a>
@@ -270,7 +270,7 @@ export function Footer() {
               href="https://www.ieee.org/security_privacy.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-ieee-blue transition"
+              className="text-gray-500 hover:text-[#00629B] transition"
             >
               Privacy Policy
             </a>

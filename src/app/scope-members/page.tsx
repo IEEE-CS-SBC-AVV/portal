@@ -60,7 +60,7 @@ export default function ScopeMembersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Scope Members</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
@@ -75,13 +75,13 @@ export default function ScopeMembersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="p-4">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
                 {sampleMembers.length}
               </div>
               <div className="text-gray-600">Total Members</div>
             </div>
             <div className="p-4">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
                 {
                   sampleMembers.filter(
                     (m) => m.department === "Computer Engineering"
@@ -91,7 +91,7 @@ export default function ScopeMembersPage() {
               <div className="text-gray-600">Computer Engineering</div>
             </div>
             <div className="p-4">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
                 {
                   sampleMembers.filter(
                     (m) => m.department === "Computer Science"
@@ -101,7 +101,7 @@ export default function ScopeMembersPage() {
               <div className="text-gray-600">Computer Science</div>
             </div>
             <div className="p-4">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
                 {
                   sampleMembers.filter(
                     (m) => m.department === "Information Technology"
@@ -127,7 +127,7 @@ export default function ScopeMembersPage() {
                   placeholder="Search members by name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-ieee-blue"
+                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#00629B]"
                 />
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function ScopeMembersPage() {
                 <select
                   value={filterDepartment}
                   onChange={(e) => setFilterDepartment(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-ieee-blue appearance-none bg-white"
+                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#00629B] appearance-none bg-white"
                 >
                   <option value="all">All Departments</option>
                   {departments.map((dept) => (
@@ -156,7 +156,7 @@ export default function ScopeMembersPage() {
               <select
                 value={filterYear}
                 onChange={(e) => setFilterYear(e.target.value)}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-ieee-blue appearance-none bg-white"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#00629B] appearance-none bg-white"
               >
                 <option value="all">All Years</option>
                 {years.map((year) => (
@@ -189,10 +189,10 @@ export default function ScopeMembersPage() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredMembers.map((member) => (
-                <div key={member.id} className="ieee-card p-6 bg-white">
+                <div key={member.id} className="cs-card p-6 bg-white">
                   {/* Avatar Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-4 bg-ieee-blue-light rounded-full flex items-center justify-center">
-                    <User className="w-12 h-12 text-ieee-blue" />
+                  <div className="w-24 h-24 mx-auto mb-4 bg-[#00B5E2]/10 rounded-full flex items-center justify-center">
+                    <User className="w-12 h-12 text-[#00629B]" />
                   </div>
 
                   {/* Member Info */}
@@ -206,7 +206,7 @@ export default function ScopeMembersPage() {
                     <p className="text-sm text-gray-500 mb-3">{member.year}</p>
 
                     {/* IEEE ID Badge */}
-                    <div className="inline-block bg-ieee-blue-light text-ieee-blue text-xs font-semibold px-3 py-1 rounded-full">
+                    <div className="inline-block bg-[#00B5E2]/10 text-[#00629B] text-xs font-semibold px-3 py-1 rounded-full">
                       IEEE {member.ieeeId}
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function ScopeMembersPage() {
       </section>
 
       {/* Join CTA Section */}
-      <section className="py-16 bg-ieee-blue text-white">
+      <section className="py-16 bg-[#00629B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Want to Join Our Community?
@@ -230,13 +230,13 @@ export default function ScopeMembersPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/join"
-              className="bg-white text-ieee-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block"
+              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block no-underline"
             >
               Join IEEE Today
             </Link>
             <Link
               href="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-ieee-blue transition inline-block"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#00629B] transition inline-block no-underline"
             >
               Contact Us
             </Link>
