@@ -144,14 +144,8 @@ export default function HomePage() {
             <div>
               <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/assests/ieee.png"
-                    alt="IEEE Membership"
-                    width={192}
-                    height={192}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
+                  <Users className="w-24 h-24 text-[#00629B]" />
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -205,14 +199,8 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/assests/Society.jpg"
-                    alt="Computer Society"
-                    width={192}
-                    height={192}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
+                  <BookOpen className="w-24 h-24 text-[#00629B]" />
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
