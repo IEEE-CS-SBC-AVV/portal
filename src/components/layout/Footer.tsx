@@ -23,7 +23,7 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="mailto:computersociety.avv@gmail.com"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
+                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00629B] hover:bg-gray-700 transition"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
@@ -185,7 +185,7 @@ export function Footer() {
                 <Mail className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:computersociety.avv@gmail.com"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   computersociety.avv@gmail.com
                 </a>
@@ -194,7 +194,7 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
                   href="tel:+917397468974"
-                  className="text-gray-400 hover:text-ieee-blue transition"
+                  className="text-gray-400 hover:text-[#00629B] transition"
                 >
                   +91-7397468974
                 </a>
