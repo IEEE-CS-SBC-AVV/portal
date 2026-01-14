@@ -103,20 +103,20 @@ const sampleEvents: Event[] = [
 
 function EventCard({ event }: { event: Event }) {
   const typeColors = {
-    workshop: "bg-ieee-blue-light text-ieee-blue-dark",
-    seminar: "bg-ieee-green-light text-ieee-green-dark",
-    hackathon: "bg-ieee-purple-light text-ieee-purple-dark",
-    webinar: "bg-ieee-yellow-light text-ieee-yellow-dark",
-    competition: "bg-ieee-red-light text-ieee-red-dark",
+    workshop: "bg-[#00B5E2]/10 text-[#004D66]",
+    seminar: "bg-[#78BE20]/10 text-[#3D5F13]",
+    hackathon: "bg-[#981D97]/10 text-[#772583]",
+    webinar: "bg-[#FFD100]/10 text-[#7A6300]",
+    competition: "bg-[#BA0C2F]/10 text-[#6E0916]",
   };
 
   const statusColors = {
-    upcoming: "bg-ieee-green",
-    completed: "bg-ieee-gray",
+    upcoming: "bg-[#78BE20]",
+    completed: "bg-[#75787b]",
   };
 
   return (
-    <div className="ieee-card p-6">
+    <div className="cs-card p-6">
       {/* Status Badge */}
       <div className="flex justify-between items-start mb-4">
         <span
@@ -137,20 +137,20 @@ function EventCard({ event }: { event: Event }) {
       {/* Event Details */}
       <div className="space-y-2 mb-4 text-gray-600">
         <div className="flex items-center">
-          <Calendar className="w-4 h-4 mr-2 text-ieee-blue" />
+          <Calendar className="w-4 h-4 mr-2 text-[#00629B]" />
           <span className="text-sm">{format(event.date, "MMMM d, yyyy")}</span>
         </div>
         <div className="flex items-center">
-          <Clock className="w-4 h-4 mr-2 text-ieee-blue" />
+          <Clock className="w-4 h-4 mr-2 text-[#00629B]" />
           <span className="text-sm">{event.time}</span>
         </div>
         <div className="flex items-center">
-          <MapPin className="w-4 h-4 mr-2 text-ieee-blue" />
+          <MapPin className="w-4 h-4 mr-2 text-[#00629B]" />
           <span className="text-sm">{event.location}</span>
         </div>
         {event.attendees && (
           <div className="flex items-center">
-            <Users className="w-4 h-4 mr-2 text-ieee-blue" />
+            <Users className="w-4 h-4 mr-2 text-[#00629B]" />
             <span className="text-sm">{event.attendees} attendees</span>
           </div>
         )}
@@ -173,7 +173,7 @@ function EventCard({ event }: { event: Event }) {
         {event.status === "upcoming" && event.registrationLink && (
           <a
             href={event.registrationLink}
-            className="btn-ieee-primary text-sm flex items-center"
+            className="btn-cs-primary text-sm flex items-center no-underline"
           >
             Register Now
             <ExternalLink className="w-4 h-4 ml-1" />
@@ -185,7 +185,7 @@ function EventCard({ event }: { event: Event }) {
               <a
                 key={index}
                 href={resource.url}
-                className="btn-ieee-secondary text-sm flex items-center"
+                className="btn-cs-secondary text-sm flex items-center no-underline"
               >
                 {resource.title}
                 <ExternalLink className="w-4 h-4 ml-1" />
@@ -216,7 +216,7 @@ export default function EventsPage() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
@@ -231,7 +231,7 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-3xl font-bold text-ieee-blue">
+              <div className="text-3xl font-bold text-[#00629B]">
                 {sampleEvents.length}
               </div>
               <div className="text-gray-600">Total Events</div>
@@ -249,7 +249,7 @@ export default function EventsPage() {
               <div className="text-gray-600">Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-ieee-blue">500+</div>
+              <div className="text-3xl font-bold text-[#00629B]">500+</div>
               <div className="text-gray-600">Total Participants</div>
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function EventsPage() {
               onClick={() => setFilter("all")}
               className={`px-6 py-2 rounded-lg font-semibold transition ${
                 filter === "all"
-                  ? "bg-ieee-blue text-white"
+                  ? "bg-[#00629B] text-white"
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
@@ -274,7 +274,7 @@ export default function EventsPage() {
               onClick={() => setFilter("upcoming")}
               className={`px-6 py-2 rounded-lg font-semibold transition ${
                 filter === "upcoming"
-                  ? "bg-ieee-blue text-white"
+                  ? "bg-[#00629B] text-white"
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
@@ -284,7 +284,7 @@ export default function EventsPage() {
               onClick={() => setFilter("completed")}
               className={`px-6 py-2 rounded-lg font-semibold transition ${
                 filter === "completed"
-                  ? "bg-ieee-blue text-white"
+                  ? "bg-[#00629B] text-white"
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
@@ -312,7 +312,7 @@ export default function EventsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-ieee-blue text-white">
+      <section className="py-16 bg-[#00629B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Want to Organize an Event?
@@ -323,7 +323,7 @@ export default function EventsPage() {
           </p>
           <a
             href="/contact"
-            className="bg-white text-ieee-blue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block"
+            className="bg-white text-[#00629B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block no-underline"
           >
             Contact Us
           </a>
