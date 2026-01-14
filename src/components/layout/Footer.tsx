@@ -3,8 +3,6 @@ import {
   Mail,
   Linkedin,
   Instagram,
-  Twitter,
-  Facebook,
   MapPin,
   Phone,
 } from "lucide-react";
@@ -30,14 +28,14 @@ export function Footer() {
             {/* Social Media */}
             <div className="flex space-x-3">
               <a
-                href="mailto:contact@ieeecs.edu"
+                href="mailto:computersociety.avv@gmail.com"
                 className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/computer-society-avv"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
@@ -46,31 +44,13 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/cs_asai_cbe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
                 aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-ieee-blue hover:bg-gray-700 transition"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -210,33 +190,31 @@ export function Footer() {
               <li className="flex items-start">
                 <Mail className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:contact@ieeecs.edu"
+                  href="mailto:computersociety.avv@gmail.com"
                   className="text-gray-400 hover:text-ieee-blue transition"
                 >
-                  contact@ieeecs.edu
+                  computersociety.avv@gmail.com
                 </a>
               </li>
               <li className="flex items-start">
                 <Phone className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+917397468974"
                   className="text-gray-400 hover:text-ieee-blue transition"
                 >
-                  +91 123 456 7890
+                  +91-7397468974
                 </a>
               </li>
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400">
-                  Department of Artificial Intelligence
+                  Amrita School of Artificial Intelligence
                   <br />
-                  Amrita Vishwa Vidyapeetham, Coimbatore Campus
+                  Amrita Vishwa Vidyapeetham, Ettimadai
                   <br />
                   Coimbatore - 641112
                   <br />
-                  Tamil Nadu
-                  <br />
-                  India
+                  Tamil Nadu, India
                 </span>
               </li>
             </ul>
