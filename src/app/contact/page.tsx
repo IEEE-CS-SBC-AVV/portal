@@ -95,7 +95,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href="mailto:computersociety.avv@gmail.com"
-                      className="text-gray-600 hover:text-ieee-blue transition"
+                      className="text-gray-700 hover:text-ieee-blue transition"
                     >
                       computersociety.avv@gmail.com
                     </a>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
                       href="tel:+917397468974"
-                      className="text-gray-600 hover:text-ieee-blue transition"
+                      className="text-gray-700 hover:text-ieee-blue transition"
                     >
                       +91-7397468974
                     </a>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">
                       Address
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-700">
                       IEEE CS Student Branch
                       <br />
                       Amrita School of Artificial Intelligence
@@ -144,7 +144,7 @@ export default function ContactPage() {
                     href="https://www.linkedin.com/company/computer-society-avv"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function ContactPage() {
                     href="https://www.instagram.com/cs_asai_cbe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5" />
@@ -168,19 +168,19 @@ export default function ContactPage() {
                 </h3>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-gray-600">Monday - Friday</dt>
+                    <dt className="text-gray-700">Monday - Friday</dt>
                     <dd className="text-gray-900 font-medium">
                       10:00 AM - 5:00 PM
                     </dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-gray-600">Saturday</dt>
+                    <dt className="text-gray-700">Saturday</dt>
                     <dd className="text-gray-900 font-medium">
                       10:00 AM - 2:00 PM
                     </dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-gray-600">Sunday</dt>
+                    <dt className="text-gray-700">Sunday</dt>
                     <dd className="text-gray-900 font-medium">Closed</dd>
                   </div>
                 </dl>
@@ -197,13 +197,16 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Name Field */}
                   <div>
-                    <label htmlFor="name" className="ieee-label">
-                      Full Name *
+                    <label
+                      htmlFor="name"
+                      className="cs-label cs-label-required"
+                    >
+                      Full Name
                     </label>
                     <input
                       id="name"
                       type="text"
-                      className={`ieee-input ${errors.name ? "ieee-input-error" : ""}`}
+                      className={`cs-input ${errors.name ? "cs-input-error" : ""}`}
                       {...register("name", {
                         required: "Name is required",
                         minLength: {
@@ -213,19 +216,22 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.name && (
-                      <p className="ieee-error-text">{errors.name.message}</p>
+                      <p className="cs-error-text">{errors.name.message}</p>
                     )}
                   </div>
 
                   {/* Email Field */}
                   <div>
-                    <label htmlFor="email" className="ieee-label">
-                      Email Address *
+                    <label
+                      htmlFor="email"
+                      className="cs-label cs-label-required"
+                    >
+                      Email Address
                     </label>
                     <input
                       id="email"
                       type="email"
-                      className={`ieee-input ${errors.email ? "ieee-input-error" : ""}`}
+                      className={`cs-input ${errors.email ? "cs-input-error" : ""}`}
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -235,19 +241,22 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.email && (
-                      <p className="ieee-error-text">{errors.email.message}</p>
+                      <p className="cs-error-text">{errors.email.message}</p>
                     )}
                   </div>
 
                   {/* Subject Field */}
                   <div>
-                    <label htmlFor="subject" className="ieee-label">
-                      Subject *
+                    <label
+                      htmlFor="subject"
+                      className="cs-label cs-label-required"
+                    >
+                      Subject
                     </label>
                     <input
                       id="subject"
                       type="text"
-                      className={`ieee-input ${errors.subject ? "ieee-input-error" : ""}`}
+                      className={`cs-input ${errors.subject ? "cs-input-error" : ""}`}
                       {...register("subject", {
                         required: "Subject is required",
                         minLength: {
@@ -257,21 +266,22 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.subject && (
-                      <p className="ieee-error-text">
-                        {errors.subject.message}
-                      </p>
+                      <p className="cs-error-text">{errors.subject.message}</p>
                     )}
                   </div>
 
                   {/* Message Field */}
                   <div>
-                    <label htmlFor="message" className="ieee-label">
-                      Message *
+                    <label
+                      htmlFor="message"
+                      className="cs-label cs-label-required"
+                    >
+                      Message
                     </label>
                     <textarea
                       id="message"
                       rows={6}
-                      className={`ieee-input ${errors.message ? "ieee-input-error" : ""}`}
+                      className={`cs-input ${errors.message ? "cs-input-error" : ""}`}
                       {...register("message", {
                         required: "Message is required",
                         minLength: {
@@ -281,22 +291,20 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.message && (
-                      <p className="ieee-error-text">
-                        {errors.message.message}
-                      </p>
+                      <p className="cs-error-text">{errors.message.message}</p>
                     )}
                   </div>
 
                   {/* Submit Status Messages */}
                   {submitStatus === "success" && (
-                    <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                    <div className="cs-alert cs-alert-success">
                       ✓ Thank you! Your message has been sent successfully.
                       We&apos;ll get back to you soon.
                     </div>
                   )}
 
                   {submitStatus === "error" && (
-                    <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                    <div className="cs-alert cs-alert-error">
                       ✗ Something went wrong. Please try again or email us
                       directly.
                     </div>
@@ -306,9 +314,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`btn-ieee-primary w-full ${
-                      isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                    }`}
+                    className="btn-cs-primary w-full"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
@@ -330,7 +336,7 @@ export default function ContactPage() {
             Find Us
           </h2>
           <div className="rounded-lg overflow-hidden shadow-lg h-96 bg-gray-200 flex items-center justify-center">
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               Map will be embedded here (Google Maps integration)
             </p>
           </div>

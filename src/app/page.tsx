@@ -61,28 +61,28 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-12 bg-white border-b border-gray-200">
+      <section className="py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center p-4">
-              <Users className="h-12 w-12 text-[#00629B] mx-auto mb-3" />
-              <div className="text-4xl font-bold text-gray-900 mb-1">150+</div>
-              <div className="text-gray-600">Active Members</div>
+            <div className="text-center p-6 rounded-lg bg-gray-50">
+              <Users className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <div className="text-4xl font-bold text-gray-900 mb-2">150+</div>
+              <div className="text-gray-600 font-medium">Active Members</div>
             </div>
-            <div className="text-center p-4">
-              <Calendar className="h-12 w-12 text-[#00629B] mx-auto mb-3" />
-              <div className="text-4xl font-bold text-gray-900 mb-1">25+</div>
-              <div className="text-gray-600">Events Yearly</div>
+            <div className="text-center p-6 rounded-lg bg-gray-50">
+              <Calendar className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <div className="text-4xl font-bold text-gray-900 mb-2">25+</div>
+              <div className="text-gray-600 font-medium">Events Yearly</div>
             </div>
-            <div className="text-center p-4">
-              <BookOpen className="h-12 w-12 text-[#00629B] mx-auto mb-3" />
-              <div className="text-4xl font-bold text-gray-900 mb-1">50+</div>
-              <div className="text-gray-600">Workshops</div>
+            <div className="text-center p-6 rounded-lg bg-gray-50">
+              <BookOpen className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
+              <div className="text-gray-600 font-medium">Workshops</div>
             </div>
-            <div className="text-center p-4">
-              <Award className="h-12 w-12 text-[#00629B] mx-auto mb-3" />
-              <div className="text-4xl font-bold text-gray-900 mb-1">10+</div>
-              <div className="text-gray-600">Awards Won</div>
+            <div className="text-center p-6 rounded-lg bg-gray-50">
+              <Award className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
+              <div className="text-gray-600 font-medium">Awards Won</div>
             </div>
           </div>
         </div>
@@ -121,9 +121,9 @@ export default function HomePage() {
 
             {/* Right: Join IEEE CTA Card */}
             <div>
-              <div className="bg-white rounded-lg shadow-lg p-8 text-center border border-gray-200">
+              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-6 bg-[#E6F2F8] rounded-full flex items-center justify-center">
+                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
                   <Users className="w-24 h-24 text-[#00629B]" />
                 </div>
 
@@ -159,7 +159,8 @@ export default function HomePage() {
                   href="https://www.ieee.org/membership/join/index.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#00629B] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#004B76] transition w-full block text-center"
+                  style={{ color: "#ffffff" }}
+                  className="inline-flex items-center justify-center w-full bg-[#00629B] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
                 >
                   Become a Member
                 </a>
@@ -175,9 +176,9 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Join Computer Society CTA Card */}
             <div className="order-2 lg:order-1">
-              <div className="bg-gray-50 rounded-lg shadow-lg p-8 text-center border border-gray-200">
+              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-6 bg-[#E6F2F8] rounded-full flex items-center justify-center">
+                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
                   <BookOpen className="w-24 h-24 text-[#00629B]" />
                 </div>
 
@@ -212,7 +213,8 @@ export default function HomePage() {
                   href="https://www.computer.org/membership"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-[#00629B] border-2 border-[#00629B] px-8 py-4 rounded-lg font-semibold hover:bg-[#E6F2F8] transition w-full block text-center"
+                  style={{ color: "#ffffff" }}
+                  className="inline-flex items-center justify-center w-full bg-[#00629B] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
                 >
                   Join CS Now
                 </a>
