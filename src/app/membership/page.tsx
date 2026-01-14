@@ -35,7 +35,7 @@ export default function MembershipDirectoryPage() {
               Society members to protect member privacy and ensure secure
               networking.
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               Authentication and full member directory features coming in Phase
               2 of our website development.
             </p>
@@ -57,7 +57,7 @@ export default function MembershipDirectoryPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Member Profiles
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-700">
                       View detailed profiles of fellow members including their
                       academic background, research interests, and projects.
                     </p>
@@ -74,7 +74,7 @@ export default function MembershipDirectoryPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Contact Information
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-700">
                       Securely access member contact details for collaboration
                       and networking opportunities.
                     </p>
@@ -91,7 +91,7 @@ export default function MembershipDirectoryPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Research & Projects
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-700">
                       Discover ongoing research projects and find potential
                       collaborators for your work.
                     </p>
@@ -108,7 +108,7 @@ export default function MembershipDirectoryPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Activity History
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-700">
                       See member participation in chapter events, workshops, and
                       activities.
                     </p>
@@ -133,7 +133,7 @@ export default function MembershipDirectoryPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     Become an IEEE Member
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-700">
                     First, you need to be an active IEEE or IEEE Computer
                     Society member.
                   </p>
@@ -148,7 +148,7 @@ export default function MembershipDirectoryPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     Join Our Chapter
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-700">
                     Register with our local student branch chapter by contacting
                     us or attending an event.
                   </p>
@@ -163,7 +163,7 @@ export default function MembershipDirectoryPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     Wait for Phase 2 Launch
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-700">
                     The full member directory with authentication will be
                     available in the next phase of our website.
                   </p>
@@ -240,7 +240,7 @@ export default function MembershipDirectoryPage() {
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Full Member Directory Features
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-700 mb-6">
             We&apos;re working on building a comprehensive member directory with
             authentication, advanced search, and privacy controls. Stay tuned
             for updates!

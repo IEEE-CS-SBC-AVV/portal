@@ -1,4 +1,5 @@
 // Centralized constants to reduce redundancy
+// SITE CONFIG
 
 export const SITE_CONFIG = {
   name: "IEEE CS SBC AVV",
@@ -7,48 +8,57 @@ export const SITE_CONFIG = {
   shortInstitution: "Amrita Coimbatore",
   description:
     "Empowering students through technology, innovation, and professional development.",
-  established: "2015", // Update with actual year
+  established: "2015",
 } as const;
 
+// CONTACT INFORMATION
+
 export const CONTACT_INFO = {
-  email: "contact@ieeecs.edu",
-  phone: "+91 123 456 7890",
+  email: "computersociety.avv@gmail.com",
+  phone: "+91-7397468974",
   address: {
-    line1: "Department of Artificial Intelligence",
-    line2: "Amrita Vishwa Vidyapeetham, Coimbatore Campus",
-    city: "Coimbatore",
+    line1: "Amrita School of Artificial Intelligence",
+    line2: "Amrita Vishwa Vidyapeetham",
+    city: "Ettimadai, Coimbatore",
     state: "Tamil Nadu",
     postalCode: "641112",
     country: "India",
   },
 } as const;
 
+// SOCIAL LINKS
+
 export const SOCIAL_LINKS = {
-  linkedin: "https://linkedin.com/company/ieee-cs-avv",
-  instagram: "https://instagram.com/ieee_cs_avv",
-  twitter: "https://twitter.com/ieee_cs_avv",
-  facebook: "https://facebook.com/ieee.cs.avv",
-  github: "https://github.com/ieee-cs-avv",
+  linkedin:
+    "https://www.linkedin.com/in/computer-society-amrita-school-of-ai-217296392/",
+  instagram: "https://www.instagram.com/cs_asai_cbe",
+  twitter: null,
+  facebook: null,
+  github: null,
 } as const;
+
+// IEEE OFFICIAL LINKS
 
 export const IEEE_LINKS = {
   main: "https://www.ieee.org/",
-  xplore: "http://ieeexplore.ieee.org/",
-  standards: "http://standards.ieee.org/",
-  spectrum: "http://spectrum.ieee.org/",
+  xplore: "https://ieeexplore.ieee.org/",
+  standards: "https://standards.ieee.org/",
+  spectrum: "https://spectrum.ieee.org/",
   computerSociety: "https://www.computer.org/",
   studentActivities: "https://students.ieee.org/",
   collabratec: "https://ieee-collabratec.ieee.org/",
-  join: "https://www.ieee.org/membership/join/index.html",
+  join: "https://www.ieee.org/membership/join",
   joinCS: "https://www.computer.org/membership",
-  sitemap: "http://www.ieee.org/sitemap.html",
+  sitemap: "https://www.ieee.org/sitemap.html",
   accessibility: "https://www.ieee.org/accessibility-statement.html",
   nondiscrimination:
     "https://www.ieee.org/about/corporate/governance/p9-26.html",
-  ethics: "http://www.ieee-ethics-reporting.org",
-  terms: "http://www.ieee.org/site_terms_conditions.html",
+  ethics: "https://www.ieee-ethics-reporting.org",
+  terms: "https://www.ieee.org/site_terms_conditions.html",
   privacy: "https://www.ieee.org/security_privacy.html",
 } as const;
+
+// CHAPTER STATS
 
 export const STATS = {
   members: 150,
@@ -57,19 +67,23 @@ export const STATS = {
   awards: 10,
 } as const;
 
+// OFFICE HOURS
+
 export const OFFICE_HOURS = {
   weekdays: "10:00 AM - 5:00 PM",
   saturday: "10:00 AM - 2:00 PM",
   sunday: "Closed",
 } as const;
 
-export const DEPARTMENTS = [
-  "Computer Engineering",
-  "Computer Science",
-  "Information Technology",
-  "Artificial Intelligence",
-  "Data Science",
-] as const;
+// ACADEMIC METADATA
+
+export const DEPARTMENTS = {
+  AI: "Artificial Intelligence",
+  SC: "Computer Science",
+  IT: "Information Technology",
+  DS: "Data Science",
+  CE: "Computer Engineering",
+} as const;
 
 export const ACADEMIC_YEARS = [
   "First Year",
@@ -78,6 +92,25 @@ export const ACADEMIC_YEARS = [
   "Final Year",
   "Graduate",
 ] as const;
+
+export const STUDY_LEVELS = {
+  U4: "Undergraduate",
+  U5: "Postgraduate",
+} as const;
+
+// ROLL NUMBER NORMALIZATION
+
+export const ROLL_NUMBER_RULES = {
+  departmentMap: DEPARTMENTS,
+  levelMap: STUDY_LEVELS,
+  academicYearByBatch: {
+    "23": "Third Year",
+    "24": "Second Year",
+    "25": "First Year",
+  },
+} as const;
+
+// EVENTS
 
 export const EVENT_TYPES = [
   "workshop",
@@ -104,6 +137,8 @@ export const EVENT_STATUS_COLORS = {
   cancelled: "bg-red-500",
 } as const;
 
+// MEMBERSHIP INFO
+
 export const MEMBERSHIP_PRICING = {
   ieee: {
     student: 32,
@@ -122,20 +157,19 @@ export const BENEFITS = {
     "Discounts on conferences and publications",
     "IEEE Spectrum magazine subscription",
     "Career development resources",
-    "Networking opportunities worldwide",
-    "Voting rights in IEEE elections",
+    "Global networking opportunities",
   ],
   computerSociety: [
     "All IEEE membership benefits included",
     "Computer Society Digital Library access",
     "Computing magazines and publications",
     "Exclusive webinars and technical content",
-    "Special discounts on CS conferences",
     "Professional certifications and training",
   ],
 } as const;
 
-// Navigation structure
+// NAVIGATION
+
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
@@ -145,7 +179,6 @@ export const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-// IEEE Top bar links
 export const IEEE_TOP_BAR_LINKS = [
   { href: IEEE_LINKS.main, label: "IEEE.org" },
   { href: IEEE_LINKS.xplore, label: "IEEE Xplore" },

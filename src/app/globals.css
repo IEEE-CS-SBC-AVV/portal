@@ -1,126 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 @import "tailwindcss";
 
-/* 
- * IEEE COMPUTER SOCIETY BRAND STYLES
- * Based on IEEE Brand Experience Guidelines
- * https://brand-experience.ieee.org/guidelines/digital/style-guide/branding-visual-elements/
- * 
- * Primary Color: IEEE Blue PMS 3015 C - #00629B
- * Typography: Open Sans (digital), minimum 15px
- * Line Height: 1.5 (minimum)
- */
-
 :root {
-  /* IEEE Official Brand Colors (from IEEE Brand Identity Guidelines) */
-  --ieee-blue-primary: #00629b; /* PMS 3015 C - Main brand color */
-  --ieee-blue-dark: #002855; /* PMS 295 - Dark palette */
-  --ieee-blue-light: #e6f2f8; /* Light tint for backgrounds */
+  /* IEEE Computer Society Primary Colors */
+  --cs-orange-primary: #ffa300;
+  --cs-blue-ieee: #00629b;
+  --cs-cyan: #00b5e2;
+  --cs-black: #000000;
+  --cs-white: #ffffff;
+  --cs-gray: #75787b;
 
-  /* IEEE Extended Palette - Bright */
-  --ieee-orange: #ffa300; /* PMS 137 C */
-  --ieee-yellow: #ffd100; /* PMS 109 C */
-  --ieee-cyan: #00b5e2; /* PMS Process Cyan */
-  --ieee-green: #78be20; /* PMS 368 C */
-  --ieee-teal: #009ca6; /* PMS 320 C */
+  /* IEEE Computer Society Bright Palette */
+  --cs-orange: #ffa300;
+  --cs-yellow: #ffd100;
+  --cs-green: #78be20;
+  --cs-green-dark: #00843d;
+  --cs-purple: #981d97;
+  --cs-red: #ba0c2f;
+  --cs-teal: #009ca6;
 
-  /* Text & Backgrounds */
+  /* IEEE Computer Society Dark Palette */
+  --cs-orange-dark: #e87722;
+  --cs-yellow-dark: #ffc72c;
+  --cs-green-muted: #658d1b;
+  --cs-green-forest: #006341;
+  --cs-purple-dark: #772583;
+  --cs-red-dark: #861f41;
+  --cs-blue-dark: #002855;
+  --cs-teal-dark: #007377;
+
+  /* Text & Backgrounds - WCAG AA Compliant */
   --background: #ffffff;
   --foreground: #1a1a1a;
-
-  /* Accessibility - WCAG AA Compliant */
-  --text-primary: #1a1a1a; /* 21:1 contrast on white */
-  --text-secondary: #4a4a4a; /* 10:1 contrast on white */
-  --text-light: #6b7280; /* 4.5:1 contrast minimum */
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-light: #4a4a4a;
 }
 
-/* GLOBAL TYPOGRAPHY (Per IEEE Digital Guidelines) */
-
+/* Base Typography - IEEE Computer Society Standards */
 body {
-  background: var(--background);
-  color: var(--text-primary);
   font-family:
     "Open Sans",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
-    "Helvetica Neue",
-    Arial,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
     sans-serif;
-  font-size: 16px; /* IEEE minimum 15px, we use 16px for better readability */
-  line-height: 1.6; /* IEEE minimum 1.5, we use 1.6 */
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Paragraph Styling */
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Headings - Montserrat Primary Typeface */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   line-height: 1.3;
   color: var(--text-primary);
+  margin-top: 0;
   margin-bottom: 0.75rem;
 }
 
-/* IEEE BUTTON STYLES (Brand Compliant) */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
 
-.btn-ieee-primary {
-  /* Primary Action Button - IEEE Blue */
-  background-color: var(--ieee-blue-primary);
-  color: #ffffff;
-  padding: 0.875rem 1.75rem; /* Adequate touch target 44px min */
-  border-radius: 0.375rem; /* 6px rounded corners */
+h2 {
+  font-size: 2rem;
   font-weight: 600;
-  font-size: 1rem; /* 16px minimum */
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.5;
-  border: 2px solid var(--ieee-blue-primary);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-  min-height: 44px; /* WCAG touch target minimum */
 }
 
-.btn-ieee-primary:hover {
-  background-color: var(--ieee-blue-dark);
-  border-color: var(--ieee-blue-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 98, 155, 0.3);
-  color: #ffffff;
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
-.btn-ieee-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 98, 155, 0.2);
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-.btn-ieee-primary:focus-visible {
-  outline: 3px solid rgba(0, 98, 155, 0.4);
-  outline-offset: 2px;
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.btn-ieee-secondary {
-  /* Secondary Action Button - Outlined */
-  background-color: #ffffff;
-  color: var(--ieee-blue-primary);
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* IEEE COMPUTER SOCIETY BUTTON STYLES */
+
+.btn-cs-primary {
+  background-color: var(--cs-orange-primary);
+  color: #000000 !important;
   padding: 0.875rem 1.75rem;
   border-radius: 0.375rem;
   font-weight: 600;
   font-size: 1rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
-  border: 2px solid var(--ieee-blue-primary);
+  border: 2px solid var(--cs-orange-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -132,164 +135,436 @@ h6 {
   min-height: 44px;
 }
 
-.btn-ieee-secondary:hover {
-  background-color: var(--ieee-blue-light);
-  border-color: var(--ieee-blue-dark);
-  color: var(--ieee-blue-dark);
+.btn-cs-primary:hover {
+  background-color: var(--cs-orange-dark);
+  border-color: var(--cs-orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 163, 0, 0.3);
+  color: #000000 !important;
 }
 
-.btn-ieee-secondary:active {
-  background-color: rgba(0, 98, 155, 0.15);
+.btn-cs-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255, 163, 0, 0.2);
 }
 
-.btn-ieee-secondary:focus-visible {
+.btn-cs-primary:focus-visible {
+  outline: 3px solid rgba(255, 163, 0, 0.4);
+  outline-offset: 2px;
+}
+
+.btn-cs-secondary {
+  background-color: var(--cs-blue-ieee);
+  color: #ffffff !important;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  border: 2px solid var(--cs-blue-ieee);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  min-height: 44px;
+}
+
+.btn-cs-secondary:hover {
+  background-color: var(--cs-blue-dark);
+  border-color: var(--cs-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 98, 155, 0.3);
+  color: #ffffff !important;
+}
+
+.btn-cs-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 98, 155, 0.2);
+}
+
+.btn-cs-secondary:focus-visible {
   outline: 3px solid rgba(0, 98, 155, 0.4);
   outline-offset: 2px;
 }
 
+.btn-cs-outline {
+  background-color: var(--cs-white);
+  color: var(--cs-orange-primary) !important;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  border: 2px solid var(--cs-orange-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  min-height: 44px;
+}
+
+.btn-cs-outline:hover {
+  background-color: rgba(255, 163, 0, 0.1);
+  border-color: var(--cs-orange-dark);
+  color: var(--cs-orange-dark) !important;
+}
+
+.btn-cs-outline:active {
+  background-color: rgba(255, 163, 0, 0.2);
+}
+
+.btn-cs-outline:focus-visible {
+  outline: 3px solid rgba(255, 163, 0, 0.4);
+  outline-offset: 2px;
+}
+
 /* Button Disabled State */
-.btn-ieee-primary:disabled,
-.btn-ieee-secondary:disabled {
+.btn-cs-primary:disabled,
+.btn-cs-secondary:disabled,
+.btn-cs-outline:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
 
-.btn-ieee-primary:disabled:hover,
-.btn-ieee-secondary:disabled:hover {
+.btn-cs-primary:disabled:hover,
+.btn-cs-secondary:disabled:hover,
+.btn-cs-outline:disabled:hover {
   transform: none;
   box-shadow: none;
 }
 
-/* IEEE CARD STYLES */
+/* IEEE COMPUTER SOCIETY CARD STYLES */
 
-.ieee-card {
-  background: #ffffff;
-  border-radius: 0.5rem; /* 8px rounded corners */
+.cs-card {
+  background: var(--cs-white);
+  border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.ieee-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 98, 155, 0.12);
+.cs-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 163, 0, 0.15);
   transform: translateY(-2px);
-  border-color: var(--ieee-blue-light);
+  border-color: rgba(255, 163, 0, 0.3);
 }
 
-/* FORM STYLES (Accessibility Compliant) */
+.cs-card-header {
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--cs-orange-primary);
+}
 
-.ieee-input {
+.cs-card-body {
+  padding: 1.5rem;
+}
+
+.cs-card-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* FORM STYLES - Accessibility Compliant */
+
+.cs-input {
   width: 100%;
-  padding: 0.875rem 1rem; /* Adequate padding */
+  padding: 0.875rem 1rem;
   border: 2px solid #d1d5db;
   border-radius: 0.375rem;
-  font-size: 1rem; /* 16px minimum */
+  font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  background: #ffffff;
-  color: var(--text-primary);
+  background: var(--cs-white);
+  color: #1a1a1a !important;
   transition: all 0.2s ease-in-out;
-  min-height: 44px; /* Touch target */
+  min-height: 44px;
 }
 
-.ieee-input::placeholder {
-  color: var(--text-light);
-  opacity: 0.7;
+.cs-input::placeholder {
+  color: #6b7280;
+  opacity: 1;
 }
 
-.ieee-input:hover {
+.cs-input:hover {
   border-color: #9ca3af;
 }
 
-.ieee-input:focus {
+.cs-input:focus {
   outline: none;
-  border-color: var(--ieee-blue-primary);
-  box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.1);
+  border-color: var(--cs-orange-primary);
+  box-shadow: 0 0 0 3px rgba(255, 163, 0, 0.1);
 }
 
-.ieee-input:disabled {
+.cs-input:disabled {
   background-color: #f3f4f6;
   color: #9ca3af;
   cursor: not-allowed;
 }
 
-.ieee-input-error {
-  border-color: #ef4444;
+.cs-input-error {
+  border-color: var(--cs-red);
 }
 
-.ieee-input-error:focus {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+.cs-input-error:focus {
+  box-shadow: 0 0 0 3px rgba(186, 12, 47, 0.1);
 }
 
-textarea.ieee-input {
+textarea.cs-input {
   resize: vertical;
   min-height: 120px;
 }
 
-.ieee-label {
+.cs-label {
   display: block;
   font-weight: 600;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
-  font-family: "Open Sans", sans-serif;
+  color: #1a1a1a !important;
+  font-family: "Montserrat", sans-serif;
 }
 
-.ieee-label-required::after {
+.cs-label-required::after {
   content: " *";
-  color: #ef4444;
+  color: var(--cs-red);
 }
 
-.ieee-error-text {
-  color: #ef4444;
+.cs-error-text {
+  color: var(--cs-red);
   font-size: 0.875rem;
   margin-top: 0.375rem;
   display: flex;
   align-items: center;
   gap: 0.375rem;
+  font-family: "Open Sans", sans-serif;
 }
 
-.ieee-helper-text {
-  color: var(--text-light);
+.cs-helper-text {
+  color: #4a4a4a;
   font-size: 0.875rem;
   margin-top: 0.375rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* SELECT / DROPDOWN STYLES */
+
+.cs-select {
+  width: 100%;
+  padding: 0.875rem 2.5rem 0.875rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  background: var(--cs-white);
+  color: #1a1a1a !important;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 44px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a1a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.cs-select:hover {
+  border-color: #9ca3af;
+}
+
+.cs-select:focus {
+  outline: none;
+  border-color: var(--cs-orange-primary);
+  box-shadow: 0 0 0 3px rgba(255, 163, 0, 0.1);
+}
+
+/* CHECKBOX & RADIO STYLES */
+
+.cs-checkbox,
+.cs-radio {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cs-checkbox {
+  border-radius: 0.25rem;
+}
+
+.cs-radio {
+  border-radius: 50%;
+}
+
+.cs-checkbox:checked,
+.cs-radio:checked {
+  background-color: var(--cs-orange-primary);
+  border-color: var(--cs-orange-primary);
+}
+
+.cs-checkbox:focus,
+.cs-radio:focus {
+  outline: 3px solid rgba(255, 163, 0, 0.4);
+  outline-offset: 2px;
 }
 
 /* LINK STYLES */
 
 a {
-  color: var(--ieee-blue-primary);
-  text-decoration: underline;
+  color: var(--cs-blue-ieee);
+  text-decoration: none;
   transition: color 0.2s ease;
+  font-family: "Open Sans", sans-serif;
 }
 
 a:hover {
-  color: var(--ieee-blue-dark);
+  color: var(--cs-blue-dark);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--ieee-blue-primary);
+  outline: 2px solid var(--cs-orange-primary);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* ACCESSIBILITY FEATURES (WCAG AA Compliant) */
+/* Add underlines ONLY for inline content links */
+article a:not(.btn-cs-primary):not(.btn-cs-secondary):not(.btn-cs-outline),
+.content a:not(.btn-cs-primary):not(.btn-cs-secondary):not(.btn-cs-outline),
+.prose a:not(.btn-cs-primary):not(.btn-cs-secondary):not(.btn-cs-outline),
+main p a:not(.btn-cs-primary):not(.btn-cs-secondary):not(.btn-cs-outline) {
+  text-decoration: underline;
+}
+
+/* Ensure buttons NEVER have underlines */
+button,
+.btn-cs-primary,
+.btn-cs-secondary,
+.btn-cs-outline,
+a.btn-cs-primary,
+a.btn-cs-secondary,
+a.btn-cs-outline,
+[role="button"] {
+  text-decoration: none !important;
+}
+
+/* BADGE / TAG STYLES */
+
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 9999px;
+  line-height: 1.5;
+}
+
+.cs-badge-orange {
+  background-color: rgba(255, 163, 0, 0.1);
+  color: #c45a00;
+  border: 1px solid var(--cs-orange-primary);
+}
+
+.cs-badge-blue {
+  background-color: rgba(0, 98, 155, 0.1);
+  color: var(--cs-blue-dark);
+  border: 1px solid var(--cs-blue-ieee);
+}
+
+.cs-badge-cyan {
+  background-color: rgba(0, 181, 226, 0.1);
+  color: #006b8f;
+  border: 1px solid var(--cs-cyan);
+}
+
+/* ALERT / NOTIFICATION STYLES */
+
+.cs-alert {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.cs-alert-info {
+  background-color: rgba(0, 181, 226, 0.1);
+  border-color: var(--cs-cyan);
+  color: #004d66;
+}
+
+.cs-alert-success {
+  background-color: rgba(120, 190, 32, 0.1);
+  border-color: var(--cs-green);
+  color: #3d5f13;
+}
+
+.cs-alert-warning {
+  background-color: rgba(255, 209, 0, 0.1);
+  border-color: var(--cs-yellow);
+  color: #7a6300;
+}
+
+.cs-alert-error {
+  background-color: rgba(186, 12, 47, 0.1);
+  border-color: var(--cs-red);
+  color: #6e0916;
+}
+
+/* DIVIDER / SEPARATOR */
+
+.cs-divider {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--cs-orange-primary),
+    var(--cs-cyan)
+  );
+  border: none;
+  margin: 2rem 0;
+}
+
+.cs-divider-vertical {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--cs-orange-primary),
+    var(--cs-cyan)
+  );
+  border: none;
+}
+
+/* ACCESSIBILITY FEATURES - WCAG AA Compliant */
 
 *:focus-visible {
-  outline: 2px solid var(--ieee-blue-primary);
+  outline: 2px solid var(--cs-orange-primary);
   outline-offset: 2px;
 }
 
+/* Skip to Main Content Link */
 .skip-to-main {
   position: absolute;
   left: -9999px;
   z-index: 9999;
   padding: 1rem 1.5rem;
-  background: var(--ieee-blue-primary);
-  color: #ffffff;
+  background: var(--cs-orange-primary);
+  color: var(--cs-black);
   text-decoration: none;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   border-radius: 0 0 0.375rem 0.375rem;
 }
 
@@ -311,16 +586,86 @@ a:focus-visible {
   border-width: 0;
 }
 
+/* UTILITY CLASSES */
+
+.text-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-opensans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.text-cs-orange {
+  color: var(--cs-orange-primary);
+}
+
+.text-cs-blue {
+  color: var(--cs-blue-ieee);
+}
+
+.text-cs-cyan {
+  color: var(--cs-cyan);
+}
+
+.bg-cs-orange {
+  background-color: var(--cs-orange-primary);
+}
+
+.bg-cs-blue {
+  background-color: var(--cs-blue-ieee);
+}
+
+.bg-cs-cyan {
+  background-color: var(--cs-cyan);
+}
+
+.border-cs-orange {
+  border-color: var(--cs-orange-primary);
+}
+
+.border-cs-blue {
+  border-color: var(--cs-blue-ieee);
+}
+
 /* RESPONSIVE UTILITIES */
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   body {
-    font-size: 15px; /* Minimum IEEE requirement */
+    font-size: 15px;
   }
 
-  .btn-ieee-primary,
-  .btn-ieee-secondary {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn-cs-primary,
+  .btn-cs-secondary,
+  .btn-cs-outline {
     padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
   }
 }
 
@@ -333,12 +678,27 @@ a:focus-visible {
     color: #000000;
   }
 
-  .btn-ieee-primary,
-  .btn-ieee-secondary {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+  }
+
+  .btn-cs-primary,
+  .btn-cs-secondary,
+  .btn-cs-outline {
     border: 1px solid #000000;
   }
 
   .skip-to-main {
     display: none;
+  }
+
+  .cs-card {
+    box-shadow: none;
+    border: 1px solid #000000;
   }
 }
