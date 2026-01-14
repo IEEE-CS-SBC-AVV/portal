@@ -8,7 +8,6 @@
     "photo": "/images/committee/advisor.jpg",
     "bio": "Faculty advisor guiding the IEEE Computer Society Student Chapter at Amrita School of Artificial Intelligence."
   },
-
   "executive": [
     {
       "id": "chair",
@@ -62,6 +61,23 @@
       ]
     },
     {
+      "id": "vice-secretary",
+      "name": "Rupa Kandula",
+      "role": "Vice-Secretary",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "rupakandula21@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/rupa-kandula-kv2007",
+      "phone": "+91-9281444700",
+      "photo": "/images/committee/vice-secretary.jpg",
+      "bio": "Assisting the secretary in documentation and coordination.",
+      "responsibilities": [
+        "Supporting record maintenance",
+        "Assisting official communications",
+        "Coordination with committee members"
+      ]
+    },
+    {
       "id": "treasurer",
       "name": "Jeevakamal K R",
       "role": "Treasurer",
@@ -79,7 +95,6 @@
       ]
     }
   ],
-
   "technical": [
     {
       "id": "ecc",
@@ -89,11 +104,25 @@
       "year": "Undergraduate",
       "email": "gowtham.k1626@gmail.com",
       "linkedin": "https://www.linkedin.com/in/gowtham-kumaresan-a74295294/",
+      "phone": null,
       "photo": "/images/committee/technical-1.jpg",
       "bio": "Supporting core technical and operational activities."
     }
   ],
-
+  "webmaster": [
+    {
+      "id": "webmaster",
+      "name": "Nidish S R",
+      "role": "Webmaster",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "nidishsr@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/nidishsr/",
+      "phone": null,
+      "photo": "/images/committee/webmaster.jpg",
+      "bio": "Maintaining and developing the chapter website."
+    }
+  ],
   "publicity": [
     {
       "id": "content-lead-1",
@@ -103,6 +132,7 @@
       "year": "Undergraduate",
       "email": "aryamanatil@gmail.com",
       "linkedin": "https://www.linkedin.com/in/aryananda-m-9466a0384",
+      "phone": null,
       "photo": "/images/committee/content-1.jpg",
       "bio": "Creating and managing chapter content."
     },
@@ -114,11 +144,11 @@
       "year": "Undergraduate",
       "email": "neelanjanananma@gmail.com",
       "linkedin": "https://www.linkedin.com/in/neelanjana-j-anil-92050b37b",
+      "phone": null,
       "photo": "/images/committee/content-2.jpg",
       "bio": "Handling editorial and content strategy."
     }
   ],
-
   "design": [
     {
       "id": "design-lead-1",
@@ -128,6 +158,7 @@
       "year": "Undergraduate",
       "email": "kathir2006velan@gmail.com",
       "linkedin": "https://www.linkedin.com/in/kathirvelan11",
+      "phone": null,
       "photo": "/images/committee/design-1.jpg",
       "bio": "Responsible for visual identity and design."
     },
@@ -139,11 +170,11 @@
       "year": "Undergraduate",
       "email": "kumarsasi04060@gmail.com",
       "linkedin": "https://www.linkedin.com/in/sasi-kumar-aaa046280/",
+      "phone": null,
       "photo": "/images/committee/design-2.jpg",
       "bio": "Designing promotional and digital assets."
     }
   ],
-
   "newsletter": [
     {
       "id": "newsletter-1",
@@ -153,6 +184,7 @@
       "year": "Undergraduate",
       "email": "cksaijitesh@gmail.com",
       "linkedin": "https://www.linkedin.com/in/sai-jitesh-c-k-7b212439b",
+      "phone": null,
       "photo": "/images/committee/newsletter-1.jpg",
       "bio": "Managing newsletters and written communications."
     },
@@ -164,19 +196,23 @@
       "year": "Undergraduate",
       "email": "amaravanimeka@gmail.com",
       "linkedin": "https://www.linkedin.com/in/rohithmeka",
+      "phone": null,
       "photo": "/images/committee/newsletter-2.jpg",
       "bio": "Assisting with publications and content distribution."
     }
   ],
-
-  "webmaster": {
-    "name": "Nidish S R",
-    "role": "Webmaster",
-    "department": "Artificial Intelligence",
-    "year": "Undergraduate",
-    "email": "nidishsr@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/nidishsr/",
-    "photo": "/images/committee/webmaster.jpg",
-    "bio": "Maintaining and developing the chapter website."
-  }
+  "wice": [
+    {
+      "id": "wice-chair",
+      "name": "Smera Kini",
+      "role": "WICE Representative",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "smeraskini@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/smera-s-kini-505895290/",
+      "phone": null,
+      "photo": "/images/committee/wice.jpg",
+      "bio": "Promoting Women in Computer Science initiatives and inclusion."
+    }
+  ]
 }
