@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 import {
   Mail,
   MapPin,
@@ -35,14 +36,32 @@ export default function ContactPage() {
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Send email via EmailJS
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      console.log("Form submitted:", data);
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration missing. Please check .env.local file.");
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+          to_email: "computersociety.avv@gmail.com",
+        },
+        publicKey
+      );
+
       setSubmitStatus("success");
       reset();
     } catch (error) {
-      console.error("Submission error:", error);
+      console.error("Email sending error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

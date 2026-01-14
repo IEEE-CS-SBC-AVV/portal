@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { Target, Users, Lightbulb, Trophy } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Us - IEEE CS SBC AVV",
+  description:
+    "Learn about IEEE Computer Society Student Branch at Amrita, our mission, vision, core values, and achievements in fostering technical excellence.",
+};
 
 export default function AboutPage() {
   return (

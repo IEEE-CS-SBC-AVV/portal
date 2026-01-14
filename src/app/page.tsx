@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { Users, Calendar, BookOpen, Award, CheckCircle } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Home - IEEE CS SBC AVV",
+  description:
+    "IEEE Computer Society Student Branch at Amrita Vishwa Vidyapeetham. Join 150+ members for workshops, hackathons, and networking events.",
+};
 
 export default function HomePage() {
   return (
