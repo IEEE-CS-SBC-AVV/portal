@@ -3,13 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Linkedin,
-  Instagram,
-} from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -42,7 +36,9 @@ export default function ContactPage() {
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration missing. Please check .env.local file.");
+        throw new Error(
+          "EmailJS configuration missing. Please check .env.local file."
+        );
       }
 
       await emailjs.send(
