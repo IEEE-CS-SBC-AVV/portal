@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { Mail, Linkedin, Phone, User } from "lucide-react";
 import committeeData from "./members.json";
+
+export const metadata: Metadata = {
+  title: "Committee - IEEE CS SBC AVV",
+  description:
+    "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
+};
 
 interface MemberCardProps {
   name: string;
