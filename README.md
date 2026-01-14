@@ -18,12 +18,11 @@ This repository builds the official website for the IEEE Computer Society Studen
 portal/
 ├── src/
 │   ├── app/              # Pages (Home, About, Committee, Events, etc.)
-│   ├── components/       # Reusable components (Navbar, Footer)
-│   ├── config/           # IEEE design system configuration
-│   ├── hooks/            # Custom React hooks
-│   ├── lib/              # Utilities and constants
+│   ├── components/       # Reusable components (Navbar, Footer, GradientAvatar)
+│   ├── lib/              # Utilities, design helpers, and constants
 │   └── types/            # TypeScript definitions
 ├── public/               # Static assets
+├── content/              # Markdown content (events)
 └── .github/workflows/    # CI/CD pipelines
 ```
 
@@ -64,11 +63,12 @@ npm run type-check
 
 ## Design System
 
-Follows **IEEE Brand Guidelines** with official colors, typography, and accessibility standards (WCAG AA compliant).
+Follows **IEEE Computer Society Brand Guidelines** with official colors, typography, and accessibility standards (WCAG AA compliant).
 
-- **Primary Color:** IEEE Blue (#00629B)
-- **Typography:** Open Sans, 16px minimum
+- **Primary Color:** CS Orange (#FFA300) & IEEE Blue (#00629B)
+- **Typography:** Montserrat (headings), Open Sans (body), 16px minimum
 - **Accessibility:** 44px touch targets, proper contrast, semantic HTML
+- **CSS Classes:** `btn-cs-primary`, `cs-card`, `cs-input`, `cs-alert`, etc.
 
 ## Project Approach
 
@@ -79,10 +79,14 @@ Follows **IEEE Brand Guidelines** with official colors, typography, and accessib
 
 ### Current
 
-- Responsive, accessible design
-- IEEE brand-compliant styling
-- Contact form with validation
+(WCAG AA)
+
+- IEEE CS brand-compliant styling
+- Contact form with validation (EmailJS ready)
 - Event filtering and search
+- Automated CI/CD with GitHub Actions
+- Gradient avatars for committee members
+- Custom 404 page
 - Automated CI/CD with GitHub Actions
 
 ### Planned
