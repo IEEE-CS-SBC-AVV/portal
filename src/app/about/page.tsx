@@ -22,7 +22,7 @@ export default function AboutPage() {
             <p>
               The IEEE Computer Society Student Branch Committee is a vibrant
               community of students passionate about technology, innovation, and
-              professional development. Established in [YEAR], our chapter has
+              professional development. Established in 2025, our chapter has
               grown to become one of the most active student organizations on
               campus.
             </p>
@@ -81,19 +81,19 @@ export default function AboutPage() {
                   <dt className="text-sm font-semibold text-gray-600">
                     Established
                   </dt>
-                  <dd className="text-lg text-gray-900">[YEAR]</dd>
+                  <dd className="text-lg text-gray-900">2025</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">
                     Active Members
                   </dt>
-                  <dd className="text-lg text-gray-900">150+</dd>
+                  <dd className="text-lg text-gray-900">xyz+</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">
                     Events Per Year
                   </dt>
-                  <dd className="text-lg text-gray-900">25+</dd>
+                  <dd className="text-lg text-gray-900">00+</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">

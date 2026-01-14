@@ -1,151 +1,181 @@
 {
   "facultyAdvisor": {
-    "name": "Dr. Faculty Name",
-    "designation": "Professor & Head of Department",
-    "department": "Computer Science & Engineering",
-    "email": "faculty@university.edu",
-    "phone": "+91-XXXXXXXXXX",
+    "name": "Dr. Nitha P.K",
+    "designation": "Faculty Advisor",
+    "department": "Amrita School of Artificial Intelligence",
+    "email": null,
+    "phone": "+91-8547155168",
     "photo": "/images/committee/advisor.jpg",
-    "bio": "Dr. Faculty Name has been guiding the IEEE CS Student Branch for over 5 years, bringing extensive experience in computer science education and research."
+    "bio": "Faculty advisor guiding the IEEE Computer Society Student Chapter at Amrita School of Artificial Intelligence."
   },
+
   "executive": [
     {
       "id": "chair",
-      "name": "Student Chairperson",
-      "role": "Chairperson",
-      "department": "Computer Engineering",
-      "year": "Final Year",
-      "email": "chair@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "phone": "+91-XXXXXXXXXX",
+      "name": "Sriman Rakshan N",
+      "role": "Chair",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "srimanrakshan@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/sriman-rakshan-n-336532303/",
+      "phone": "+91-9445678199",
       "photo": "/images/committee/chair.jpg",
-      "bio": "Leading the chapter with vision and dedication to create meaningful impact.",
+      "bio": "Leading the chapter with strategic vision and organizational leadership.",
       "responsibilities": [
-        "Overall chapter management and strategic planning",
-        "Coordination with IEEE headquarters and regional committees",
-        "Representing the chapter at conferences and events"
+        "Overall chapter leadership",
+        "Strategic planning",
+        "External representation"
       ]
     },
     {
       "id": "vice-chair",
-      "name": "Student Vice-Chair",
-      "role": "Vice Chairperson",
+      "name": "Jishnu Teja Dandamudi",
+      "role": "Vice-Chair",
       "department": "Computer Science",
-      "year": "Third Year",
-      "email": "vicechair@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "phone": "+91-XXXXXXXXXX",
+      "year": "Undergraduate",
+      "email": "djishnuteja2006@ieee.com",
+      "linkedin": "https://www.linkedin.com/in/jishnu-teja-dandamudi-858028289",
+      "phone": "+91-7397468974",
       "photo": "/images/committee/vice-chair.jpg",
-      "bio": "Supporting chapter initiatives and driving member engagement.",
+      "bio": "Supporting chapter leadership and internal coordination.",
       "responsibilities": [
-        "Assisting chairperson in all activities",
-        "Managing internal communications",
-        "Overseeing committee performance"
+        "Assisting chair",
+        "Internal coordination",
+        "Member engagement"
       ]
     },
     {
       "id": "secretary",
-      "name": "Student Secretary",
+      "name": "Gowtham SD",
       "role": "Secretary",
-      "department": "Information Technology",
-      "year": "Third Year",
-      "email": "secretary@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "phone": "+91-XXXXXXXXXX",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "gowtham200626@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/gowtham-dhanaraju-4b482a28a/",
+      "phone": "+91-7094905515",
       "photo": "/images/committee/secretary.jpg",
-      "bio": "Maintaining records and ensuring smooth communication.",
+      "bio": "Managing documentation and official communications.",
       "responsibilities": [
-        "Meeting minutes and documentation",
-        "Member database management",
+        "Meeting documentation",
+        "Records maintenance",
         "Official correspondence"
       ]
     },
     {
       "id": "treasurer",
-      "name": "Student Treasurer",
+      "name": "Jeevakamal K R",
       "role": "Treasurer",
-      "department": "Computer Engineering",
-      "year": "Third Year",
-      "email": "treasurer@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "phone": "+91-XXXXXXXXXX",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "cb.ai.u4aid23115@cb.students.amrita.edu",
+      "linkedin": "https://www.linkedin.com/in/jeevakamal-k-r-248435280/",
+      "phone": "+91-9385967737",
       "photo": "/images/committee/treasurer.jpg",
-      "bio": "Managing finances and ensuring fiscal responsibility.",
+      "bio": "Overseeing finances and budgeting.",
       "responsibilities": [
-        "Budget planning and management",
-        "Financial reporting",
-        "Sponsorship coordination"
+        "Financial planning",
+        "Expense tracking",
+        "Budget reporting"
       ]
     }
   ],
+
   "technical": [
     {
-      "id": "tech-lead-1",
-      "name": "Technical Lead 1",
-      "role": "Technical Lead",
-      "department": "Computer Science",
-      "year": "Third Year",
-      "email": "tech1@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "photo": "/images/committee/tech-lead-1.jpg",
-      "bio": "Organizing technical workshops and hackathons."
-    },
-    {
-      "id": "tech-lead-2",
-      "name": "Technical Lead 2",
-      "role": "Technical Lead",
-      "department": "Computer Engineering",
-      "year": "Second Year",
-      "email": "tech2@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "photo": "/images/committee/tech-lead-2.jpg",
-      "bio": "Coordinating coding competitions and technical sessions."
+      "id": "ecc",
+      "name": "Gowtham Kumaresan",
+      "role": "Executive Core Committee",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "gowtham.k1626@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/gowtham-kumaresan-a74295294/",
+      "photo": "/images/committee/technical-1.jpg",
+      "bio": "Supporting core technical and operational activities."
     }
   ],
-  "events": [
-    {
-      "id": "event-coord-1",
-      "name": "Event Coordinator 1",
-      "role": "Event Coordinator",
-      "department": "Information Technology",
-      "year": "Second Year",
-      "email": "events1@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "photo": "/images/committee/event-coord-1.jpg",
-      "bio": "Planning and executing memorable events."
-    },
-    {
-      "id": "event-coord-2",
-      "name": "Event Coordinator 2",
-      "role": "Event Coordinator",
-      "department": "Computer Science",
-      "year": "Second Year",
-      "email": "events2@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "photo": "/images/committee/event-coord-2.jpg",
-      "bio": "Managing event logistics and vendor coordination."
-    }
-  ],
+
   "publicity": [
     {
-      "id": "publicity-1",
-      "name": "Publicity Head",
-      "role": "Publicity & Marketing Head",
-      "department": "Computer Engineering",
-      "year": "Second Year",
-      "email": "publicity@student.university.edu",
-      "linkedin": "https://linkedin.com/in/",
-      "photo": "/images/committee/publicity.jpg",
-      "bio": "Managing social media and chapter branding."
+      "id": "content-lead-1",
+      "name": "Aryananda M",
+      "role": "Content Lead",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "aryamanatil@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/aryananda-m-9466a0384",
+      "photo": "/images/committee/content-1.jpg",
+      "bio": "Creating and managing chapter content."
+    },
+    {
+      "id": "content-lead-2",
+      "name": "Neelanjana J Anil",
+      "role": "Content Lead",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "neelanjanananma@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/neelanjana-j-anil-92050b37b",
+      "photo": "/images/committee/content-2.jpg",
+      "bio": "Handling editorial and content strategy."
     }
   ],
+
+  "design": [
+    {
+      "id": "design-lead-1",
+      "name": "Kathir Velan M",
+      "role": "Design Lead",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "kathir2006velan@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/kathirvelan11",
+      "photo": "/images/committee/design-1.jpg",
+      "bio": "Responsible for visual identity and design."
+    },
+    {
+      "id": "design-lead-2",
+      "name": "Sasikumar P",
+      "role": "Design Lead",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "kumarsasi04060@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/sasi-kumar-aaa046280/",
+      "photo": "/images/committee/design-2.jpg",
+      "bio": "Designing promotional and digital assets."
+    }
+  ],
+
+  "newsletter": [
+    {
+      "id": "newsletter-1",
+      "name": "Sai Jitesh C.K.",
+      "role": "Newsletter Team",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "cksaijitesh@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/sai-jitesh-c-k-7b212439b",
+      "photo": "/images/committee/newsletter-1.jpg",
+      "bio": "Managing newsletters and written communications."
+    },
+    {
+      "id": "newsletter-2",
+      "name": "Rohith Meka",
+      "role": "Newsletter Team",
+      "department": "Artificial Intelligence",
+      "year": "Undergraduate",
+      "email": "amaravanimeka@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/rohithmeka",
+      "photo": "/images/committee/newsletter-2.jpg",
+      "bio": "Assisting with publications and content distribution."
+    }
+  ],
+
   "webmaster": {
-    "name": "Webmaster",
+    "name": "Nidish S R",
     "role": "Webmaster",
-    "department": "Computer Science",
-    "year": "Third Year",
-    "email": "webmaster@student.university.edu",
-    "linkedin": "https://linkedin.com/in/",
+    "department": "Artificial Intelligence",
+    "year": "Undergraduate",
+    "email": "nidishsr@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/nidishsr/",
     "photo": "/images/committee/webmaster.jpg",
     "bio": "Maintaining and developing the chapter website."
   }

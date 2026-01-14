@@ -8,8 +8,6 @@ import {
   Phone,
   Linkedin,
   Instagram,
-  Twitter,
-  Facebook,
 } from "lucide-react";
 
 interface ContactFormData {
@@ -81,10 +79,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
-                      href="mailto:contact@ieeecs.edu"
+                      href="mailto:computersociety.avv@gmail.com"
                       className="text-gray-600 hover:text-ieee-blue transition"
                     >
-                      contact@ieeecs.edu
+                      computersociety.avv@gmail.com
                     </a>
                   </div>
                 </div>
@@ -94,10 +92,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
-                      href="tel:+911234567890"
+                      href="tel:+917397468974"
                       className="text-gray-600 hover:text-ieee-blue transition"
                     >
-                      +91 123 456 7890
+                      +91-7397468974
                     </a>
                   </div>
                 </div>
@@ -111,15 +109,13 @@ export default function ContactPage() {
                     <p className="text-gray-600">
                       IEEE CS Student Branch
                       <br />
-                      Department of Artificial Intelligence
+                      Amrita School of Artificial Intelligence
                       <br />
-                      Amrita Vishwa Vidyapeetham, Coimbatore Campus
+                      Amrita Vishwa Vidyapeetham, Ettimadai
                       <br />
                       Coimbatore - 641112
                       <br />
-                      Tamil Nadu
-                      <br />
-                      India
+                      Tamil Nadu, India
                     </p>
                   </div>
                 </div>
@@ -130,7 +126,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/computer-society-avv"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
@@ -139,31 +135,13 @@ export default function ContactPage() {
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/cs_asai_cbe"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-5 h-5" />
                   </a>
                 </div>
               </div>

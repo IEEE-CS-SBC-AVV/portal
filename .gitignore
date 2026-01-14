@@ -54,7 +54,10 @@ Thumbs.db
 *.
 
 # Some Markdowns
-TODO.md
-ROADMAP.md
-if_npm_error.txt
-.github/copilot-instructions.md
+/TODO.md
+/ROADMAP.md
+
+#Misc
+/if_npm_error.txt
+/.github/copilot-instructions.md
+/OFFICE BEARERS DETAILS - Sheet1.csv
