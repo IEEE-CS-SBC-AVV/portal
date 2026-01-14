@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { Users, Calendar, BookOpen, Award, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
