@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
-import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -95,7 +100,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href="mailto:computersociety.avv@gmail.com"
-                      className="text-gray-700 hover:text-[#00629B] transition"
+                      className="text-gray-600 hover:text-ieee-blue transition"
                     >
                       computersociety.avv@gmail.com
                     </a>
@@ -108,7 +113,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
                       href="tel:+917397468974"
-                      className="text-gray-700 hover:text-[#00629B] transition"
+                      className="text-gray-600 hover:text-ieee-blue transition"
                     >
                       +91-7397468974
                     </a>

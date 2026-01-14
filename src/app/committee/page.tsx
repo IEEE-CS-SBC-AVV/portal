@@ -1,13 +1,5 @@
-import type { Metadata } from "next";
-import { Mail, Linkedin, Phone } from "lucide-react";
-import { GradientAvatar } from "@/components/GradientAvatar";
+import { Mail, Linkedin, Phone, User } from "lucide-react";
 import committeeData from "./members.json";
-
-export const metadata: Metadata = {
-  title: "Committee - IEEE CS SBC AVV",
-  description:
-    "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
-};
 
 interface MemberCardProps {
   name: string;
@@ -59,7 +51,7 @@ function MemberCard({
         {email && (
           <a
             href={`mailto:${email}`}
-            className="text-gray-700 hover:text-[#00629B] transition"
+            className="text-gray-600 hover:text-ieee-blue transition"
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />
@@ -133,7 +125,7 @@ export default function CommitteePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Treasurer
+            Executive Core Committee
           </h2>
           <div className="max-w-md mx-auto">
             {committeeData.treasurer.map((member, index) => (
@@ -143,48 +135,15 @@ export default function CommitteePage() {
         </div>
       </section>
 
-      {/* Technical Team */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Executive Core Committee
-          </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.technical.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Webmaster */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Webmaster
-          </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.webmaster.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* Content Team */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Content Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {committeeData.publicity.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
+              <MemberCard key={index} {...member} />
             ))}
           </div>
         </div>
@@ -196,11 +155,9 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Design Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {committeeData.design.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
+              <MemberCard key={index} {...member} />
             ))}
           </div>
         </div>
@@ -212,28 +169,22 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Newsletter Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {committeeData.newsletter.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
+              <MemberCard key={index} {...member} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* WICE Representative */}
-      <section className="py-16 bg-gray-50">
+      {/* Webmaster */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            WICE Representative
+            Webmaster
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.wice.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
-                <MemberCard {...member} />
-              </div>
-            ))}
+          <div className="max-w-md mx-auto">
+            <MemberCard {...committeeData.webmaster} />
           </div>
         </div>
       </section>
