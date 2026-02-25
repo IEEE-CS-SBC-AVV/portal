@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Users, Calendar, BookOpen, Award, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -21,10 +22,8 @@ export default function HomePage() {
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
             filter: "brightness(0.6)",
-            transform: "scale(1.01)", // This pushes the image 1% past the edges to hide gaps
           }}
         />
-
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           <div className="text-center">
@@ -64,8 +63,7 @@ export default function HomePage() {
         </div>
 
         {/* Wave Divider */}
-        {/* Change bottom-0 to -bottom-[1px] */}
-        <div className="absolute -bottom-[1px] left-0 right-0 z-20">
+        <div className="absolute bottom-0 left-0 right-0 z-20">
           <svg
             viewBox="0 0 1440 120"
             fill="none"
@@ -144,8 +142,12 @@ export default function HomePage() {
             <div>
               <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
-                  <Users className="w-24 h-24 text-[#00629B]" />
+                <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/assests/ieee.png"
+                    alt="IEEE Membership"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -199,8 +201,12 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-8 bg-[#E6F2F8] rounded-full flex items-center justify-center">
-                  <BookOpen className="w-24 h-24 text-[#00629B]" />
+                <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/assests/Society.jpg"
+                    alt="Computer Society"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
