@@ -1,0 +1,14 @@
+---
+title: Event Title
+date: YYYY-MM-DD
+type: workshop|seminar|hackathon|webinar|competition
+location: Location Name
+speakers:
+  - name: Speaker Name
+    title: Optional Title
+excerpt: Short description
+---
+
+Full event content here...
+
+Save this as a markdown file once you fill it.
