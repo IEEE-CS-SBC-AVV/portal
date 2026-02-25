@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Search } from "lucide-react";
 
@@ -77,9 +78,11 @@ export function Navbar() {
             <Link href="/" className="flex items-center space-x-3 group">
               {/* Logo Placeholder - Replace with actual logo */}
               <div className="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:opacity-80 transition">
-                <img
+                <Image
                   src="/assests/Society.jpg"
                   alt="IEEE CS SBC Logo"
+                  width={56}
+                  height={56}
                   className="w-full h-full object-cover"
                 />
               </div>
