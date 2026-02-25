@@ -76,7 +76,9 @@
         "Assisting official communications",
         "Coordination with committee members"
       ]
-    },
+    }
+  ],
+  "treasurer": [
     {
       "id": "treasurer",
       "name": "Jeevakamal K R",

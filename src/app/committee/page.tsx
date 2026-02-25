@@ -133,11 +133,27 @@ export default function CommitteePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Executive Core Committee
+            Treasurer
           </h2>
           <div className="max-w-md mx-auto">
             {committeeData.treasurer.map((member, index) => (
               <MemberCard key={index} {...member} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Team */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Executive Core Committee
+          </h2>
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+            {committeeData.technical.map((member, index) => (
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -149,9 +165,11 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Webmaster
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {committeeData.webmaster.map((member, index) => (
-              <MemberCard key={index} {...member} />
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -162,9 +180,11 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Content Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {committeeData.publicity.map((member, index) => (
-              <MemberCard key={index} {...member} />
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -176,9 +196,11 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Design Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {committeeData.design.map((member, index) => (
-              <MemberCard key={index} {...member} />
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -190,9 +212,11 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Newsletter Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {committeeData.newsletter.map((member, index) => (
-              <MemberCard key={index} {...member} />
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -204,9 +228,11 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             WICE Representative
           </h2>
-          <div className="max-w-md mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {committeeData.wice.map((member, index) => (
-              <MemberCard key={index} {...member} />
+              <div key={index} className="w-full md:w-80">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
