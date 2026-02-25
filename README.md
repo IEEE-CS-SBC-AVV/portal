@@ -73,12 +73,14 @@ Follows **IEEE Computer Society Brand Guidelines** with official colors, typogra
 ## Project Status
 
 **Phase 1:** ✅ Complete (Jan 14, 2026)
+
 - Static site with gradient avatars and consolidated design system
 
 **Phase 2:** ✅ Complete (Feb 25, 2026)
+
 - All navigation fixed and working (Link components)
 - Events system integrated with markdown-based content
-- 100% deprecated class cleanup (ieee-* → hex values)
+- 100% deprecated class cleanup (ieee-\* → hex values)
 - Text visibility & WCAG AA compliance verified
 - Image component optimization (replaced `<img>` with Next.js `<Image>`)
 - Zero ESLint warnings, zero TypeScript errors
