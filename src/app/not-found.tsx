@@ -19,7 +19,7 @@ export default function NotFound() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Page Not Found
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Oops! The page you&apos;re looking for doesn&apos;t exist or has
             been moved.
           </p>
@@ -44,7 +44,7 @@ export default function NotFound() {
         </div>
 
         {/* Quick Links */}
-        <div className="mt-8 text-blue-100">
+        <div className="mt-8 text-white/90">
           <p className="mb-4">You might be looking for:</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/about" className="hover:text-white transition">

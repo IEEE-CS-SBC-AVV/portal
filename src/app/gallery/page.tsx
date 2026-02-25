@@ -2,10 +2,10 @@ export default function GalleryPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Event Gallery</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-xl text-white/90 max-w-3xl">
             Explore photos and memories from our chapter&apos;s events,
             workshops, and activities.
           </p>
@@ -33,7 +33,7 @@ export default function GalleryPage() {
                 href="https://www.linkedin.com/company/computer-society-avv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-ieee-blue text-white px-6 py-3 rounded-lg hover:bg-[#004B76] transition font-semibold"
+                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
               >
                 Follow on LinkedIn
               </a>
@@ -41,7 +41,7 @@ export default function GalleryPage() {
                 href="https://www.instagram.com/cs_asai_cbe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-ieee-blue text-white px-6 py-3 rounded-lg hover:bg-[#004B76] transition font-semibold"
+                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
               >
                 Follow on Instagram
               </a>

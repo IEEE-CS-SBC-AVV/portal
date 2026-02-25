@@ -14,7 +14,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-xl text-white/90 max-w-3xl">
             Learn about our chapter&apos;s history, mission, and commitment to
             advancing technology
           </p>
@@ -223,65 +223,6 @@ export default function AboutPage() {
                 Be part of the world&apos;s largest technical professional
                 organization
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Achievements */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Our Achievements
-          </h2>
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-ieee-blue rounded-full flex items-center justify-center text-white font-bold">
-                  1
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Outstanding Student Branch Award
-                </h3>
-                <p className="text-gray-600">
-                  Recognized by IEEE for exceptional chapter activities and
-                  member engagement (2023)
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-ieee-blue rounded-full flex items-center justify-center text-white font-bold">
-                  2
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  National Hackathon Winners
-                </h3>
-                <p className="text-gray-600">
-                  Our team secured first place in the IEEE national hackathon
-                  competition
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-ieee-blue rounded-full flex items-center justify-center text-white font-bold">
-                  3
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Community Impact Award
-                </h3>
-                <p className="text-gray-600">
-                  Honored for our STEM outreach programs that impacted over 500
-                  local students
-                </p>
-              </div>
             </div>
           </div>
         </div>
