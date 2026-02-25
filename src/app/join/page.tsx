@@ -14,13 +14,13 @@ export default function JoinPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Join IEEE Today
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Become part of the world&apos;s largest technical professional
               organization dedicated to advancing technology for the benefit of
               humanity.
@@ -30,7 +30,7 @@ export default function JoinPage() {
                 href="https://www.ieee.org/membership/join/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-ieee-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
+                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
               >
                 Join IEEE Membership
                 <ExternalLink className="ml-2 h-5 w-5" />
@@ -39,7 +39,7 @@ export default function JoinPage() {
                 href="https://www.computer.org/membership"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-ieee-blue transition inline-flex items-center justify-center"
+                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
               >
                 Join Computer Society
                 <ExternalLink className="ml-2 h-5 w-5" />
@@ -65,8 +65,8 @@ export default function JoinPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Benefit Card 1 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Global Network
@@ -79,8 +79,8 @@ export default function JoinPage() {
 
             {/* Benefit Card 2 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 IEEE Xplore Access
@@ -93,8 +93,8 @@ export default function JoinPage() {
 
             {/* Benefit Card 3 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Briefcase className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Career Resources
@@ -107,8 +107,8 @@ export default function JoinPage() {
 
             {/* Benefit Card 4 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Professional Growth
@@ -121,8 +121,8 @@ export default function JoinPage() {
 
             {/* Benefit Card 5 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Recognition & Awards
@@ -135,8 +135,8 @@ export default function JoinPage() {
 
             {/* Benefit Card 6 */}
             <div className="ieee-card p-6 text-center">
-              <div className="w-16 h-16 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-ieee-blue" />
+              <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Local Chapters
@@ -166,8 +166,8 @@ export default function JoinPage() {
             {/* IEEE Membership */}
             <div className="ieee-card p-8 bg-white">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-10 w-10 text-ieee-blue" />
+                <div className="w-20 h-20 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-10 w-10 text-[#00629B]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   IEEE Membership
@@ -179,49 +179,49 @@ export default function JoinPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Access to IEEE Xplore Digital Library
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Discounts on conferences and publications
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     IEEE Spectrum magazine subscription
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Career development resources
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Networking opportunities worldwide
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Voting rights in IEEE elections
                   </span>
                 </div>
               </div>
 
-              <div className="bg-ieee-blue-light rounded-lg p-4 mb-6">
+              <div className="bg-[#e8f0f8] rounded-lg p-4 mb-6">
                 <div className="text-center">
                   <div className="text-sm text-gray-600 mb-1">
                     Student Membership
                   </div>
-                  <div className="text-3xl font-bold text-ieee-blue">$32</div>
+                  <div className="text-3xl font-bold text-[#00629B]">$32</div>
                   <div className="text-sm text-gray-600">per year</div>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function JoinPage() {
                 href="https://www.ieee.org/membership/join/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ieee-primary w-full block text-center py-3 text-lg"
+                className="btn-cs-primary w-full block text-center py-3 text-lg"
               >
                 Join IEEE
                 <ExternalLink className="inline ml-2 h-5 w-5" />
@@ -238,13 +238,13 @@ export default function JoinPage() {
             </div>
 
             {/* Computer Society Membership */}
-            <div className="ieee-card p-8 bg-white border-2 border-ieee-blue">
+            <div className="ieee-card p-8 bg-white border-2 border-[#00629B]">
               <div className="text-center mb-6">
-                <div className="inline-block bg-ieee-blue text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                <div className="inline-block bg-[#00629B] text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
                   RECOMMENDED
                 </div>
-                <div className="w-20 h-20 bg-ieee-blue-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-10 w-10 text-ieee-blue" />
+                <div className="w-20 h-20 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="h-10 w-10 text-[#00629B]" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Computer Society
@@ -256,49 +256,49 @@ export default function JoinPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     All IEEE membership benefits included
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Computer Society Digital Library access
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Computing magazines and publications
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Exclusive webinars and technical content
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Special discounts on CS conferences
                   </span>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
                     Professional certifications and training
                   </span>
                 </div>
               </div>
 
-              <div className="bg-ieee-blue-light rounded-lg p-4 mb-6">
+              <div className="bg-[#e8f0f8] rounded-lg p-4 mb-6">
                 <div className="text-center">
                   <div className="text-sm text-gray-600 mb-1">
                     Student Society Membership
                   </div>
-                  <div className="text-3xl font-bold text-ieee-blue">$48</div>
+                  <div className="text-3xl font-bold text-[#00629B]">$48</div>
                   <div className="text-sm text-gray-600">per year</div>
                   <div className="text-xs text-gray-500 mt-2">
                     (Includes IEEE + Computer Society)
@@ -310,7 +310,7 @@ export default function JoinPage() {
                 href="https://www.computer.org/membership"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ieee-primary w-full block text-center py-3 text-lg"
+                className="btn-cs-primary w-full block text-center py-3 text-lg"
               >
                 Join Computer Society
                 <ExternalLink className="inline ml-2 h-5 w-5" />
@@ -340,21 +340,21 @@ export default function JoinPage() {
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">25+</div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">25+</div>
               <div className="text-gray-600">Events per year</div>
             </div>
             <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">150+</div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">150+</div>
               <div className="text-gray-600">Active members</div>
             </div>
             <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-ieee-blue mb-2">50+</div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">50+</div>
               <div className="text-gray-600">Workshops conducted</div>
             </div>
           </div>
           <Link
             href="/contact"
-            className="btn-ieee-secondary inline-block px-8 py-3"
+            className="btn-cs-secondary inline-block px-8 py-3"
           >
             Contact Us to Get Started
           </Link>
@@ -434,12 +434,12 @@ export default function JoinPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-ieee-blue text-white">
+      <section className="py-16 bg-[#00629B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Join thousands of students worldwide who are advancing their careers
             through IEEE membership.
           </p>
@@ -448,14 +448,14 @@ export default function JoinPage() {
               href="https://www.ieee.org/membership/join/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-ieee-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
+              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
             >
               Join IEEE Now
               <ExternalLink className="ml-2 h-5 w-5" />
             </a>
             <Link
               href="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-ieee-blue transition inline-flex items-center justify-center"
+              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
             >
               Have Questions? Contact Us
             </Link>

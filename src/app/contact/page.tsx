@@ -67,10 +67,10 @@ export default function ContactPage() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-xl text-white/90 max-w-3xl">
             Have questions? We&apos;d love to hear from you. Send us a message
             and we&apos;ll respond as soon as possible.
           </p>
@@ -90,12 +90,12 @@ export default function ContactPage() {
               {/* Contact Details */}
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-ieee-blue mr-3 mt-1" />
+                  <Mail className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href="mailto:computersociety.avv@gmail.com"
-                      className="text-gray-700 hover:text-ieee-blue transition"
+                      className="text-gray-700 hover:text-[#00629B] transition"
                     >
                       computersociety.avv@gmail.com
                     </a>
@@ -103,12 +103,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-ieee-blue mr-3 mt-1" />
+                  <Phone className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
                       href="tel:+917397468974"
-                      className="text-gray-700 hover:text-ieee-blue transition"
+                      className="text-gray-700 hover:text-[#00629B] transition"
                     >
                       +91-7397468974
                     </a>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-ieee-blue mr-3 mt-1" />
+                  <MapPin className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
                       Address
@@ -144,7 +144,7 @@ export default function ContactPage() {
                     href="https://www.linkedin.com/company/computer-society-avv"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function ContactPage() {
                     href="https://www.instagram.com/cs_asai_cbe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-ieee-blue hover:bg-ieee-blue-light transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5" />
@@ -329,16 +329,22 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Optional) */}
+      {/* Map Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Find Us
           </h2>
-          <div className="rounded-lg overflow-hidden shadow-lg h-96 bg-gray-200 flex items-center justify-center">
-            <p className="text-gray-700">
-              Map will be embedded here (Google Maps integration)
-            </p>
+          <div className="rounded-lg overflow-hidden shadow-lg h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.786871929768!2d76.89348078547205!3d10.903795729136704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85c95d3e828eb%3A0x2785cb4510629029!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Coimbatore!5e0!3m2!1sen!2sin!4v1771991226740!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>

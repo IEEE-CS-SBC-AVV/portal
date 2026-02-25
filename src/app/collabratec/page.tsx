@@ -13,13 +13,13 @@ export default function CollabratecPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-ieee-blue to-ieee-blue-dark text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               IEEE Collabratec
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Connect. Collaborate. Create. The professional networking platform
               designed exclusively for the global technology community.
             </p>
@@ -27,7 +27,7 @@ export default function CollabratecPage() {
               href="https://ieee-collabratec.ieee.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-ieee-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center"
+              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center"
             >
               Visit IEEE Collabratec
               <ExternalLink className="ml-2 h-5 w-5" />
@@ -87,8 +87,8 @@ export default function CollabratecPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <Users className="h-7 w-7 text-ieee-blue" />
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <Users className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Professional Networking
@@ -101,8 +101,8 @@ export default function CollabratecPage() {
 
             {/* Feature 2 */}
             <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <MessageSquare className="h-7 w-7 text-ieee-blue" />
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <MessageSquare className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Communities & Groups
@@ -115,8 +115,8 @@ export default function CollabratecPage() {
 
             {/* Feature 3 */}
             <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <Share2 className="h-7 w-7 text-ieee-blue" />
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <Share2 className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Project Collaboration
@@ -358,7 +358,7 @@ export default function CollabratecPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Join the Conversation
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-blue-50 mb-8">
             Connect with thousands of technology professionals, share ideas, and
             collaborate on projects that shape the future.
           </p>

@@ -76,8 +76,12 @@ export function Navbar() {
             {/* Logo & Title */}
             <Link href="/" className="flex items-center space-x-3 group">
               {/* Logo Placeholder - Replace with actual logo */}
-              <div className="w-14 h-14 bg-[#00629B] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#002855] transition">
-                <span className="text-white font-bold text-xl">IEEE</span>
+              <div className="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:opacity-80 transition">
+                <img
+                  src="/assests/Society.jpg"
+                  alt="IEEE CS SBC Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Text */}
