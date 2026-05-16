@@ -86,7 +86,7 @@ export default function CollabratecPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="ieee-card p-6 bg-white">
+            <div className="cs-card p-6 bg-white">
               <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
                 <Users className="h-7 w-7 text-[#00629B]" />
               </div>
@@ -100,7 +100,7 @@ export default function CollabratecPage() {
             </div>
 
             {/* Feature 2 */}
-            <div className="ieee-card p-6 bg-white">
+            <div className="cs-card p-6 bg-white">
               <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
                 <MessageSquare className="h-7 w-7 text-[#00629B]" />
               </div>
@@ -114,7 +114,7 @@ export default function CollabratecPage() {
             </div>
 
             {/* Feature 3 */}
-            <div className="ieee-card p-6 bg-white">
+            <div className="cs-card p-6 bg-white">
               <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
                 <Share2 className="h-7 w-7 text-[#00629B]" />
               </div>
@@ -128,9 +128,9 @@ export default function CollabratecPage() {
             </div>
 
             {/* Feature 4 */}
-            <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <FileText className="h-7 w-7 text-ieee-blue" />
+            <div className="cs-card p-6 bg-white">
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <FileText className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Content Sharing
@@ -142,9 +142,9 @@ export default function CollabratecPage() {
             </div>
 
             {/* Feature 5 */}
-            <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <Video className="h-7 w-7 text-ieee-blue" />
+            <div className="cs-card p-6 bg-white">
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <Video className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Events & Webinars
@@ -156,9 +156,9 @@ export default function CollabratecPage() {
             </div>
 
             {/* Feature 6 */}
-            <div className="ieee-card p-6 bg-white">
-              <div className="w-14 h-14 bg-ieee-blue-light rounded-lg flex items-center justify-center mb-4">
-                <Globe className="h-7 w-7 text-ieee-blue" />
+            <div className="cs-card p-6 bg-white">
+              <div className="w-14 h-14 bg-[#e8f0f8] rounded-lg flex items-center justify-center mb-4">
+                <Globe className="h-7 w-7 text-[#00629B]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Global Reach
@@ -187,7 +187,7 @@ export default function CollabratecPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold text-gray-900">
                       Connect with Industry Professionals:
@@ -200,7 +200,7 @@ export default function CollabratecPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold text-gray-900">
                       Find Project Collaborators:
@@ -213,7 +213,7 @@ export default function CollabratecPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold text-gray-900">
                       Career Guidance:
@@ -226,7 +226,7 @@ export default function CollabratecPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold text-gray-900">
                       Share Your Work:
@@ -239,7 +239,7 @@ export default function CollabratecPage() {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-ieee-blue mr-3 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold text-gray-900">
                       Learn from Experts:
@@ -255,9 +255,9 @@ export default function CollabratecPage() {
             </div>
 
             {/* Right: CTA Card */}
-            <div className="ieee-card p-8 bg-gray-50 text-center">
-              <div className="w-32 h-32 mx-auto mb-6 bg-ieee-blue-light rounded-full flex items-center justify-center">
-                <Users className="w-16 h-16 text-ieee-blue" />
+            <div className="cs-card p-8 bg-gray-50 text-center">
+              <div className="w-32 h-32 mx-auto mb-6 bg-[#e8f0f8] rounded-full flex items-center justify-center">
+                <Users className="w-16 h-16 text-[#00629B]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Ready to Join?
@@ -270,7 +270,7 @@ export default function CollabratecPage() {
                 href="https://ieee-collabratec.ieee.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ieee-primary w-full block text-center py-3"
+                className="btn-cs-primary w-full block text-center py-3"
               >
                 Access Collabratec
                 <ExternalLink className="inline ml-2 h-5 w-5" />
@@ -298,7 +298,7 @@ export default function CollabratecPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-ieee-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#00629B] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -312,7 +312,7 @@ export default function CollabratecPage() {
 
             {/* Step 2 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-ieee-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#00629B] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -326,7 +326,7 @@ export default function CollabratecPage() {
 
             {/* Step 3 */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-ieee-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#00629B] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -344,7 +344,7 @@ export default function CollabratecPage() {
               href="https://www.ieee.org/membership/join/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ieee-secondary inline-block px-8 py-3"
+              className="btn-cs-secondary inline-block px-8 py-3"
             >
               Not a member? Join IEEE
             </a>
@@ -353,7 +353,7 @@ export default function CollabratecPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-ieee-blue text-white">
+      <section className="py-16 bg-[#00629B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Join the Conversation
@@ -366,7 +366,7 @@ export default function CollabratecPage() {
             href="https://ieee-collabratec.ieee.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-ieee-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center"
+            className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center"
           >
             Visit IEEE Collabratec
             <ExternalLink className="ml-2 h-5 w-5" />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Collabratec - IEEE CS SBC AVV",
+  title: "Collabratec",
   description:
     "Learn about IEEE Collabratec platform - a collaborative environment for IEEE members to connect, innovate, and build projects.",
 };

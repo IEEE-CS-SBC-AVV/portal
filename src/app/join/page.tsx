@@ -64,7 +64,7 @@ export default function JoinPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Benefit Card 1 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -78,7 +78,7 @@ export default function JoinPage() {
             </div>
 
             {/* Benefit Card 2 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -92,7 +92,7 @@ export default function JoinPage() {
             </div>
 
             {/* Benefit Card 3 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -106,7 +106,7 @@ export default function JoinPage() {
             </div>
 
             {/* Benefit Card 4 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -120,7 +120,7 @@ export default function JoinPage() {
             </div>
 
             {/* Benefit Card 5 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -134,7 +134,7 @@ export default function JoinPage() {
             </div>
 
             {/* Benefit Card 6 */}
-            <div className="ieee-card p-6 text-center">
+            <div className="cs-card p-6 text-center">
               <div className="w-16 h-16 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-[#00629B]" />
               </div>
@@ -164,7 +164,7 @@ export default function JoinPage() {
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* IEEE Membership */}
-            <div className="ieee-card p-8 bg-white">
+            <div className="cs-card p-8 bg-white">
               <div className="text-center mb-6">
                 <div className="w-20 h-20 bg-[#e8f0f8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-10 w-10 text-[#00629B]" />
@@ -238,7 +238,7 @@ export default function JoinPage() {
             </div>
 
             {/* Computer Society Membership */}
-            <div className="ieee-card p-8 bg-white border-2 border-[#00629B]">
+            <div className="cs-card p-8 bg-white border-2 border-[#00629B]">
               <div className="text-center mb-6">
                 <div className="inline-block bg-[#00629B] text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
                   RECOMMENDED
