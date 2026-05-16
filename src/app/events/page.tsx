@@ -7,7 +7,14 @@ interface Event {
   date: Date;
   time: string;
   location: string;
-  type: "workshop" | "seminar" | "hackathon" | "webinar" | "competition";
+  type:
+    | "workshop"
+    | "seminar"
+    | "hackathon"
+    | "webinar"
+    | "competition"
+    | "social"
+    | "other";
   status: "upcoming" | "completed";
   description: string;
   attendees?: number;
@@ -31,13 +38,19 @@ export default function EventsPage() {
     date: new Date(mdEvent.date),
     time: mdEvent.time || "TBD",
     location: mdEvent.location,
-    type:
-      (mdEvent.type as
-        | "workshop"
-        | "seminar"
-        | "hackathon"
-        | "webinar"
-        | "competition") || "seminar",
+    type: (
+      [
+        "workshop",
+        "seminar",
+        "hackathon",
+        "webinar",
+        "competition",
+        "social",
+        "other",
+      ] as const
+    ).includes(mdEvent.type as Event["type"])
+      ? (mdEvent.type as Event["type"])
+      : "seminar",
     status: new Date(mdEvent.date) > new Date() ? "upcoming" : "completed",
     description: mdEvent.excerpt,
     speaker: mdEvent.speakers?.[0]?.name || undefined,
