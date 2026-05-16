@@ -36,6 +36,7 @@ export default function NotFound() {
             <button
               onClick={() => window.history.back()}
               className="inline-flex items-center justify-center px-8 py-3 bg-white/10 text-white border-2 border-white/30 rounded-lg font-semibold hover:bg-white/20 transition"
+              aria-label="Go back to previous page"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Go Back

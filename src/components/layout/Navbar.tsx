@@ -186,7 +186,7 @@ export function Navbar() {
                   placeholder="Search..."
                   className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-l-md focus:outline-none focus:border-[#00629B]"
                 />
-                <button className="px-4 py-2 bg-[#00629B] text-white rounded-r-md hover:bg-[#002855] transition">
+                <button className="px-4 py-2 bg-[#00629B] text-white rounded-r-md hover:bg-[#002855] transition" aria-label="Search">
                   <Search className="h-5 w-5" />
                 </button>
               </div>
