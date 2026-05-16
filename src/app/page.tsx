@@ -101,22 +101,22 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-lg bg-gray-50">
-              <Users className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <Users className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
               <div className="text-4xl font-bold text-gray-900 mb-2">150+</div>
               <div className="text-gray-600 font-medium">Active Members</div>
             </div>
             <div className="text-center p-6 rounded-lg bg-gray-50">
-              <Calendar className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <Calendar className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
               <div className="text-4xl font-bold text-gray-900 mb-2">25+</div>
               <div className="text-gray-600 font-medium">Events Yearly</div>
             </div>
             <div className="text-center p-6 rounded-lg bg-gray-50">
-              <BookOpen className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <BookOpen className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
               <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
               <div className="text-gray-600 font-medium">Workshops</div>
             </div>
             <div className="text-center p-6 rounded-lg bg-gray-50">
-              <Award className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
+              <Award className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
               <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
               <div className="text-gray-600 font-medium">Awards Won</div>
             </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
 
             {/* Right: Join IEEE CTA Card */}
             <div>
-              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
+              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[ieee-blue] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
                 <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
                   <Image
@@ -176,20 +176,20 @@ export default function HomePage() {
                 {/* Benefits List */}
                 <ul className="text-left space-y-4 mb-8">
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       Be a part of the world&apos;s largest technology community
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       Acquire new skills, and advance your professional growth
                       and development
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       New resources, opportunities and many discounts
                     </span>
@@ -202,7 +202,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "#ffffff" }}
-                  className="inline-flex items-center justify-center w-full bg-[#00629B] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
+                  className="inline-flex items-center justify-center w-full bg-[ieee-blue] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
                 >
                   Become a Member
                 </a>
@@ -218,7 +218,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Join Computer Society CTA Card */}
             <div className="order-2 lg:order-1">
-              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[#00629B] hover:shadow-xl transition">
+              <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-[ieee-blue] hover:shadow-xl transition">
                 {/* Illustration Placeholder */}
                 <div className="w-48 h-48 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden">
                   <Image
@@ -237,19 +237,19 @@ export default function HomePage() {
                 {/* Benefits List */}
                 <ul className="text-left space-y-4 mb-8">
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       Stay updated with latest trends in technology
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       Network with colleagues locally and abroad
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-[#00629B] mr-3 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[ieee-blue] mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-700">
                       Collaborate on research and projects with leading experts
                     </span>
@@ -262,7 +262,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "#ffffff" }}
-                  className="inline-flex items-center justify-center w-full bg-[#00629B] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
+                  className="inline-flex items-center justify-center w-full bg-[ieee-blue] px-8 py-3 rounded-lg font-bold text-base hover:bg-[#004B76] transition no-underline"
                 >
                   Join CS Now
                 </a>
@@ -299,7 +299,7 @@ export default function HomePage() {
               <div className="mt-8">
                 <Link
                   href="/events"
-                  className="inline-flex items-center text-[#00629B] font-semibold hover:text-[#004B76] transition group"
+                  className="inline-flex items-center text-[ieee-blue] font-semibold hover:text-[#004B76] transition group"
                 >
                   View Our Events
                   <svg
@@ -323,7 +323,7 @@ export default function HomePage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16 bg-[#00629B] text-white">
+      <section className="py-16 bg-[ieee-blue] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Get Involved?
@@ -335,13 +335,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/join"
-              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
+              className="bg-white text-[ieee-blue] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
             >
               Become a Member
             </Link>
             <Link
               href="/contact"
-              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
+              className="bg-white text-[ieee-blue] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-block text-center no-underline"
             >
               Contact Us
             </Link>

@@ -29,7 +29,7 @@ export function Navbar() {
                 href="https://www.ieee.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-[#00629B] transition"
+                className="text-gray-700 hover:text-[ieee-blue] transition"
               >
                 IEEE.org
               </a>
@@ -37,7 +37,7 @@ export function Navbar() {
                 href="http://ieeexplore.ieee.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-[#00629B] transition"
+                className="text-gray-700 hover:text-[ieee-blue] transition"
               >
                 IEEE Xplore
               </a>
@@ -45,7 +45,7 @@ export function Navbar() {
                 href="http://standards.ieee.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-[#00629B] transition hidden sm:inline"
+                className="text-gray-700 hover:text-[ieee-blue] transition hidden sm:inline"
               >
                 IEEE Standards
               </a>
@@ -53,7 +53,7 @@ export function Navbar() {
                 href="http://spectrum.ieee.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-[#00629B] transition hidden md:inline"
+                className="text-gray-700 hover:text-[ieee-blue] transition hidden md:inline"
               >
                 IEEE Spectrum
               </a>
@@ -62,7 +62,7 @@ export function Navbar() {
               href="https://www.ieee.org/sitemap.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-[#00629B] transition"
+              className="text-gray-700 hover:text-[ieee-blue] transition"
             >
               More Sites
             </a>
@@ -89,7 +89,7 @@ export function Navbar() {
 
               {/* Text */}
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-[#00629B] group-hover:text-[#002855] transition">
+                <span className="text-xl font-bold text-[ieee-blue] group-hover:text-[ieee-blue-dark] transition">
                   IEEE CS SBC
                 </span>
                 <span className="text-xs text-gray-600 -mt-0.5">
@@ -104,10 +104,10 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-gray-700 hover:text-[#00629B] font-medium transition-colors relative group rounded-md hover:bg-[#00B5E2]/10"
+                  className="px-4 py-2 text-gray-700 hover:text-[ieee-blue] font-medium transition-colors relative group rounded-md hover:bg-[ieee-cyan]/10"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00629B] transition-all group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[ieee-blue] transition-all group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -121,12 +121,12 @@ export function Navbar() {
                     <input
                       type="search"
                       placeholder="Search..."
-                      className="w-64 px-4 py-2 border-2 border-[#00629B] rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#00B5E2]/30"
+                      className="w-64 px-4 py-2 border-2 border-[ieee-blue] rounded-l-md focus:outline-none focus:ring-2 focus:ring-[ieee-cyan]/30"
                       autoFocus
                     />
                     <button
                       onClick={() => setSearchOpen(false)}
-                      className="px-4 py-2 bg-[#00629B] text-white rounded-r-md hover:bg-[#002855] transition"
+                      className="px-4 py-2 bg-[ieee-blue] text-white rounded-r-md hover:bg-[ieee-blue-dark] transition"
                     >
                       <Search className="h-5 w-5" />
                     </button>
@@ -134,7 +134,7 @@ export function Navbar() {
                 ) : (
                   <button
                     onClick={() => setSearchOpen(true)}
-                    className="p-2 text-gray-600 hover:text-[#00629B] hover:bg-[#00B5E2]/10 rounded-md transition"
+                    className="p-2 text-gray-600 hover:text-[ieee-blue] hover:bg-[ieee-cyan]/10 rounded-md transition"
                     aria-label="Open search"
                   >
                     <Search className="h-5 w-5" />
@@ -184,9 +184,9 @@ export function Navbar() {
                 <input
                   type="search"
                   placeholder="Search..."
-                  className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-l-md focus:outline-none focus:border-[#00629B]"
+                  className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-l-md focus:outline-none focus:border-[ieee-blue]"
                 />
-                <button className="px-4 py-2 bg-[#00629B] text-white rounded-r-md hover:bg-[#002855] transition" aria-label="Search">
+                <button className="px-4 py-2 bg-[ieee-blue] text-white rounded-r-md hover:bg-[ieee-blue-dark] transition" aria-label="Search">
                   <Search className="h-5 w-5" />
                 </button>
               </div>
@@ -203,7 +203,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-gray-700 hover:bg-[#00B5E2]/10 hover:text-[#00629B] rounded-md transition font-medium"
+                  className="block px-4 py-3 text-gray-700 hover:bg-[ieee-cyan]/10 hover:text-[ieee-blue] rounded-md transition font-medium"
                 >
                   {link.label}
                 </Link>
