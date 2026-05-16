@@ -10,7 +10,14 @@ interface Event {
   date: Date;
   time: string;
   location: string;
-  type: "workshop" | "seminar" | "hackathon" | "webinar" | "competition";
+  type:
+    | "workshop"
+    | "seminar"
+    | "hackathon"
+    | "webinar"
+    | "competition"
+    | "social"
+    | "other";
   status: "upcoming" | "completed";
   description: string;
   attendees?: number;
@@ -30,6 +37,8 @@ function EventCard({ event }: { event: Event }) {
     hackathon: "bg-[#981D97]/10 text-[#772583]",
     webinar: "bg-[#FFD100]/10 text-[#7A6300]",
     competition: "bg-[#BA0C2F]/10 text-[#6E0916]",
+    social: "bg-[#009CA6]/10 text-[#005D63]",
+    other: "bg-[#75787b]/10 text-[#4A4A4A]",
   };
 
   const statusColors = {

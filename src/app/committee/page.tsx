@@ -4,7 +4,7 @@ import { GradientAvatar } from "@/components/GradientAvatar";
 import committeeData from "./members.json";
 
 export const metadata: Metadata = {
-  title: "Committee - IEEE CS SBC AVV",
+  title: "Committee",
   description:
     "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
 };

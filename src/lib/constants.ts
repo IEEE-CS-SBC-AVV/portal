@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   shortInstitution: "Amrita Coimbatore",
   description:
     "Empowering students through technology, innovation, and professional development.",
-  established: "2015",
+  established: "2025",
 } as const;
 
 // CONTACT INFORMATION

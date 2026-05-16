@@ -9,7 +9,14 @@ export interface EventFrontmatter {
   title: string;
   date: string;
   time?: string;
-  type: "workshop" | "seminar" | "competition" | "social" | "other";
+  type:
+    | "workshop"
+    | "seminar"
+    | "hackathon"
+    | "webinar"
+    | "competition"
+    | "social"
+    | "other";
   location: string;
   speakers?: Array<{
     name: string;
