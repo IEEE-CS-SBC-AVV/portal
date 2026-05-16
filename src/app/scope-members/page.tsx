@@ -3,34 +3,40 @@
 import { useState } from "react";
 import { User, Search, Filter } from "lucide-react";
 import Link from "next/link";
+import committeeData from "../committee/members.json";
 
-// Sample member data - Replace with actual data from JSON
-const sampleMembers = [
+interface Member {
+  id: string;
+  name: string;
+  role: string;
+  department: string;
+  year: string;
+}
+
+const allMembers: Member[] = [
   {
-    id: "1",
-    name: "Member Name 1",
-    department: "Computer Engineering",
-    year: "Final Year",
-    ieeeId: "12345678",
-    active: true,
+    id: "faculty-advisor",
+    name: committeeData.facultyAdvisor.name,
+    role: committeeData.facultyAdvisor.designation || "Faculty Advisor",
+    department: committeeData.facultyAdvisor.department,
+    year: "Faculty",
   },
-  {
-    id: "2",
-    name: "Member Name 2",
-    department: "Computer Science",
-    year: "Third Year",
-    ieeeId: "23456789",
-    active: true,
-  },
-  {
-    id: "3",
-    name: "Member Name 3",
-    department: "Information Technology",
-    year: "Second Year",
-    ieeeId: "34567890",
-    active: true,
-  },
-  // Add more sample members...
+  ...[
+    ...committeeData.executive,
+    ...committeeData.treasurer,
+    ...committeeData.technical,
+    ...committeeData.webmaster,
+    ...committeeData.publicity,
+    ...committeeData.design,
+    ...committeeData.newsletter,
+    ...committeeData.wice,
+  ].map((member) => ({
+    id: member.id,
+    name: member.name,
+    role: member.role || "Member",
+    department: member.department,
+    year: member.year || "Undergraduate",
+  })),
 ];
 
 export default function ScopeMembersPage() {
@@ -39,7 +45,7 @@ export default function ScopeMembersPage() {
   const [filterYear, setFilterYear] = useState("all");
 
   // Filter logic
-  const filteredMembers = sampleMembers.filter((member) => {
+  const filteredMembers = allMembers.filter((member) => {
     const matchesSearch = member.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
@@ -50,12 +56,9 @@ export default function ScopeMembersPage() {
     return matchesSearch && matchesDepartment && matchesYear;
   });
 
-  const departments = [
-    "Computer Engineering",
-    "Computer Science",
-    "Information Technology",
-  ];
-  const years = ["Final Year", "Third Year", "Second Year", "First Year"];
+  const departments = [...new Set(allMembers.map((member) => member.department))];
+  const years = [...new Set(allMembers.map((member) => member.year))];
+  const uniqueRoles = new Set(allMembers.map((member) => member.role)).size;
 
   return (
     <div>
@@ -73,45 +76,31 @@ export default function ScopeMembersPage() {
       {/* Stats Section */}
       <section className="py-12 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="p-4">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">
-                {sampleMembers.length}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="p-4">
+                <div className="text-4xl font-bold text-[#00629B] mb-2">
+                  {allMembers.length}
+                </div>
+                <div className="text-gray-600">Total Members</div>
               </div>
-              <div className="text-gray-600">Total Members</div>
-            </div>
-            <div className="p-4">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">
-                {
-                  sampleMembers.filter(
-                    (m) => m.department === "Computer Engineering"
-                  ).length
-                }
+              <div className="p-4">
+                <div className="text-4xl font-bold text-[#00629B] mb-2">
+                  {departments.length}
+                </div>
+                <div className="text-gray-600">Departments</div>
               </div>
-              <div className="text-gray-600">Computer Engineering</div>
-            </div>
-            <div className="p-4">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">
-                {
-                  sampleMembers.filter(
-                    (m) => m.department === "Computer Science"
-                  ).length
-                }
+              <div className="p-4">
+                <div className="text-4xl font-bold text-[#00629B] mb-2">
+                  {years.length}
+                </div>
+                <div className="text-gray-600">Academic Levels</div>
               </div>
-              <div className="text-gray-600">Computer Science</div>
-            </div>
-            <div className="p-4">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">
-                {
-                  sampleMembers.filter(
-                    (m) => m.department === "Information Technology"
-                  ).length
-                }
+              <div className="p-4">
+                <div className="text-4xl font-bold text-[#00629B] mb-2">{uniqueRoles}</div>
+                <div className="text-gray-600">Committee Roles</div>
               </div>
-              <div className="text-gray-600">Information Technology</div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Search and Filter Section */}
@@ -170,7 +159,7 @@ export default function ScopeMembersPage() {
 
           {/* Results Count */}
           <div className="mt-4 text-sm text-gray-600">
-            Showing {filteredMembers.length} of {sampleMembers.length} members
+            Showing {filteredMembers.length} of {allMembers.length} members
           </div>
         </div>
       </section>
@@ -205,9 +194,8 @@ export default function ScopeMembersPage() {
                     </p>
                     <p className="text-sm text-gray-500 mb-3">{member.year}</p>
 
-                    {/* IEEE ID Badge */}
                     <div className="inline-block bg-[#00B5E2]/10 text-[#00629B] text-xs font-semibold px-3 py-1 rounded-full">
-                      IEEE {member.ieeeId}
+                      {member.role}
                     </div>
                   </div>
                 </div>
