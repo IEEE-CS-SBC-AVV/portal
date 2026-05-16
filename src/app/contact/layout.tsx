@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us - IEEE CS SBC AVV",
+  title: "Contact Us",
   description:
     "Get in touch with IEEE Computer Society Student Branch at Amrita. Contact us for events, membership inquiries, or collaborations.",
 };

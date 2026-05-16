@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Target, Users, Lightbulb, Trophy } from "lucide-react";
+import { SITE_CONFIG, STATS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About Us - IEEE CS SBC AVV",
+  title: "About Us",
   description:
     "Learn about IEEE Computer Society Student Branch at Amrita, our mission, vision, core values, and achievements in fostering technical excellence.",
 };
@@ -88,26 +89,30 @@ export default function AboutPage() {
                   <dt className="text-sm font-semibold text-gray-600">
                     Established
                   </dt>
-                  <dd className="text-lg text-gray-900">2025</dd>
+                  <dd className="text-lg text-gray-900">
+                    {SITE_CONFIG.established}
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">
                     Active Members
                   </dt>
-                  <dd className="text-lg text-gray-900">xyz+</dd>
+                  <dd className="text-lg text-gray-900">{STATS.members}+</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">
                     Events Per Year
                   </dt>
-                  <dd className="text-lg text-gray-900">00+</dd>
+                  <dd className="text-lg text-gray-900">
+                    {STATS.eventsYearly}+
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-600">
                     Institution
                   </dt>
                   <dd className="text-lg text-gray-900">
-                    [Amrita Vishwa Vidyapeetham, Coimbatore Campus]
+                    {SITE_CONFIG.institution}
                   </dd>
                 </div>
               </dl>

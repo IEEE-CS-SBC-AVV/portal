@@ -337,6 +337,7 @@ export default function ContactPage() {
           </h2>
           <div className="rounded-lg overflow-hidden shadow-lg h-96">
             <iframe
+              title="Amrita Vishwa Vidyapeetham Coimbatore campus map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.786871929768!2d76.89348078547205!3d10.903795729136704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85c95d3e828eb%3A0x2785cb4510629029!2sAmrita%20Vishwa%20Vidyapeetham%2C%20Coimbatore!5e0!3m2!1sen!2sin!4v1771991226740!5m2!1sen!2sin"
               width="100%"
               height="100%"
