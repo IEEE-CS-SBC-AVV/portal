@@ -42,7 +42,7 @@ function MemberCard({
       {/* Member Info */}
       <div className="text-center mb-4">
         <h3 className="text-xl font-bold text-gray-900 mb-1">{name}</h3>
-        <p className="text-[#00629B] font-semibold mb-2">
+        <p className="text-[ieee-blue] font-semibold mb-2">
           {designation || role}
         </p>
         <p className="text-sm text-gray-700">
@@ -59,7 +59,7 @@ function MemberCard({
         {email && (
           <a
             href={`mailto:${email}`}
-            className="text-gray-700 hover:text-[#00629B] transition"
+            className="text-gray-700 hover:text-[ieee-blue] transition"
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />
@@ -70,7 +70,7 @@ function MemberCard({
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-[#00629B] transition"
+            className="text-gray-700 hover:text-[ieee-blue] transition"
             aria-label="LinkedIn"
           >
             <Linkedin className="w-5 h-5" />
@@ -79,7 +79,7 @@ function MemberCard({
         {phone && (
           <a
             href={`tel:${phone}`}
-            className="text-gray-700 hover:text-[#00629B] transition"
+            className="text-gray-700 hover:text-[ieee-blue] transition"
             aria-label="Phone"
           >
             <Phone className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function CommitteePage() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
+      <section className="bg-gradient-to-r from-[ieee-blue] to-[ieee-blue-dark] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Committee</h1>
           <p className="text-xl text-white/90 max-w-3xl">
@@ -239,7 +239,7 @@ export default function CommitteePage() {
       </section>
 
       {/* Join Us CTA */}
-      <section className="py-16 bg-[#00629B] text-white">
+      <section className="py-16 bg-[ieee-blue] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Interested in Joining Our Team?
@@ -250,7 +250,7 @@ export default function CommitteePage() {
           </p>
           <a
             href="/contact"
-            className="bg-white text-[#00629B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block no-underline"
+            className="bg-white text-[ieee-blue] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block no-underline"
           >
             Get in Touch
           </a>
