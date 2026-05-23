@@ -18,6 +18,12 @@ next-env.d.ts
 # Misc
 .DS_Store
 *.pem
+*~
+
+# Editor backup files (bold, backup, swap)
+*.bak
+*.swp
+*.swo
 
 # Debug
 npm-debug.log*
@@ -42,16 +48,12 @@ yarn-error.log*
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
 # OS
 Thumbs.db
 
 # Temporary files
 *.tmp
-*.
 
 # Some Markdowns
 /TODO.md
@@ -59,7 +61,7 @@ Thumbs.db
 /EMAILJS_SETUP.md
 /IMAGE.md
 
-#Misc
+# Misc
 /.github/copilot-instructions.md
 /OFFICE BEARERS DETAILS - Sheet1.csv
 
