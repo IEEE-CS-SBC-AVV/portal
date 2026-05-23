@@ -5,7 +5,7 @@ export default function MembershipDirectoryPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-6">
@@ -35,10 +35,10 @@ export default function MembershipDirectoryPage() {
               Society members to protect member privacy and ensure secure
               networking.
             </p>
-              <p className="text-gray-700">
-                Authentication and full member directory features are in active
-                development for an upcoming release.
-              </p>
+            <p className="text-gray-700">
+              Authentication and full member directory features are in active
+              development for an upcoming release.
+            </p>
           </div>
 
           {/* What's in the Directory */}
@@ -163,10 +163,10 @@ export default function MembershipDirectoryPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     Directory Launch
                   </h3>
-                    <p className="text-gray-700">
-                      The full member directory with authentication will be made
-                      available in the next release.
-                    </p>
+                  <p className="text-gray-700">
+                    The full member directory with authentication will be made
+                    available in the next release.
+                  </p>
                 </div>
               </div>
             </div>
@@ -234,9 +234,9 @@ export default function MembershipDirectoryPage() {
       {/* Coming Soon Banner */}
       <section className="py-12 bg-white border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-block bg-[#00629B] text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
-              COMING SOON
-            </div>
+          <div className="inline-block bg-[#00629B] text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+            COMING SOON
+          </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Full Member Directory Features
           </h3>

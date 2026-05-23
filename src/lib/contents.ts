@@ -32,17 +32,6 @@ export interface Event extends EventFrontmatter {
   content: string;
 }
 
-// Team Types
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  email?: string;
-  photo?: string;
-  linkedin?: string;
-  github?: string;
-}
-
 // Get all events, sorted by date (newest first)
 export function getEvents(): Event[] {
   const eventsDirectory = path.join(contentDirectory, "events");
@@ -80,14 +69,43 @@ export function getEventBySlug(slug: string): Event | null {
   return events.find((event) => event.slug === slug) || null;
 }
 
-// Get all team members
-export function getTeamMembers(): TeamMember[] {
-  const teamFile = path.join(contentDirectory, "team", "team.json");
+// News Types
+export interface NewsItem {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  content: string;
+}
 
-  if (!fs.existsSync(teamFile)) {
+// Get all news articles, sorted by date (newest first)
+export function getNews(): NewsItem[] {
+  const newsDirectory = path.join(contentDirectory, "news");
+
+  if (!fs.existsSync(newsDirectory)) {
     return [];
   }
 
-  const fileContents = fs.readFileSync(teamFile, "utf8");
-  return JSON.parse(fileContents);
+  const fileNames = fs.readdirSync(newsDirectory);
+
+  const news = fileNames
+    .filter((fileName) => fileName.endsWith(".md"))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(newsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const { data, content } = matter(fileContents);
+
+      return {
+        slug,
+        content,
+        title: data.title || slug,
+        date: data.date || "",
+        excerpt: data.excerpt || "",
+      };
+    });
+
+  return news.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 }

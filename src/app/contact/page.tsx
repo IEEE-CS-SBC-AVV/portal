@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
+import { toast } from "sonner";
 
 interface ContactFormData {
   name: string;
@@ -14,9 +15,6 @@ interface ContactFormData {
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
 
   const {
     register,
@@ -27,7 +25,6 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitStatus("idle");
 
     try {
       // Send email via EmailJS
@@ -54,11 +51,16 @@ export default function ContactPage() {
         publicKey
       );
 
-      setSubmitStatus("success");
+      toast.success("Message sent successfully!", {
+        description: "Thank you! We'll get back to you soon.",
+      });
       reset();
     } catch (error) {
       console.error("Email sending error:", error);
-      setSubmitStatus("error");
+      toast.error("Failed to send message", {
+        description:
+          "Something went wrong. Please try again or email us directly.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -67,7 +69,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-[ieee-blue] to-[ieee-blue-dark] text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-white/90 max-w-3xl">
@@ -90,12 +92,12 @@ export default function ContactPage() {
               {/* Contact Details */}
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-[ieee-blue] mr-3 mt-1" />
+                  <Mail className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href="mailto:computersociety.avv@gmail.com"
-                      className="text-gray-700 hover:text-[ieee-blue] transition"
+                      className="text-gray-700 hover:text-[#00629B] transition"
                     >
                       computersociety.avv@gmail.com
                     </a>
@@ -103,12 +105,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-[ieee-blue] mr-3 mt-1" />
+                  <Phone className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
                       href="tel:+917397468974"
-                      className="text-gray-700 hover:text-[ieee-blue] transition"
+                      className="text-gray-700 hover:text-[#00629B] transition"
                     >
                       +91-7397468974
                     </a>
@@ -116,7 +118,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-[ieee-blue] mr-3 mt-1" />
+                  <MapPin className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
                       Address
@@ -144,7 +146,7 @@ export default function ContactPage() {
                     href="https://www.linkedin.com/company/computer-society-avv"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[ieee-blue] hover:bg-[#e8f0f8] transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -153,7 +155,7 @@ export default function ContactPage() {
                     href="https://www.instagram.com/cs_asai_cbe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[ieee-blue] hover:bg-[#e8f0f8] transition"
+                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5" />
@@ -294,21 +296,6 @@ export default function ContactPage() {
                       <p className="cs-error-text">{errors.message.message}</p>
                     )}
                   </div>
-
-                  {/* Submit Status Messages */}
-                  {submitStatus === "success" && (
-                    <div className="cs-alert cs-alert-success">
-                      ✓ Thank you! Your message has been sent successfully.
-                      We&apos;ll get back to you soon.
-                    </div>
-                  )}
-
-                  {submitStatus === "error" && (
-                    <div className="cs-alert cs-alert-error">
-                      ✗ Something went wrong. Please try again or email us
-                      directly.
-                    </div>
-                  )}
 
                   {/* Submit Button */}
                   <button

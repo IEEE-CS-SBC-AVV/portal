@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react";
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { Calendar, MapPin, Clock } from "lucide-react";
 import { format } from "date-fns";
 
-interface Event {
+export interface Event {
   id: string;
   title: string;
-  date: Date;
+  date: string;
   time: string;
   location: string;
   type:
@@ -18,20 +19,22 @@ interface Event {
     | "competition"
     | "social"
     | "other";
-  status: "upcoming" | "completed";
   description: string;
-  attendees?: number;
   speaker?: string;
-  image?: string;
-  registrationLink?: string;
-  resources?: Array<{
-    title: string;
-    url: string;
-  }>;
+}
+
+function isUpcoming(dateStr: string): boolean {
+  try {
+    return new Date(dateStr) > new Date();
+  } catch {
+    return false;
+  }
 }
 
 function EventCard({ event }: { event: Event }) {
-  const typeColors = {
+  const upcoming = isUpcoming(event.date);
+
+  const typeColors: Record<string, string> = {
     workshop: "bg-[#00B5E2]/10 text-[#004D66]",
     seminar: "bg-[#78BE20]/10 text-[#3D5F13]",
     hackathon: "bg-[#981D97]/10 text-[#772583]",
@@ -41,101 +44,85 @@ function EventCard({ event }: { event: Event }) {
     other: "bg-[#75787b]/10 text-[#4A4A4A]",
   };
 
-  const statusColors = {
-    upcoming: "bg-[#78BE20]",
-    completed: "bg-[#75787b]",
-  };
+  const statusColor = upcoming ? "bg-[#78BE20]" : "bg-[#75787b]";
+
+  const formattedDate = (() => {
+    try {
+      const d = new Date(event.date);
+      if (isNaN(d.getTime())) return event.date;
+      return format(d, "MMMM d, yyyy");
+    } catch {
+      return event.date;
+    }
+  })();
 
   return (
-    <div className="cs-card p-6">
-      {/* Status Badge */}
-      <div className="flex justify-between items-start mb-4">
-        <span
-          className={`px-3 py-1 rounded-full text-xs font-semibold ${typeColors[event.type]}`}
-        >
-          {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-        </span>
-        <span
-          className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${statusColors[event.status]}`}
-        >
-          {event.status === "upcoming" ? "Upcoming" : "Completed"}
-        </span>
-      </div>
-
-      {/* Event Title */}
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{event.title}</h3>
-
-      {/* Event Details */}
-      <div className="space-y-2 mb-4 text-gray-600">
-        <div className="flex items-center">
-          <Calendar className="w-4 h-4 mr-2 text-[#00629B]" />
-          <span className="text-sm">{format(event.date, "MMMM d, yyyy")}</span>
-        </div>
-        <div className="flex items-center">
-          <Clock className="w-4 h-4 mr-2 text-[#00629B]" />
-          <span className="text-sm">{event.time}</span>
-        </div>
-        <div className="flex items-center">
-          <MapPin className="w-4 h-4 mr-2 text-[#00629B]" />
-          <span className="text-sm">{event.location}</span>
-        </div>
-        {event.attendees && (
-          <div className="flex items-center">
-            <span className="text-sm font-semibold text-[#00629B]">
-              {event.attendees} attendees
-            </span>
-          </div>
-        )}
-      </div>
-
-      {/* Speaker */}
-      {event.speaker && (
-        <p className="text-sm text-gray-700 mb-3">
-          <span className="font-semibold">Speaker:</span> {event.speaker}
-        </p>
-      )}
-
-      {/* Description */}
-      <p className="text-gray-600 mb-4 text-sm line-clamp-3">
-        {event.description}
-      </p>
-
-      {/* Action Buttons */}
-      <div className="flex flex-wrap gap-2">
-        {event.status === "upcoming" && event.registrationLink && (
-          <a
-            href={event.registrationLink}
-            className="btn-cs-primary text-sm flex items-center no-underline"
+    <Link href={`/events/${event.id}`} className="block no-underline group">
+      <div className="cs-card p-6 bg-white group-hover:shadow-lg transition-shadow">
+        {/* Status Badge */}
+        <div className="flex justify-between items-start mb-4">
+          <span
+            className={`px-3 py-1 rounded-full text-xs font-semibold ${typeColors[event.type] || typeColors.other}`}
           >
-            Register Now
-            <ExternalLink className="w-4 h-4 ml-1" />
-          </a>
+            {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
+          </span>
+          <span
+            className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${statusColor}`}
+          >
+            {upcoming ? "Upcoming" : "Completed"}
+          </span>
+        </div>
+
+        {/* Event Title */}
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00629B] transition-colors">
+          {event.title}
+        </h3>
+
+        {/* Event Details */}
+        <div className="space-y-2 mb-4 text-gray-600">
+          <div className="flex items-center">
+            <Calendar className="w-4 h-4 mr-2 text-[#00629B]" />
+            <span className="text-sm">{formattedDate}</span>
+          </div>
+          <div className="flex items-center">
+            <Clock className="w-4 h-4 mr-2 text-[#00629B]" />
+            <span className="text-sm">{event.time}</span>
+          </div>
+          <div className="flex items-center">
+            <MapPin className="w-4 h-4 mr-2 text-[#00629B]" />
+            <span className="text-sm">{event.location}</span>
+          </div>
+        </div>
+
+        {/* Speaker */}
+        {event.speaker && (
+          <p className="text-sm text-gray-700 mb-3">
+            <span className="font-semibold">Speaker:</span> {event.speaker}
+          </p>
         )}
-        {event.status === "completed" && event.resources && (
-          <>
-            {event.resources.map((resource, index) => (
-              <a
-                key={index}
-                href={resource.url}
-                className="btn-cs-secondary text-sm flex items-center no-underline"
-              >
-                {resource.title}
-                <ExternalLink className="w-4 h-4 ml-1" />
-              </a>
-            ))}
-          </>
-        )}
+
+        {/* Description */}
+        <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+          {event.description}
+        </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
 export default function EventFilterClient({ events }: { events: Event[] }) {
   const [filter, setFilter] = useState<"all" | "upcoming" | "completed">("all");
 
+  const counts = useMemo(() => {
+    const upcoming = events.filter((e) => isUpcoming(e.date)).length;
+    const completed = events.filter((e) => !isUpcoming(e.date)).length;
+    return { all: events.length, upcoming, completed };
+  }, [events]);
+
   const filteredEvents = events.filter((event) => {
     if (filter === "all") return true;
-    return event.status === filter;
+    const upcoming = isUpcoming(event.date);
+    return filter === "upcoming" ? upcoming : !upcoming;
   });
 
   return (
@@ -152,7 +139,7 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
-              All Events ({events.length})
+              All Events ({counts.all})
             </button>
             <button
               onClick={() => setFilter("upcoming")}
@@ -162,7 +149,7 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
-              Upcoming ({events.filter((e) => e.status === "upcoming").length})
+              Upcoming ({counts.upcoming})
             </button>
             <button
               onClick={() => setFilter("completed")}
@@ -172,8 +159,7 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
                   : "bg-white text-gray-700 hover:bg-gray-100"
               }`}
             >
-              Completed ({events.filter((e) => e.status === "completed").length}
-              )
+              Completed ({counts.completed})
             </button>
           </div>
         </div>
