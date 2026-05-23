@@ -14,7 +14,7 @@ export function OrganizationSchema() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "General Inquiries",
-      email: "contact@cs.avv.ie",
+      email: "computersociety.avv@gmail.com",
     },
     location: {
       "@type": "Place",

@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-[ieee-blue] to-[ieee-blue-dark] text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-xl text-white/90 max-w-3xl">
@@ -129,7 +129,7 @@ export default function AboutPage() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="cs-card p-6 text-center">
-              <Target className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
+              <Target className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Excellence
               </h3>
@@ -138,7 +138,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="cs-card p-6 text-center">
-              <Users className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
+              <Users className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Collaboration
               </h3>
@@ -147,7 +147,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="cs-card p-6 text-center">
-              <Lightbulb className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
+              <Lightbulb className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Innovation
               </h3>
@@ -156,7 +156,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="cs-card p-6 text-center">
-              <Trophy className="h-12 w-12 text-[ieee-blue] mx-auto mb-4" />
+              <Trophy className="h-12 w-12 text-[#00629B] mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Leadership
               </h3>
@@ -169,7 +169,7 @@ export default function AboutPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-[ieee-cyan]/5">
+      <section className="py-16 bg-[#00B5E2]/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Why Join Our Chapter?
@@ -177,7 +177,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                🎓 Learning Opportunities
+                <span aria-hidden="true">🎓</span> Learning Opportunities
               </h3>
               <p className="text-gray-600">
                 Access to workshops, seminars, and technical talks by industry
@@ -186,7 +186,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                🤝 Networking
+                <span aria-hidden="true">🤝</span> Networking
               </h3>
               <p className="text-gray-600">
                 Connect with fellow students, alumni, and professionals in your
@@ -195,7 +195,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                💼 Career Development
+                <span aria-hidden="true">💼</span> Career Development
               </h3>
               <p className="text-gray-600">
                 Resume building, interview preparation, and job placement
@@ -204,7 +204,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                🏆 Competitions
+                <span aria-hidden="true">🏆</span> Competitions
               </h3>
               <p className="text-gray-600">
                 Participate in hackathons, coding competitions, and technical
@@ -213,7 +213,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                📚 Resources
+                <span aria-hidden="true">📚</span> Resources
               </h3>
               <p className="text-gray-600">
                 Access to IEEE Xplore digital library with millions of technical
@@ -222,7 +222,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                🌍 Global Community
+                <span aria-hidden="true">🌍</span> Global Community
               </h3>
               <p className="text-gray-600">
                 Be part of the world&apos;s largest technical professional
