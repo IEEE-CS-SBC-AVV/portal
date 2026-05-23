@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { User, Search, Filter } from "lucide-react";
+import { Search, Filter } from "lucide-react";
 import Link from "next/link";
+import { GradientAvatar } from "@/components/GradientAvatar";
 import committeeData from "../committee/members.json";
 
 interface Member {
@@ -56,14 +57,16 @@ export default function ScopeMembersPage() {
     return matchesSearch && matchesDepartment && matchesYear;
   });
 
-  const departments = [...new Set(allMembers.map((member) => member.department))];
+  const departments = [
+    ...new Set(allMembers.map((member) => member.department)),
+  ];
   const years = [...new Set(allMembers.map((member) => member.year))];
   const uniqueRoles = new Set(allMembers.map((member) => member.role)).size;
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-20">
+      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Scope Members</h1>
           <p className="text-xl text-white/90 max-w-3xl">
@@ -76,31 +79,33 @@ export default function ScopeMembersPage() {
       {/* Stats Section */}
       <section className="py-12 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div className="p-4">
-                <div className="text-4xl font-bold text-[#00629B] mb-2">
-                  {allMembers.length}
-                </div>
-                <div className="text-gray-600">Total Members</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {allMembers.length}
               </div>
-              <div className="p-4">
-                <div className="text-4xl font-bold text-[#00629B] mb-2">
-                  {departments.length}
-                </div>
-                <div className="text-gray-600">Departments</div>
+              <div className="text-gray-600">Total Members</div>
+            </div>
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {departments.length}
               </div>
-              <div className="p-4">
-                <div className="text-4xl font-bold text-[#00629B] mb-2">
-                  {years.length}
-                </div>
-                <div className="text-gray-600">Academic Levels</div>
+              <div className="text-gray-600">Departments</div>
+            </div>
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {years.length}
               </div>
-              <div className="p-4">
-                <div className="text-4xl font-bold text-[#00629B] mb-2">{uniqueRoles}</div>
-                <div className="text-gray-600">Committee Roles</div>
+              <div className="text-gray-600">Academic Levels</div>
+            </div>
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {uniqueRoles}
               </div>
+              <div className="text-gray-600">Committee Roles</div>
             </div>
           </div>
+        </div>
       </section>
 
       {/* Search and Filter Section */}
@@ -169,7 +174,9 @@ export default function ScopeMembersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredMembers.length === 0 ? (
             <div className="text-center py-12">
-              <User className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <GradientAvatar name="empty" size="sm" />
+              </div>
               <p className="text-xl text-gray-600">No members found</p>
               <p className="text-gray-500 mt-2">
                 Try adjusting your search or filters
@@ -179,9 +186,9 @@ export default function ScopeMembersPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredMembers.map((member) => (
                 <div key={member.id} className="cs-card p-6 bg-white">
-                  {/* Avatar Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-4 bg-[#00B5E2]/10 rounded-full flex items-center justify-center">
-                    <User className="w-12 h-12 text-[#00629B]" />
+                  {/* Avatar */}
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden flex items-center justify-center">
+                    <GradientAvatar name={member.name} size="md" />
                   </div>
 
                   {/* Member Info */}

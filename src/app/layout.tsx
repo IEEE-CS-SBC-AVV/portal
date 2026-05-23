@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { OrganizationSchema } from "@/components/StructuredData";
+import {
+  OrganizationSchema,
+  BreadcrumbSchema,
+} from "@/components/StructuredData";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cs.avv.ie"),
   title: {
     default: "IEEE CS SBC AVV - Computer Society Student Branch",
     template: "%s | IEEE CS SBC AVV",
@@ -53,9 +59,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  verification: {
-    google: "google-site-verification",
-  },
 };
 
 export default function RootLayout({
@@ -65,8 +68,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>{/* Fonts moved to globals.css per Next.js best practices */}
+      <head>
         <OrganizationSchema />
+        <BreadcrumbSchema />
       </head>
       <body>
         {/* Accessibility: Skip to main content link (WCAG Requirement) */}
@@ -74,13 +78,15 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-white">
           <Navbar />
           <main id="main-content" className="flex-1">
             {children}
           </main>
           <Footer />
         </div>
+        <SpeedInsights />
+        <Toaster position="top-center" richColors closeButton />
       </body>
     </html>
   );

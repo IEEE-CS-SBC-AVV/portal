@@ -39,6 +39,15 @@
   --text-light: #4a4a4a;
 }
 
+.dark {
+  --background: #030712; /* gray-950 */
+  --foreground: #f9fafb; /* gray-50 */
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-light: #9ca3af;
+  --cs-white: #111827; /* gray-900 for dark cards */
+}
+
 /* Base Typography - IEEE Computer Society Standards */
 body {
   font-family:
@@ -54,7 +63,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: #ffffff;
+  background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -287,7 +296,7 @@ h6 {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   background: var(--cs-white);
-  color: #1a1a1a !important;
+  color: var(--text-primary) !important;
   transition: all 0.2s ease-in-out;
   min-height: 44px;
 }
@@ -331,7 +340,7 @@ textarea.cs-input {
   font-weight: 600;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
-  color: #1a1a1a !important;
+  color: var(--text-primary) !important;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -351,7 +360,7 @@ textarea.cs-input {
 }
 
 .cs-helper-text {
-  color: #4a4a4a;
+  color: var(--text-light);
   font-size: 0.875rem;
   margin-top: 0.375rem;
   font-family: "Open Sans", sans-serif;
@@ -368,7 +377,7 @@ textarea.cs-input {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   background: var(--cs-white);
-  color: #1a1a1a !important;
+  color: var(--text-primary) !important;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   min-height: 44px;
@@ -701,4 +710,40 @@ a.btn-cs-outline,
     box-shadow: none;
     border: 1px solid #000000;
   }
+}
+
+/* Dark Mode Component Overrides */
+.dark .cs-card {
+  border-color: #1f2937; /* gray-800 */
+}
+.dark .cs-card-footer {
+  background-color: #111827; /* gray-900 */
+  border-top-color: #1f2937;
+}
+.dark .cs-input,
+.dark .cs-select {
+  border-color: #374151; /* gray-700 */
+}
+.dark .cs-input:hover,
+.dark .cs-select:hover {
+  border-color: #4b5563; /* gray-600 */
+}
+.dark .cs-input:disabled {
+  background-color: #1f2937;
+  color: #6b7280;
+}
+.dark .cs-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f9fafb' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+.dark .cs-badge-blue {
+  background-color: rgba(0, 98, 155, 0.2);
+  color: #60a5fa; /* light blue */
+}
+.dark .cs-badge-orange {
+  background-color: rgba(255, 163, 0, 0.2);
+  color: #f97316; /* orange */
+}
+.dark .cs-badge-cyan {
+  background-color: rgba(0, 181, 226, 0.2);
+  color: #22d3ee;
 }
