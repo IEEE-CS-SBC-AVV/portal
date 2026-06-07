@@ -5,6 +5,7 @@ import { Search, Filter } from "lucide-react";
 import Link from "next/link";
 import { GradientAvatar } from "@/components/GradientAvatar";
 import committeeData from "../committee/members.json";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 interface Member {
   id: string;
@@ -65,6 +66,7 @@ export default function ScopeMembersPage() {
 
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Scope Members" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

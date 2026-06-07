@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Scope Members",
   description:
-    "Scope members of IEEE Computer Society Student Branch at Amrita - active participants and contributors to our chapter.",
+    "Meet the active members of IEEE Computer Society Student Branch at Amrita. Search and filter through our technical community.",
 };
 
 export default function ScopeMembersLayout({
@@ -11,5 +11,5 @@ export default function ScopeMembersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }

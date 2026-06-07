@@ -14,6 +14,7 @@ Current status: Phase 2+ complete — 20 pages pre-rendered, zero ESLint warning
 npm ci                          # install (use `npm ci`, NOT `npm install`)
 npm run lint                    # ESLint — checks .ts,.tsx only
 npm run type-check              # tsc --noEmit (strict mode)
+npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"   # CI also runs this in lint job
 npm run build                   # next build (Turbopack, ~2.7s)
 npm run test                    # Vitest — runs all *.test.ts files
 npm run test:watch              # Vitest watch mode
@@ -22,7 +23,7 @@ npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"   # CI format check
 npm run dev                     # dev server on http://localhost:3000
 ```
 
-CI pipeline order: lint -> type-check -> build -> test-build. PR workflow includes TODO/FIXME diff check. Both workflows on Node 20, npm ci.
+CI pipeline order: lint -> type-check -> build -> test-build -> status-check (parallel lint + type-check first). PR workflow includes TODO/FIXME diff check. Both workflows on Node 20, npm ci.
 
 ---
 
@@ -61,7 +62,7 @@ portal/
 │   │   ├── committee/
 │   │   │   ├── page.tsx           # Faculty Advisor + Executive + Treasurer + ECC + Webmaster + Content + Design + Newsletter + WICE
 │   │   │   └── members.json       # REAL committee data (14 members + advisor, normalized photo paths)
-│   │   ├── contact/page.tsx       # "use client" — React Hook Form + EmailJS + Google Maps + office hours + social
+│   │   ├── contact/page.tsx       # "use client" — React Hook Form + Formspree + Google Maps + office hours + social
 │   │   ├── events/
 │   │   │   ├── page.tsx           # Server: loads markdown events -> passes raw date strings to EventFilterClient
 │   │   │   ├── loading.tsx        # Skeleton loading state for events
@@ -97,16 +98,15 @@ portal/
 │       └── index.ts               # NavLink, SocialLink, TeamMember, CommitteeData, Event, EventType, etc.
 ├── vitest.config.ts               # Vitest with jsdom, React plugin, @/ alias
 ├── src/test/setup.ts              # jest-dom matchers for Vitest
-├── .env.example                   # 3 EmailJS vars (NEXT_PUBLIC_EMAILJS_*)
-├── EMAILJS_SETUP.md               # 5-minute setup guide
+├── .env.example                   # Formspree endpoint (NEXT_PUBLIC_FORMSPREE_ENDPOINT)
+
 ├── next.config.ts                 # reactCompiler: true
 ├── tsconfig.json                  # strict: true, paths: @/* -> ./src/*
-├── tailwind.config.ts             # ieee-* color tokens, shadows, font sizing
 ├── postcss.config.mjs             # @tailwindcss/postcss plugin
 ├── eslint.config.mjs              # Flat config (eslint-config-next core-web-vitals + typescript)
 ├── .prettierrc.json               # semi, trailingComma: es5, singleQuote: false, printWidth: 80
 ├── .prettierignore                # .next, node_modules, out, build, dist, *.lock
-├── .gitignore                     # Ignores .env*.local, TODO.md, ROADMAP.md, EMAILJS_SETUP.md, IMAGE.md, copilot-instructions.md
+├── .gitignore                     # Ignores .env*.local, TODO.md, ROADMAP.md, IMAGE.md, copilot-instructions.md
 └── .github/workflows/
     ├── ci.yml                     # Push + PR on main/dev/staging: lint, type-check, build, test-build, status-check
     └── pr-check.yml               # PR-only: lint, type-check, build, test-build, todo-check, preview-deployment, pr-summary
@@ -126,7 +126,7 @@ portal/
 | `/events`        | `events/page.tsx`                             | Server -> Client | `getEvents()` from `content/events/*.md`         |
 | `/events/[slug]` | `events/[slug]/page.tsx`                      | SSG              | `getEventBySlug()` from markdown                 |
 | `/gallery`       | `gallery/page.tsx`                            | Client           | Committee photos from `public/images/committee/` |
-| `/contact`       | `contact/page.tsx`                            | Client           | EmailJS env vars                                 |
+| `/contact`       | `contact/page.tsx`                            | Client           | Formspree endpoint                               |
 | `/join`          | `join/page.tsx`                               | Server           | `MEMBERSHIP_PRICING`, includes NewsletterSignup  |
 | `/news`          | `news/page.tsx`                               | Server           | `getNews()` from `content/news/*.md`             |
 | `/news/[slug]`   | `news/[slug]/page.tsx`                        | SSG              | Markdown news articles                           |
@@ -225,7 +225,7 @@ portal/
 | `framer-motion` ^12.38.0                                                    | Page transitions + card hover animations |
 | `lucide-react` ^0.555.0                                                     | All icons                                |
 | `react-hook-form` ^7.67.0                                                   | Contact form                             |
-| `@emailjs/browser` ^4.4.1                                                   | Email sending (needs .env.local)         |
+| `react-markdown` ^10 + `remark-gfm` ^4                                      | Markdown rendering (events & news)       |
 | `sonner` ^2.0.7                                                             | Toast notifications                      |
 | `gray-matter` ^4.0.3                                                        | Markdown frontmatter parsing             |
 | `date-fns` ^4.1.0                                                           | Event date formatting                    |
@@ -237,19 +237,14 @@ portal/
 
 ---
 
-## Contact Form (EmailJS)
+## Contact Form (Formspree)
 
 - `src/app/contact/page.tsx` (client component)
 - `react-hook-form` validation: name (min 2), email (pattern), subject (min 5), message (min 10)
-- Sends via `@emailjs/browser` with env vars:
-  ```
-  NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-  NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  ```
-- Template params: `from_name`, `from_email`, `subject`, `message`, `to_email`
-- Shows `sonner` toast on success/failure. Without `.env.local`: "EmailJS configuration missing" toast.
-- Setup guide: `EMAILJS_SETUP.md`
+- Sends via `fetch` to Formspree endpoint (`NEXT_PUBLIC_FORMSPREE_ENDPOINT`)
+- Newsletter signup also uses the same Formspree endpoint
+- Shows `sonner` toast on success/failure. Without `.env.local`: "Form service not configured" toast.
+- Setup: create a free form at https://formspree.io and set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` in `.env.local`
 
 ---
 
@@ -285,7 +280,7 @@ portal/
 
 ## SEO & Structured Data
 
-- Root metadata: title template `"%s | IEEE CS SBC AVV"`, canonical `https://cs.avv.ie`, OG image `/assests/Society.jpg`, Twitter card, robots
+- Root metadata: title template `"%s | IEEE CS SBC AVV"`, canonical `https://cs.avv.ie`, OG image `/assets/Society.jpg`, Twitter card, robots
 - Each page exports unique `metadata`
 - `OrganizationSchema` + `BreadcrumbSchema` render JSON-LD in `<head>` from `layout.tsx`
 - **Sitemap**: `/sitemap.xml` covers all static + event + news routes
@@ -315,7 +310,7 @@ portal/
 - **TypeScript**: strict, `noEmit: true`, `@/*` = `./src/*`
 - **Prettier**: double quotes (`singleQuote: false`), semicolons, trailing commas (es5), 80 width
 - **Module system**: `"module": "esnext"`, `"moduleResolution": "bundler"` — no import extensions
-- ESLint: flat config (`eslint.config.mjs`). Old `.eslintrc.json` is present but ignored
+- ESLint: flat config (`eslint.config.mjs`)
 
 ### Styling Gotchas
 

@@ -42,7 +42,7 @@ export default function HomePageClient() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/assests/home.jpeg')",
+            backgroundImage: "url('/assets/home.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
@@ -177,7 +177,7 @@ export default function HomePageClient() {
               <div className="bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-44 h-44 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-50 transition-colors">
                   <Image
-                    src="/assests/ieee.png"
+                    src="/assets/ieee.png"
                     alt="IEEE Membership"
                     width={225}
                     height={225}
@@ -238,7 +238,7 @@ export default function HomePageClient() {
               <div className="bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-44 h-44 mx-auto mb-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-50 transition-colors">
                   <Image
-                    src="/assests/Society.jpg"
+                    src="/assets/Society.jpg"
                     alt="Computer Society"
                     width={200}
                     height={200}
@@ -341,7 +341,7 @@ export default function HomePageClient() {
 
       {/* Call to Action Section */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#00629B] to-[#002855] text-white">
-        <div className="absolute inset-0 bg-[url('/assests/home.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/assets/home.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

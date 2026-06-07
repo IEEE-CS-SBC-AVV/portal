@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Users,
@@ -10,10 +11,18 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "Join",
+  description:
+    "Join IEEE Computer Society Student Branch at Amrita. Learn about membership benefits, pricing, and how to become part of our technical community.",
+};
 
 export default function JoinPage() {
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Join" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

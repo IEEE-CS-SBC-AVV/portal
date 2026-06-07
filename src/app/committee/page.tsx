@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MemberCard } from "@/components/MemberCard";
 import committeeData from "./members.json";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Committee",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function CommitteePage() {
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Committee" }]} />
       {/* Page Header */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +50,7 @@ export default function CommitteePage() {
       </section>
 
       {/* Treasurer */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Treasurer
@@ -62,7 +64,7 @@ export default function CommitteePage() {
       </section>
 
       {/* Technical Team */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Executive Core Committee
@@ -141,7 +143,7 @@ export default function CommitteePage() {
       </section>
 
       {/* WICE Representative */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             WICE Representative

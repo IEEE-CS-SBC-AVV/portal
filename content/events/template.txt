@@ -1,11 +1,25 @@
 ---
 title: Event Title
 date: YYYY-MM-DD
-type: workshop|seminar|hackathon|webinar|competition
-location: Location Name
+time: "HH:MM AM - HH:MM PM"
+type: workshop|seminar|hackathon|webinar|competition|social|other
+location: Room/Building
 speakers:
   - name: Speaker Name
     title: Optional Title
+resources:
+  - title: Workshop Slides
+    url: https://drive.google.com/...
+    type: slides
+  - title: Code Repository
+    url: https://github.com/...
+    type: github
+  - title: Recording
+    url: https://youtube.com/watch?v=...
+    type: video
+registrationUrl: https://forms.google.com/...
+poster: /images/events/event-poster.jpg
+featured: true
 excerpt: Short description
 ---
 

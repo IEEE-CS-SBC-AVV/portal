@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Users,
   MessageSquare,
@@ -8,10 +9,18 @@ import {
   CheckCircle,
   ExternalLink,
 } from "lucide-react";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "Collabratec",
+  description:
+    "Discover IEEE Collabratec — the collaborative platform for the global IEEE community. Connect, share, and collaborate with technical professionals worldwide.",
+};
 
 export default function CollabratecPage() {
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Collabratec" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

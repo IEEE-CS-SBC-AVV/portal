@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
 import { toast } from "sonner";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 interface ContactFormData {
   name: string;
@@ -27,36 +27,34 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // Send email via EmailJS
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error(
-          "EmailJS configuration missing. Please check .env.local file."
-        );
+      if (!endpoint) {
+        toast.error("Form service not configured", {
+          description:
+            "Please email us directly at computersociety.avv@gmail.com",
+        });
+        return;
       }
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: data.name,
-          from_email: data.email,
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
           subject: data.subject,
           message: data.message,
-          to_email: "computersociety.avv@gmail.com",
-        },
-        publicKey
-      );
+        }),
+      });
+
+      if (!response.ok) throw new Error("Formspree error");
 
       toast.success("Message sent successfully!", {
         description: "Thank you! We'll get back to you soon.",
       });
       reset();
-    } catch (error) {
-      console.error("Email sending error:", error);
+    } catch {
       toast.error("Failed to send message", {
         description:
           "Something went wrong. Please try again or email us directly.",
@@ -68,6 +66,7 @@ export default function ContactPage() {
 
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Contact" }]} />
       {/* Page Header */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Calendar, MapPin, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
 
 export interface Event {
@@ -128,39 +129,35 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
   return (
     <>
       {/* Filter Buttons */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-8 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center space-x-4">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                filter === "all"
-                  ? "bg-[#00629B] text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              All Events ({counts.all})
-            </button>
-            <button
-              onClick={() => setFilter("upcoming")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                filter === "upcoming"
-                  ? "bg-[#00629B] text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              Upcoming ({counts.upcoming})
-            </button>
-            <button
-              onClick={() => setFilter("completed")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                filter === "completed"
-                  ? "bg-[#00629B] text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              Completed ({counts.completed})
-            </button>
+          <div className="flex justify-center space-x-2 sm:space-x-4">
+            {(["all", "upcoming", "completed"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setFilter(tab)}
+                className={`relative px-5 sm:px-6 py-2.5 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 ${
+                  filter === tab
+                    ? "bg-[#00629B] text-white shadow-md"
+                    : "bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                }`}
+              >
+                {tab === "all"
+                  ? "All Events"
+                  : tab === "upcoming"
+                    ? "Upcoming"
+                    : "Completed"}{" "}
+                <span
+                  className={`inline-flex items-center justify-center ml-1.5 min-w-[22px] h-[22px] rounded-full text-xs font-bold ${
+                    filter === tab
+                      ? "bg-white/20 text-white"
+                      : "bg-[#00629B]/10 text-[#00629B]"
+                  }`}
+                >
+                  {counts[tab]}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -168,23 +165,41 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
       {/* Events Grid */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredEvents.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">No events found.</p>
-            </div>
-          ) : (
-            <div
-              className={`grid gap-8 ${
-                filteredEvents.length === 1
-                  ? "grid-cols-1 max-w-md mx-auto"
-                  : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-              }`}
-            >
-              {filteredEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-            </div>
-          )}
+          <AnimatePresence mode="wait">
+            {filteredEvents.length === 0 ? (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-center py-16"
+              >
+                <p className="text-gray-500 text-lg">No events found.</p>
+                <p className="text-gray-400 text-sm mt-2">
+                  {filter === "upcoming"
+                    ? "Check back soon for upcoming events!"
+                    : "No completed events to show."}
+                </p>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={filter}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className={`grid gap-8 ${
+                  filteredEvents.length === 1
+                    ? "grid-cols-1 max-w-md mx-auto"
+                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {filteredEvents.map((event) => (
+                  <EventCard key={event.id} event={event} />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
     </>

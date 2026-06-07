@@ -4,7 +4,7 @@ export function OrganizationSchema() {
     "@type": "Organization",
     name: "IEEE Computer Society Student Branch Committee",
     url: "https://cs.avv.ie",
-    logo: "https://cs.avv.ie/assests/Society.jpg",
+    logo: "https://cs.avv.ie/assets/Society.jpg",
     description:
       "IEEE Computer Society Student Branch Committee at Amrita Vishwa Vidyapeetham - Empowering students through technology, innovation, and professional development.",
     sameAs: [

@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
-import { Target, Users, Lightbulb, Trophy } from "lucide-react";
+import {
+  Target,
+  Users,
+  Lightbulb,
+  Trophy,
+  CalendarCheck,
+  GraduationCap,
+  Building2,
+} from "lucide-react";
 import { SITE_CONFIG, STATS } from "@/lib/constants";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -11,6 +20,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "About Us" }]} />
       {/* Page Header */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,6 +172,69 @@ export default function AboutPage() {
               </h3>
               <p className="text-gray-600">
                 Developing future leaders in technology and engineering
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Our Achievements
+          </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Milestones that mark our journey since establishment in{" "}
+            {SITE_CONFIG.established}
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="cs-card p-8 text-center bg-white">
+              <div className="w-16 h-16 bg-[#00629B]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CalendarCheck className="h-8 w-8 text-[#00629B]" />
+              </div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {STATS.eventsYearly}+
+              </div>
+              <div className="text-gray-600 font-semibold mb-2">
+                Events Per Year
+              </div>
+              <p className="text-sm text-gray-500">
+                Workshops, seminars, hackathons, and competitions organized
+                annually
+              </p>
+            </div>
+
+            <div className="cs-card p-8 text-center bg-white">
+              <div className="w-16 h-16 bg-[#00629B]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <GraduationCap className="h-8 w-8 text-[#00629B]" />
+              </div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {STATS.workshops}+
+              </div>
+              <div className="text-gray-600 font-semibold mb-2">
+                Workshops Conducted
+              </div>
+              <p className="text-sm text-gray-500">
+                Hands-on technical sessions covering AI, ML, web development,
+                and more
+              </p>
+            </div>
+
+            <div className="cs-card p-8 text-center bg-white">
+              <div className="w-16 h-16 bg-[#00629B]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Building2 className="h-8 w-8 text-[#00629B]" />
+              </div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {STATS.awards}+
+              </div>
+              <div className="text-gray-600 font-semibold mb-2">
+                Awards & Recognition
+              </div>
+              <p className="text-sm text-gray-500">
+                Accolades earned by members in technical competitions and
+                hackathons
               </p>
             </div>
           </div>

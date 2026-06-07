@@ -1,5 +1,6 @@
 import { Camera } from "lucide-react";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumbs segments={[{ label: "Gallery" }]} />
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-10 w-40 h-40 bg-white rounded-full mix-blend-overlay filter blur-2xl"></div>

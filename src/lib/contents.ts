@@ -5,6 +5,12 @@ import matter from "gray-matter";
 const contentDirectory = path.join(process.cwd(), "content");
 
 // Event Types
+export interface EventResource {
+  title: string;
+  url: string;
+  type?: "slides" | "github" | "video" | "link";
+}
+
 export interface EventFrontmatter {
   title: string;
   date: string;
@@ -22,6 +28,8 @@ export interface EventFrontmatter {
     name: string;
     title?: string;
   }>;
+  resources?: EventResource[];
+  registrationUrl?: string;
   poster?: string;
   featured?: boolean;
   excerpt: string;
