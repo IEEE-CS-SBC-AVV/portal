@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Join our vibrant community of technology enthusiasts and innovators at Amrita Vishwa Vidyapeetham.",
     images: [
       {
-        url: "/assests/home.jpeg",
+        url: "/assets/home.jpeg",
         width: 1200,
         height: 600,
         alt: "IEEE Computer Society Student Branch Homepage",

@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Calendar, ArrowLeft } from "lucide-react";
 import { getNews } from "@/lib/contents";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,6 +42,9 @@ export default async function NewsDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Breadcrumbs
+        segments={[{ label: "News", href: "/news" }, { label: article.title }]}
+      />
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
@@ -61,19 +67,9 @@ export default async function NewsDetailPage({ params }: Props) {
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl shadow-sm p-8 md:p-12 prose prose-lg max-w-none">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: article.content
-                  .replace(/^### (.*$)/gm, "<h3>$1</h3>")
-                  .replace(/^## (.*$)/gm, "<h2>$1</h2>")
-                  .replace(/^# (.*$)/gm, "<h1>$1</h1>")
-                  .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                  .replace(/\n\n/g, "</p><p>")
-                  .replace(/^- (.*)/gm, "<li>$1</li>")
-                  .replace(/<\/li>\n<li>/g, "</li><li>")
-                  .replace(/(<li>[\s\S]*<\/li>)/, "<ul>$1</ul>"),
-              }}
-            />
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {article.content}
+            </ReactMarkdown>
           </div>
         </div>
       </section>

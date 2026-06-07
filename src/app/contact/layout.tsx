@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact",
   description:
-    "Get in touch with IEEE Computer Society Student Branch at Amrita. Contact us for events, membership inquiries, or collaborations.",
+    "Get in touch with IEEE Computer Society Student Branch at Amrita. Reach out via email, visit our campus, or connect on social media.",
 };
 
 export default function ContactLayout({
@@ -11,5 +11,5 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }

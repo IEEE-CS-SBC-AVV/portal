@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import { getEvents } from "@/lib/contents";
 import EventFilterClient from "@/components/EventFilterClient";
 import type { Event } from "@/components/EventFilterClient";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "Events",
+  description:
+    "Browse upcoming and past events organized by IEEE Computer Society Student Branch at Amrita — workshops, seminars, hackathons, and more.",
+};
 
 export default function EventsPage() {
   const mdEvents = getEvents();
@@ -30,6 +38,7 @@ export default function EventsPage() {
 
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "Events" }]} />
       {/* Page Header */}
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="absolute inset-0 opacity-10">

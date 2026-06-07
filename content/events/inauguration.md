@@ -8,6 +8,7 @@ speakers:
   - name: Dr. Arun
     title: IEEE Computer Society Secretary, Madras Region
 excerpt: Chapter inauguration ceremony featuring logo reveal and strategic planning for the next 4 months
+featured: true
 ---
 
 ## About This Event

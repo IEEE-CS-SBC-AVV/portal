@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Calendar, ArrowRight } from "lucide-react";
 import { getNews } from "@/lib/contents";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "News",
@@ -14,6 +15,7 @@ export default function NewsPage() {
 
   return (
     <div>
+      <Breadcrumbs segments={[{ label: "News" }]} />
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
