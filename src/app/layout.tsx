@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import {
-  OrganizationSchema,
-  BreadcrumbSchema,
-} from "@/components/StructuredData";
+import { OrganizationSchema } from "@/components/StructuredData";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "sonner";
 
@@ -42,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "IEEE CS SBC AVV",
     images: [
       {
-        url: "/assests/Society.jpg",
+        url: "/assets/Society.jpg",
         width: 1200,
         height: 630,
         alt: "IEEE Computer Society Student Branch",
@@ -53,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IEEE CS SBC AVV",
     description: "Advancing technology for humanity through student innovation",
-    images: ["/assests/Society.jpg"],
+    images: ["/assets/Society.jpg"],
   },
   robots: {
     index: true,
@@ -70,7 +67,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <OrganizationSchema />
-        <BreadcrumbSchema />
       </head>
       <body>
         {/* Accessibility: Skip to main content link (WCAG Requirement) */}

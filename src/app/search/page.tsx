@@ -1,14 +1,19 @@
 import { Suspense } from "react";
-import { getEvents } from "@/lib/contents";
+import { getEvents, getNews } from "@/lib/contents";
 import SearchResultsClient from "./SearchResultsClient";
 import type { Event } from "@/components/EventFilterClient";
+import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Search Results",
+  description:
+    "Search events, news, and resources across the IEEE Computer Society Student Branch website.",
 };
 
 export default function SearchPage() {
   const mdEvents = getEvents();
+  const mdNews = getNews();
 
   const events: Event[] = mdEvents.map((mdEvent, index) => ({
     id: mdEvent.slug || `event-${index}`,
@@ -35,12 +40,11 @@ export default function SearchPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Breadcrumbs segments={[{ label: "Search" }]} />
       <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-2">Search Results</h1>
-          <p className="text-xl text-white/90">
-            Find events, resources, and more
-          </p>
+          <p className="text-xl text-white/90">Find events, news, and more</p>
         </div>
       </section>
 
@@ -51,7 +55,7 @@ export default function SearchPage() {
           </div>
         }
       >
-        <SearchResultsClient events={events} />
+        <SearchResultsClient events={events} news={mdNews} />
       </Suspense>
     </div>
   );

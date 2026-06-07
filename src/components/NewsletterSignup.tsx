@@ -6,17 +6,48 @@ import { toast } from "sonner";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast.error("Please enter a valid email address");
       return;
     }
-    setSubmitted(true);
-    toast.success("You've been subscribed to our newsletter!");
-    setEmail("");
+
+    setSubmitting(true);
+
+    try {
+      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+
+      if (!endpoint) {
+        toast.error("Form service not configured", {
+          description:
+            "Please email us directly at computersociety.avv@gmail.com",
+        });
+        return;
+      }
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, _subject: "Newsletter Signup" }),
+      });
+
+      if (!response.ok) throw new Error("Formspree error");
+
+      setSubmitted(true);
+      toast.success("You've been subscribed to our newsletter!");
+      setEmail("");
+    } catch {
+      toast.error("Failed to subscribe", {
+        description:
+          "Something went wrong. Please try again or email us directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -54,8 +85,12 @@ export function NewsletterSignup() {
           className="cs-input text-center"
           required
         />
-        <button type="submit" className="btn-cs-primary w-full">
-          Subscribe to Newsletter
+        <button
+          type="submit"
+          disabled={submitting}
+          className="btn-cs-primary w-full"
+        >
+          {submitting ? "Subscribing..." : "Subscribe to Newsletter"}
         </button>
       </form>
     </div>

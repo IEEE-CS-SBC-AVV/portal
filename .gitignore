@@ -56,8 +56,6 @@ Thumbs.db
 *.tmp
 
 # Some Markdowns
-/TODO.md
-/ROADMAP.md
 /EMAILJS_SETUP.md
 /IMAGE.md
 

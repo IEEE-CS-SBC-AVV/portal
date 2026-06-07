@@ -92,7 +92,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:opacity-80 transition shadow-sm">
                 <Image
-                  src="/assests/Society.jpg"
+                  src="/assets/Society.jpg"
                   alt="IEEE CS SBC Logo"
                   width={44}
                   height={44}
