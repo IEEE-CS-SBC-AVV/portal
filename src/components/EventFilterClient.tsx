@@ -1,70 +1,63 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Link from "next/link";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { useState, useMemo, useRef } from "react";
+import Image from "next/image";
+import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { format } from "date-fns";
+import { EVENT_TYPE_COLORS } from "@/lib/constants";
+import { isUpcoming, formatDate } from "@/lib/utils";
+import type { Event } from "@/lib/types";
 
-export interface Event {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  type:
-    | "workshop"
-    | "seminar"
-    | "hackathon"
-    | "webinar"
-    | "competition"
-    | "social"
-    | "other";
-  description: string;
-  speaker?: string;
-}
-
-function isUpcoming(dateStr: string): boolean {
-  try {
-    return new Date(dateStr) > new Date();
-  } catch {
-    return false;
-  }
-}
+const EVENT_EMOJI: Record<string, string> = {
+  workshop: "🔬",
+  seminar: "🎤",
+  hackathon: "💻",
+  webinar: "🎥",
+  competition: "🏁",
+  social: "🎉",
+  other: "📌",
+};
 
 function EventCard({ event }: { event: Event }) {
-  const upcoming = isUpcoming(event.date);
+  const upcoming = isUpcoming(event.date, event.time);
 
-  const typeColors: Record<string, string> = {
-    workshop: "bg-[#00B5E2]/10 text-[#004D66]",
-    seminar: "bg-[#78BE20]/10 text-[#3D5F13]",
-    hackathon: "bg-[#981D97]/10 text-[#772583]",
-    webinar: "bg-[#FFD100]/10 text-[#7A6300]",
-    competition: "bg-[#BA0C2F]/10 text-[#6E0916]",
-    social: "bg-[#009CA6]/10 text-[#005D63]",
-    other: "bg-[#75787b]/10 text-[#4A4A4A]",
-  };
+  const typeColors = EVENT_TYPE_COLORS;
 
   const statusColor = upcoming ? "bg-[#78BE20]" : "bg-[#75787b]";
 
-  const formattedDate = (() => {
-    try {
-      const d = new Date(event.date);
-      if (isNaN(d.getTime())) return event.date;
-      return format(d, "MMMM d, yyyy");
-    } catch {
-      return event.date;
-    }
-  })();
+  const formattedDate = formatDate(event.date);
 
   return (
-    <Link href={`/events/${event.id}`} className="block no-underline group">
-      <div className="cs-card p-6 bg-white group-hover:shadow-lg transition-shadow">
-        {/* Status Badge */}
+    <a
+      href={`/events/${event.id}`}
+      className="cs-card bg-white hover:shadow-lg transition-shadow overflow-hidden cursor-pointer group block no-underline"
+      aria-label={`View details for ${event.title}`}
+    >
+      {event.poster && (
+        <div className="relative w-full h-48 overflow-hidden">
+          {event.featured && (
+            <div className="absolute top-3 left-3 z-10 px-2.5 py-1 bg-[#FFA300] text-black text-xs font-bold rounded-full shadow-md flex items-center gap-1">
+              <span aria-hidden="true">⭐</span> Featured
+            </div>
+          )}
+          <Image
+            src={event.poster}
+            alt={`${event.title} poster`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      )}
+
+      <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <span
             className={`px-3 py-1 rounded-full text-xs font-semibold ${typeColors[event.type] || typeColors.other}`}
           >
+            <span aria-hidden="true">
+              {EVENT_EMOJI[event.type] || EVENT_EMOJI.other}{" "}
+            </span>
             {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
           </span>
           <span
@@ -74,12 +67,10 @@ function EventCard({ event }: { event: Event }) {
           </span>
         </div>
 
-        {/* Event Title */}
         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00629B] transition-colors">
           {event.title}
         </h3>
 
-        {/* Event Details */}
         <div className="space-y-2 mb-4 text-gray-600">
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2 text-[#00629B]" />
@@ -95,19 +86,30 @@ function EventCard({ event }: { event: Event }) {
           </div>
         </div>
 
-        {/* Speaker */}
         {event.speaker && (
           <p className="text-sm text-gray-700 mb-3">
             <span className="font-semibold">Speaker:</span> {event.speaker}
           </p>
         )}
 
-        {/* Description */}
         <p className="text-gray-600 mb-4 text-sm line-clamp-3">
           {event.description}
         </p>
+
+        {event.registrationUrl && upcoming && (
+          <a
+            href={event.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFA300] text-black text-sm font-semibold rounded-lg hover:bg-[var(--cs-orange-dark)] transition no-underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Ticket className="w-4 h-4" />
+            Register
+          </a>
+        )}
       </div>
-    </Link>
+    </a>
   );
 }
 
@@ -115,28 +117,40 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
   const [filter, setFilter] = useState<"all" | "upcoming" | "completed">("all");
 
   const counts = useMemo(() => {
-    const upcoming = events.filter((e) => isUpcoming(e.date)).length;
-    const completed = events.filter((e) => !isUpcoming(e.date)).length;
+    const upcoming = events.filter((e) => isUpcoming(e.date, e.time)).length;
+    const completed = events.filter((e) => !isUpcoming(e.date, e.time)).length;
     return { all: events.length, upcoming, completed };
   }, [events]);
 
-  const filteredEvents = events.filter((event) => {
-    if (filter === "all") return true;
-    const upcoming = isUpcoming(event.date);
-    return filter === "upcoming" ? upcoming : !upcoming;
-  });
+  const filteredEvents = useMemo(
+    () =>
+      events.filter((event) => {
+        if (filter === "all") return true;
+        const upcoming = isUpcoming(event.date, event.time);
+        return filter === "upcoming" ? upcoming : !upcoming;
+      }),
+    [events, filter]
+  );
+
+  const panelRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
-      {/* Filter Buttons */}
-      <section className="py-8 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 bg-[var(--warm-bg)] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center space-x-2 sm:space-x-4">
+          <div
+            className="flex justify-center space-x-2 sm:space-x-4"
+            role="tablist"
+            aria-label="Event filters"
+          >
             {(["all", "upcoming", "completed"] as const).map((tab) => (
               <button
                 key={tab}
+                role="tab"
+                aria-selected={filter === tab}
+                aria-controls="events-panel"
                 onClick={() => setFilter(tab)}
-                className={`relative px-5 sm:px-6 py-2.5 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 ${
+                className={`relative px-5 sm:px-6 py-2.5 min-h-[44px] rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 ${
                   filter === tab
                     ? "bg-[#00629B] text-white shadow-md"
                     : "bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
@@ -162,44 +176,52 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
         </div>
       </section>
 
-      {/* Events Grid */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-[var(--warm-bg)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatePresence mode="wait">
-            {filteredEvents.length === 0 ? (
-              <motion.div
-                key="empty"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="text-center py-16"
-              >
-                <p className="text-gray-500 text-lg">No events found.</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  {filter === "upcoming"
-                    ? "Check back soon for upcoming events!"
-                    : "No completed events to show."}
-                </p>
-              </motion.div>
-            ) : (
-              <motion.div
-                key={filter}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className={`grid gap-8 ${
-                  filteredEvents.length === 1
-                    ? "grid-cols-1 max-w-md mx-auto"
-                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                }`}
-              >
-                {filteredEvents.map((event) => (
-                  <EventCard key={event.id} event={event} />
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div
+            id="events-panel"
+            role="tabpanel"
+            ref={panelRef}
+            tabIndex={-1}
+            aria-live="polite"
+            className="focus:outline-none"
+          >
+            <AnimatePresence mode="wait">
+              {filteredEvents.length === 0 ? (
+                <motion.div
+                  key="empty"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="text-center py-16"
+                >
+                  <p className="text-gray-600 text-lg">No events found.</p>
+                  <p className="text-gray-600 text-sm mt-2">
+                    {filter === "upcoming"
+                      ? "Check back soon for upcoming events!"
+                      : "No completed events to show."}
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={filter}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className={`grid gap-8 ${
+                    filteredEvents.length === 1
+                      ? "grid-cols-1 max-w-md mx-auto"
+                      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                  }`}
+                >
+                  {filteredEvents.map((event) => (
+                    <EventCard key={event.id} event={event} />
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
     </>

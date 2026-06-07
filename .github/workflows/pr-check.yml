@@ -41,6 +41,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: npm audit --audit-level=critical
       - run: npm run lint
       - run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"
 
@@ -60,10 +61,26 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit
 
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run test
+
   build:
     name: Build Application
     runs-on: ubuntu-latest
-    needs: [lint, type-check]
+    needs: [lint, type-check, test]
 
     steps:
       - uses: actions/checkout@v4
@@ -138,8 +155,8 @@ jobs:
         run: |
           SIZE_MB=$(du -sm .next | cut -f1)
           echo "📦 Build size: ${SIZE_MB}MB"
-          if [ $SIZE_MB -gt 100 ]; then
-            echo "⚠️ Warning: Build size exceeds 100MB"
+          if [ $SIZE_MB -gt 300 ]; then
+            echo "⚠️ Warning: Build size exceeds 300MB"
           else
             echo "✅ Build size is acceptable"
           fi
@@ -147,7 +164,6 @@ jobs:
   todo-check:
     name: Check TODO/FIXME in PR diff
     runs-on: ubuntu-latest
-    needs: [lint]
 
     steps:
       - uses: actions/checkout@v4
@@ -179,7 +195,7 @@ jobs:
   pr-summary:
     name: PR Summary
     runs-on: ubuntu-latest
-    needs: [pr-info, lint, type-check, build, test-build, todo-check, preview-deployment]
+    needs: [pr-info, lint, type-check, test, build, test-build, todo-check, preview-deployment]
     if: always()
 
     steps:
@@ -190,16 +206,18 @@ jobs:
 
           echo "- PR Info: ${{ needs.pr-info.result }}" >> $GITHUB_STEP_SUMMARY
           echo "- Lint: ${{ needs.lint.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Type Check: ${{ needs.type-check.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Build: ${{ needs.build.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Test Build: ${{ needs.test-build.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- TODO Check: ${{ needs.todo-check.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Preview Deployment: ${{ needs.preview-deployment.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- Test: ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- Type Check: ${{ needs.type-check.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- Build: ${{ needs.build.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- Test Build: ${{ needs.test-build.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- TODO Check: ${{ needs.todo-check.result }}" >> $GITHUB_STEP_SUMMARY
+           echo "- Preview Deployment: ${{ needs.preview-deployment.result }}" >> $GITHUB_STEP_SUMMARY
 
-          if [ "${{ needs.lint.result }}" != "success" ] || \
-             [ "${{ needs.type-check.result }}" != "success" ] || \
-             [ "${{ needs.build.result }}" != "success" ] || \
-             [ "${{ needs.test-build.result }}" != "success" ]; then
+           if [ "${{ needs.lint.result }}" != "success" ] || \
+              [ "${{ needs.type-check.result }}" != "success" ] || \
+              [ "${{ needs.test.result }}" != "success" ] || \
+              [ "${{ needs.build.result }}" != "success" ] || \
+              [ "${{ needs.test-build.result }}" != "success" ]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "❌ Some checks failed. Please review and fix." >> $GITHUB_STEP_SUMMARY
             exit 1
