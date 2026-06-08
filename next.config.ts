@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
-import withBundleAnalyzer from "@next/bundle-analyzer";
-
-const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
   poweredByHeader: false,
   images: {
+    deviceSizes: [640, 768, 1024, 1280, 1536],
+    imageSizes: [96, 128, 256],
     remotePatterns: [
       {
         protocol: "https",
@@ -35,7 +31,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; font-src 'self'; frame-src https://www.google.com; connect-src 'self' https://formspree.io;",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src https://www.google.com; connect-src 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formspree.io; manifest-src 'self'; worker-src 'self';",
           },
         ],
       },
@@ -43,4 +39,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default bundleAnalyzer(nextConfig);
+export default nextConfig;
