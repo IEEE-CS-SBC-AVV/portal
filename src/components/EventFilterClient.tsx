@@ -1,120 +1,28 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
-import Image from "next/image";
-import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { EVENT_TYPE_COLORS } from "@/lib/constants";
-import { isUpcoming, formatDate } from "@/lib/utils";
+import { isUpcoming } from "@/lib/utils";
 import type { Event } from "@/lib/types";
+import { EventCard } from "./EventCard";
 
-const EVENT_EMOJI: Record<string, string> = {
-  workshop: "🔬",
-  seminar: "🎤",
-  hackathon: "💻",
-  webinar: "🎥",
-  competition: "🏁",
-  social: "🎉",
-  other: "📌",
-};
-
-function EventCard({ event }: { event: Event }) {
-  const upcoming = isUpcoming(event.date, event.time);
-
-  const typeColors = EVENT_TYPE_COLORS;
-
-  const statusColor = upcoming ? "bg-[#78BE20]" : "bg-[#75787b]";
-
-  const formattedDate = formatDate(event.date);
-
-  return (
-    <a
-      href={`/events/${event.id}`}
-      className="cs-card bg-white hover:shadow-lg transition-shadow overflow-hidden cursor-pointer group block no-underline"
-      aria-label={`View details for ${event.title}`}
-    >
-      {event.poster && (
-        <div className="relative w-full h-48 overflow-hidden">
-          {event.featured && (
-            <div className="absolute top-3 left-3 z-10 px-2.5 py-1 bg-[#FFA300] text-black text-xs font-bold rounded-full shadow-md flex items-center gap-1">
-              <span aria-hidden="true">⭐</span> Featured
-            </div>
-          )}
-          <Image
-            src={event.poster}
-            alt={`${event.title} poster`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-      )}
-
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold ${typeColors[event.type] || typeColors.other}`}
-          >
-            <span aria-hidden="true">
-              {EVENT_EMOJI[event.type] || EVENT_EMOJI.other}{" "}
-            </span>
-            {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-          </span>
-          <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${statusColor}`}
-          >
-            {upcoming ? "Upcoming" : "Completed"}
-          </span>
-        </div>
-
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00629B] transition-colors">
-          {event.title}
-        </h3>
-
-        <div className="space-y-2 mb-4 text-gray-600">
-          <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-2 text-[#00629B]" />
-            <span className="text-sm">{formattedDate}</span>
-          </div>
-          <div className="flex items-center">
-            <Clock className="w-4 h-4 mr-2 text-[#00629B]" />
-            <span className="text-sm">{event.time}</span>
-          </div>
-          <div className="flex items-center">
-            <MapPin className="w-4 h-4 mr-2 text-[#00629B]" />
-            <span className="text-sm">{event.location}</span>
-          </div>
-        </div>
-
-        {event.speaker && (
-          <p className="text-sm text-gray-700 mb-3">
-            <span className="font-semibold">Speaker:</span> {event.speaker}
-          </p>
-        )}
-
-        <p className="text-gray-600 mb-4 text-sm line-clamp-3">
-          {event.description}
-        </p>
-
-        {event.registrationUrl && upcoming && (
-          <a
-            href={event.registrationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFA300] text-black text-sm font-semibold rounded-lg hover:bg-[var(--cs-orange-dark)] transition no-underline"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Ticket className="w-4 h-4" />
-            Register
-          </a>
-        )}
-      </div>
-    </a>
-  );
-}
+const TABS = ["all", "upcoming", "completed"] as const;
 
 export default function EventFilterClient({ events }: { events: Event[] }) {
   const [filter, setFilter] = useState<"all" | "upcoming" | "completed">("all");
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent, index: number) => {
+    let newIndex: number | null = null;
+    if (e.key === "ArrowRight") {
+      newIndex = (index + 1) % TABS.length;
+    } else if (e.key === "ArrowLeft") {
+      newIndex = (index - 1 + TABS.length) % TABS.length;
+    }
+    if (newIndex !== null) {
+      e.preventDefault();
+      setFilter(TABS[newIndex]);
+    }
+  }, []);
 
   const counts = useMemo(() => {
     const upcoming = events.filter((e) => isUpcoming(e.date, e.time)).length;
@@ -122,34 +30,35 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
     return { all: events.length, upcoming, completed };
   }, [events]);
 
-  const filteredEvents = useMemo(
-    () =>
-      events.filter((event) => {
-        if (filter === "all") return true;
-        const upcoming = isUpcoming(event.date, event.time);
-        return filter === "upcoming" ? upcoming : !upcoming;
-      }),
-    [events, filter]
-  );
+  const filteredEvents = useMemo(() => {
+    if (filter === "all") return events;
+    return events.filter((event) => {
+      const upcoming = isUpcoming(event.date, event.time);
+      return filter === "upcoming" ? upcoming : !upcoming;
+    });
+  }, [events, filter]);
 
   const panelRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
-      <section className="py-12 bg-[var(--warm-bg)] border-b border-gray-200">
+      <section className="py-12 bg-warm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="flex justify-center space-x-2 sm:space-x-4"
             role="tablist"
             aria-label="Event filters"
           >
-            {(["all", "upcoming", "completed"] as const).map((tab) => (
+            {TABS.map((tab, index) => (
               <button
                 key={tab}
                 role="tab"
                 aria-selected={filter === tab}
                 aria-controls="events-panel"
                 onClick={() => setFilter(tab)}
+                type="button"
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                tabIndex={filter === tab ? 0 : -1}
                 className={`relative px-5 sm:px-6 py-2.5 min-h-[44px] rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 ${
                   filter === tab
                     ? "bg-[#00629B] text-white shadow-md"
@@ -176,7 +85,7 @@ export default function EventFilterClient({ events }: { events: Event[] }) {
         </div>
       </section>
 
-      <section className="py-12 bg-[var(--warm-bg)]">
+      <section className="py-12 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             id="events-panel"

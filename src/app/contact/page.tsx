@@ -2,15 +2,25 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Linkedin,
+  Instagram,
+  Loader2,
+} from "lucide-react";
 import { toast } from "sonner";
+import { CONTACT_INFO } from "@/lib/constants";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 
 interface ContactFormData {
   name: string;
   email: string;
   subject: string;
   message: string;
+  _hp?: string;
 }
 
 export default function ContactPage() {
@@ -31,8 +41,7 @@ export default function ContactPage() {
 
       if (!endpoint) {
         toast.error("Form service not configured", {
-          description:
-            "Please email us directly at computersociety.avv@gmail.com",
+          description: `Please email us directly at ${CONTACT_INFO.email}`,
         });
         return;
       }
@@ -45,6 +54,7 @@ export default function ContactPage() {
           email: data.email,
           subject: data.subject,
           message: data.message,
+          _hp: data._hp || "",
         }),
       });
 
@@ -54,7 +64,10 @@ export default function ContactPage() {
         description: "Thank you! We'll get back to you soon.",
       });
       reset();
-    } catch {
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("Contact form error:", error);
+      }
       toast.error("Failed to send message", {
         description:
           "Something went wrong. Please try again or email us directly.",
@@ -67,121 +80,126 @@ export default function ContactPage() {
   return (
     <div>
       <Breadcrumbs segments={[{ label: "Contact" }]} />
-      {/* Page Header */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Have questions? We&apos;d love to hear from you. Send us a message
-            and we&apos;ll respond as soon as possible.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Contact Us"
+        description="Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+      />
 
       {/* Contact Content */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Information */}
-            <div className="lg:col-span-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Get in Touch
-              </h2>
-
+            <div className="lg:col-span-2 flex flex-col gap-6">
               {/* Contact Details */}
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  Get in Touch
+                </h2>
+                <div className="space-y-5">
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 bg-[#00629B]/10 rounded-lg flex items-center justify-center flex-shrink-0 mr-3">
+                      <Mail className="w-5 h-5 text-[#00629B]" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-semibold text-gray-900 text-sm mb-0.5">
+                        Email
+                      </h3>
+                      <a
+                        href={`mailto:${CONTACT_INFO.email}`}
+                        className="text-gray-600 hover:text-[#00629B] transition text-sm break-all"
+                      >
+                        {CONTACT_INFO.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 bg-[#00629B]/10 rounded-lg flex items-center justify-center flex-shrink-0 mr-3">
+                      <Phone className="w-5 h-5 text-[#00629B]" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-semibold text-gray-900 text-sm mb-0.5">
+                        Phone
+                      </h3>
+                      <a
+                        href={CONTACT_INFO.phoneLink}
+                        className="text-gray-600 hover:text-[#00629B] transition text-sm"
+                      >
+                        {CONTACT_INFO.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 bg-[#00629B]/10 rounded-lg flex items-center justify-center flex-shrink-0 mr-3">
+                      <MapPin className="w-5 h-5 text-[#00629B]" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-semibold text-gray-900 text-sm mb-0.5">
+                        Address
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        IEEE CS Student Branch
+                        {CONTACT_INFO.address.map((line, i) => (
+                          <span key={i}>
+                            <br />
+                            {line}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Media */}
+                <div className="mt-5 pt-5 border-t border-gray-100">
+                  <h3 className="font-semibold text-gray-900 text-sm mb-3">
+                    Follow Us
+                  </h3>
+                  <div className="flex gap-3">
                     <a
-                      href="mailto:computersociety.avv@gmail.com"
-                      className="text-gray-700 hover:text-[#00629B] transition"
+                      href={CONTACT_INFO.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 border border-gray-200 hover:text-[#00629B] hover:border-[#00629B] hover:bg-[#e8f0f8] transition"
+                      aria-label="LinkedIn"
                     >
-                      computersociety.avv@gmail.com
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={CONTACT_INFO.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 border border-gray-200 hover:text-[#00629B] hover:border-[#00629B] hover:bg-[#e8f0f8] transition"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-4 h-4" />
                     </a>
                   </div>
-                </div>
-
-                <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a
-                      href="tel:+917397468974"
-                      className="text-gray-700 hover:text-[#00629B] transition"
-                    >
-                      +91-7397468974
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-[#00629B] mr-3 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      Address
-                    </h3>
-                    <p className="text-gray-700">
-                      IEEE CS Student Branch
-                      <br />
-                      Amrita School of Artificial Intelligence
-                      <br />
-                      Amrita Vishwa Vidyapeetham, Ettimadai
-                      <br />
-                      Coimbatore - 641112
-                      <br />
-                      Tamil Nadu, India
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://www.linkedin.com/company/computer-society-avv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/cs_asai_cbe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-[#00629B] hover:bg-[#e8f0f8] transition"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-5 h-5" />
-                  </a>
                 </div>
               </div>
 
               {/* Office Hours */}
-              <div className="mt-8 bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h3 className="font-semibold text-gray-900 mb-4">
                   Office Hours
                 </h3>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-gray-700">Monday - Friday</dt>
+                    <dt className="text-gray-600">Monday - Friday</dt>
                     <dd className="text-gray-900 font-medium">
                       10:00 AM - 5:00 PM
                     </dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-gray-700">Saturday</dt>
+                    <dt className="text-gray-600">Saturday</dt>
                     <dd className="text-gray-900 font-medium">
                       10:00 AM - 2:00 PM
                     </dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-gray-700">Sunday</dt>
+                    <dt className="text-gray-600">Sunday</dt>
                     <dd className="text-gray-900 font-medium">Closed</dd>
                   </div>
                 </dl>
@@ -189,13 +207,25 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
                   Send us a Message
                 </h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  {/* Honeypot field */}
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label htmlFor="_hp">HP</label>
+                    <input
+                      id="_hp"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      {...register("_hp")}
+                    />
+                  </div>
+
                   {/* Name Field */}
                   <div>
                     <label
@@ -208,16 +238,24 @@ export default function ContactPage() {
                       id="name"
                       type="text"
                       className={`cs-input ${errors.name ? "cs-input-error" : ""}`}
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "name-error" : undefined}
                       {...register("name", {
                         required: "Name is required",
                         minLength: {
                           value: 2,
                           message: "Name must be at least 2 characters",
                         },
+                        maxLength: {
+                          value: 100,
+                          message: "Name must be at most 100 characters",
+                        },
                       })}
                     />
                     {errors.name && (
-                      <p className="cs-error-text">{errors.name.message}</p>
+                      <p id="name-error" className="cs-error-text" role="alert">
+                        {errors.name.message}
+                      </p>
                     )}
                   </div>
 
@@ -233,6 +271,10 @@ export default function ContactPage() {
                       id="email"
                       type="email"
                       className={`cs-input ${errors.email ? "cs-input-error" : ""}`}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={
+                        errors.email ? "email-error" : undefined
+                      }
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -242,7 +284,13 @@ export default function ContactPage() {
                       })}
                     />
                     {errors.email && (
-                      <p className="cs-error-text">{errors.email.message}</p>
+                      <p
+                        id="email-error"
+                        className="cs-error-text"
+                        role="alert"
+                      >
+                        {errors.email.message}
+                      </p>
                     )}
                   </div>
 
@@ -258,16 +306,30 @@ export default function ContactPage() {
                       id="subject"
                       type="text"
                       className={`cs-input ${errors.subject ? "cs-input-error" : ""}`}
+                      aria-invalid={!!errors.subject}
+                      aria-describedby={
+                        errors.subject ? "subject-error" : undefined
+                      }
                       {...register("subject", {
                         required: "Subject is required",
                         minLength: {
                           value: 5,
                           message: "Subject must be at least 5 characters",
                         },
+                        maxLength: {
+                          value: 200,
+                          message: "Subject must be at most 200 characters",
+                        },
                       })}
                     />
                     {errors.subject && (
-                      <p className="cs-error-text">{errors.subject.message}</p>
+                      <p
+                        id="subject-error"
+                        className="cs-error-text"
+                        role="alert"
+                      >
+                        {errors.subject.message}
+                      </p>
                     )}
                   </div>
 
@@ -281,18 +343,32 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="message"
-                      rows={6}
+                      rows={4}
                       className={`cs-input ${errors.message ? "cs-input-error" : ""}`}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={
+                        errors.message ? "message-error" : undefined
+                      }
                       {...register("message", {
                         required: "Message is required",
                         minLength: {
                           value: 10,
                           message: "Message must be at least 10 characters",
                         },
+                        maxLength: {
+                          value: 5000,
+                          message: "Message must be at most 5000 characters",
+                        },
                       })}
                     />
                     {errors.message && (
-                      <p className="cs-error-text">{errors.message.message}</p>
+                      <p
+                        id="message-error"
+                        className="cs-error-text"
+                        role="alert"
+                      >
+                        {errors.message.message}
+                      </p>
                     )}
                   </div>
 
@@ -302,10 +378,17 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="btn-cs-primary w-full"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
 
-                  <p className="text-sm text-gray-500 text-center">
+                  <p className="text-sm text-gray-600 text-center">
                     * Required fields
                   </p>
                 </form>

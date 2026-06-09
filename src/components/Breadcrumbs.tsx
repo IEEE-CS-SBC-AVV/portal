@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Script from "next/script";
 import { ChevronRight, Home } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 interface BreadcrumbSegment {
   label: string;
@@ -15,20 +17,21 @@ export function Breadcrumbs({ segments }: { segments: BreadcrumbSegment[] }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://cs.avv.ie",
+        item: SITE_CONFIG.url,
       },
       ...segments.map((seg, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: seg.label,
-        ...(seg.href ? { item: `https://cs.avv.ie${seg.href}` } : {}),
+        ...(seg.href ? { item: `${SITE_CONFIG.url}${seg.href}` } : {}),
       })),
     ],
   };
 
   return (
     <>
-      <script
+      <Script
+        id="breadcrumb-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
@@ -41,7 +44,7 @@ export function Breadcrumbs({ segments }: { segments: BreadcrumbSegment[] }) {
             <li>
               <Link
                 href="/"
-                className="text-gray-500 hover:text-[#00629B] transition flex items-center gap-1 no-underline"
+                className="text-gray-600 hover:text-[#00629B] transition flex items-center gap-1 no-underline"
               >
                 <Home className="w-4 h-4" />
                 <span className="sr-only sm:not-sr-only">Home</span>
@@ -49,11 +52,11 @@ export function Breadcrumbs({ segments }: { segments: BreadcrumbSegment[] }) {
             </li>
             {segments.map((seg, i) => (
               <li key={i} className="flex items-center space-x-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-gray-600" />
                 {seg.href ? (
                   <Link
                     href={seg.href}
-                    className="text-gray-500 hover:text-[#00629B] transition no-underline"
+                    className="text-gray-600 hover:text-[#00629B] transition no-underline"
                   >
                     {seg.label}
                   </Link>

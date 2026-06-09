@@ -1,4 +1,6 @@
 import { getEvents } from "@/lib/contents";
+import type { Event } from "@/lib/contents";
+import { SITE_CONFIG } from "@/lib/constants";
 
 function escapeXml(text: string): string {
   return text
@@ -10,8 +12,16 @@ function escapeXml(text: string): string {
 }
 
 export async function GET() {
-  const baseUrl = "https://cs.avv.ie";
-  const events = getEvents();
+  const baseUrl = SITE_CONFIG.url;
+  let events: Event[] = [];
+  try {
+    events = getEvents();
+  } catch (error) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Failed to load events for feed.xml:", error);
+    }
+    events = [];
+  }
 
   const items = events.map((event) => {
     const formattedDate = new Date(event.date).toUTCString();

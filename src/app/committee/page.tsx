@@ -1,27 +1,44 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MemberCard } from "@/components/MemberCard";
-import committeeData from "./members.json";
+import committeeData from "../../../content/committee/members.json";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Committee",
   description:
     "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
+  openGraph: {
+    title: "Committee | IEEE CS @ Amrita",
+    description:
+      "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
+    images: [
+      {
+        url: "/assets/Society.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IEEE CS @ Amrita Committee",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Committee | IEEE CS @ Amrita",
+    description:
+      "Meet the leadership and committee members of IEEE Computer Society Student Branch at Amrita - faculty advisors and student officers.",
+    images: ["/assets/Society.jpg"],
+  },
 };
 
 export default function CommitteePage() {
   return (
     <div>
       <Breadcrumbs segments={[{ label: "Committee" }]} />
-      {/* Page Header */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Committee</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Meet the dedicated team driving our chapter&apos;s success
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Our Committee"
+        description="Meet the dedicated team driving our chapter's success"
+      />
 
       {/* Faculty Advisor */}
       <section className="py-16 bg-white">
@@ -36,14 +53,16 @@ export default function CommitteePage() {
       </section>
 
       {/* Executive Committee */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Executive Committee
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {committeeData.executive.map((member, index) => (
-              <MemberCard key={index} {...member} />
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.executive.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -55,23 +74,25 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Treasurer
           </h2>
-          <div className="max-w-md mx-auto">
-            {committeeData.treasurer.map((member, index) => (
-              <MemberCard key={index} {...member} />
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.treasurer.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
+                <MemberCard {...member} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Technical Team */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Executive Core Committee
+            Technical Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.technical.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.technical.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -85,9 +106,9 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Webmaster
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.webmaster.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.webmaster.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -95,14 +116,14 @@ export default function CommitteePage() {
         </div>
       </section>
       {/* Content Team */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Content Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.publicity.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.publicity.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -116,9 +137,9 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Design Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.design.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.design.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -127,14 +148,14 @@ export default function CommitteePage() {
       </section>
 
       {/* Newsletter Team */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Newsletter Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.newsletter.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+          <div className="flex flex-wrap justify-center gap-8">
+            {committeeData.newsletter.map((member) => (
+              <div key={member.id} className="w-full sm:w-72">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -142,15 +163,15 @@ export default function CommitteePage() {
         </div>
       </section>
 
-      {/* WICE Representative */}
+      {/* WIE Representative */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            WICE Representative
+            WIE Representative
           </h2>
           <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-            {committeeData.wice.map((member, index) => (
-              <div key={index} className="w-full md:w-80">
+            {committeeData.wie.map((member) => (
+              <div key={member.id} className="w-full md:w-80">
                 <MemberCard {...member} />
               </div>
             ))}
@@ -164,16 +185,13 @@ export default function CommitteePage() {
           <h2 className="text-3xl font-bold mb-4">
             Interested in Joining Our Team?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white mb-8">
             We&apos;re always looking for passionate students to join our
             committee and help drive our chapter forward.
           </p>
-          <a
-            href="/contact"
-            className="bg-white text-[#00629B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block no-underline"
-          >
+          <Link href="/contact" className="btn-cs-white">
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>
