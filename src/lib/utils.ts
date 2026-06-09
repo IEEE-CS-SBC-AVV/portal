@@ -1,26 +1,26 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-// Merge Tailwind classes safely
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-// Format date to readable string
 export function formatDate(date: string | Date): string {
   const d = new Date(date);
-  return d.toLocaleDateString("en-US", {
+  if (isNaN(d.getTime())) return "Invalid Date";
+  return d.toLocaleDateString("en-IN", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 }
 
-// Convert text to URL-safe slug
-export function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+export function isUpcoming(date: string, time?: string): boolean {
+  const eventDate = new Date(date);
+  if (isNaN(eventDate.getTime())) return false;
+  if (time && time !== "TBD") {
+    const timeParts = time.match(/(\d+):(\d+)\s*(AM|PM)/i);
+    if (timeParts) {
+      let hours = Number(timeParts[1]);
+      const minutes = Number(timeParts[2]);
+      const period = timeParts[3].toUpperCase();
+      if (period === "PM" && hours !== 12) hours += 12;
+      if (period === "AM" && hours === 12) hours = 0;
+      eventDate.setHours(hours, minutes, 0, 0);
+    }
+  }
+  return eventDate > new Date();
 }

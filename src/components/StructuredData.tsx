@@ -1,20 +1,20 @@
+import Script from "next/script";
+import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "IEEE Computer Society Student Branch Committee",
-    url: "https://cs.avv.ie",
-    logo: "https://cs.avv.ie/assets/Society.jpg",
+    url: SITE_CONFIG.url,
+    logo: `${SITE_CONFIG.url}/assets/Society.jpg`,
     description:
       "IEEE Computer Society Student Branch Committee at Amrita Vishwa Vidyapeetham - Empowering students through technology, innovation, and professional development.",
-    sameAs: [
-      "https://www.linkedin.com/in/computer-society-amrita-school-of-ai-217296392/",
-      "https://www.instagram.com/cs_asai_cbe",
-    ],
+    sameAs: [CONTACT_INFO.linkedin, CONTACT_INFO.instagram],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "General Inquiries",
-      email: "computersociety.avv@gmail.com",
+      email: CONTACT_INFO.email,
     },
     location: {
       "@type": "Place",
@@ -29,41 +29,8 @@ export function OrganizationSchema() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
-export function BreadcrumbSchema() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://cs.avv.ie",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "About Us",
-        item: "https://cs.avv.ie/about",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Events",
-        item: "https://cs.avv.ie/events",
-      },
-    ],
-  };
-
-  return (
-    <script
+    <Script
+      id="organization-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />

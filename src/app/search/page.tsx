@@ -1,56 +1,61 @@
 import { Suspense } from "react";
 import { getEvents, getNews } from "@/lib/contents";
+import { toClientEvent } from "@/lib/events";
 import SearchResultsClient from "./SearchResultsClient";
-import type { Event } from "@/components/EventFilterClient";
 import type { Metadata } from "next";
+import type { Event } from "@/lib/types";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Search Results",
   description:
-    "Search events, news, and resources across the IEEE Computer Society Student Branch website.",
+    "Search events, news, and resources across the IEEE Computer Society Student Branch Chapter website at Amrita Vishwa Vidyapeetham, Coimbatore.",
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: "Search Results | IEEE CS @ Amrita",
+    description:
+      "Search events, news, and resources across the IEEE Computer Society Student Branch Chapter website at Amrita Vishwa Vidyapeetham, Coimbatore.",
+    images: [
+      {
+        url: "/assets/Society.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Search IEEE CS @ Amrita",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Search Results | IEEE CS @ Amrita",
+    description:
+      "Search events, news, and resources across the IEEE Computer Society Student Branch Chapter website.",
+    images: ["/assets/Society.jpg"],
+  },
 };
 
 export default function SearchPage() {
   const mdEvents = getEvents();
-  const mdNews = getNews();
-
-  const events: Event[] = mdEvents.map((mdEvent, index) => ({
-    id: mdEvent.slug || `event-${index}`,
-    title: mdEvent.title,
-    date: mdEvent.date,
-    time: mdEvent.time || "TBD",
-    location: mdEvent.location,
-    type: (
-      [
-        "workshop",
-        "seminar",
-        "hackathon",
-        "webinar",
-        "competition",
-        "social",
-        "other",
-      ] as const
-    ).includes(mdEvent.type as Event["type"])
-      ? (mdEvent.type as Event["type"])
-      : "seminar",
-    description: mdEvent.excerpt,
-    speaker: mdEvent.speakers?.[0]?.name || undefined,
+  const events: Event[] = mdEvents.map(toClientEvent);
+  const newsItems = getNews();
+  const mdNews = newsItems.map((item) => ({
+    slug: item.slug,
+    title: item.title,
+    date: item.date,
+    excerpt: item.excerpt,
   }));
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-warm">
       <Breadcrumbs segments={[{ label: "Search" }]} />
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-2">Search Results</h1>
-          <p className="text-xl text-white/90">Find events, news, and more</p>
-        </div>
-      </section>
+      <PageHeader
+        title="Search Results"
+        description="Find events, news, and more"
+      />
 
       <Suspense
         fallback={
-          <div className="py-20 text-center text-xl text-gray-500">
+          <div className="py-20 text-center text-xl text-gray-600">
             Searching...
           </div>
         }

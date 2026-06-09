@@ -1,16 +1,23 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { Mail, CheckCircle } from "lucide-react";
+import { useState, useRef, type FormEvent } from "react";
+import { Mail, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { CONTACT_INFO } from "@/lib/constants";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (honeypotRef.current?.value) {
+      return;
+    }
+
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast.error("Please enter a valid email address");
       return;
@@ -23,8 +30,7 @@ export function NewsletterSignup() {
 
       if (!endpoint) {
         toast.error("Form service not configured", {
-          description:
-            "Please email us directly at computersociety.avv@gmail.com",
+          description: `Please email us directly at ${CONTACT_INFO.email}`,
         });
         return;
       }
@@ -32,7 +38,11 @@ export function NewsletterSignup() {
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, _subject: "Newsletter Signup" }),
+        body: JSON.stringify({
+          email,
+          _subject: "Newsletter Signup",
+          _hp: honeypotRef.current?.value || "",
+        }),
       });
 
       if (!response.ok) throw new Error("Formspree error");
@@ -40,7 +50,17 @@ export function NewsletterSignup() {
       setSubmitted(true);
       toast.success("You've been subscribed to our newsletter!");
       setEmail("");
-    } catch {
+      const confetti = (await import("canvas-confetti")).default;
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#FFA300", "#00629B", "#00B5E2", "#78BE20"],
+      });
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("Newsletter subscription error:", error);
+      }
       toast.error("Failed to subscribe", {
         description:
           "Something went wrong. Please try again or email us directly.",
@@ -52,7 +72,7 @@ export function NewsletterSignup() {
 
   if (submitted) {
     return (
-      <div className="cs-card p-8 text-center bg-white">
+      <div className="cs-card p-8 text-center bg-white" aria-live="polite">
         <CheckCircle className="w-16 h-16 text-[#00629B] mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
           You&apos;re Subscribed!
@@ -78,11 +98,24 @@ export function NewsletterSignup() {
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
+          ref={honeypotRef}
+          type="text"
+          name="_hp"
+          tabIndex={-1}
+          autoComplete="off"
+          style={{ position: "absolute", left: "-9999px" }}
+          aria-hidden="true"
+        />
+        <label htmlFor="newsletter-email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="newsletter-email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="cs-input text-center"
+          className="cs-input"
           required
         />
         <button
@@ -90,7 +123,13 @@ export function NewsletterSignup() {
           disabled={submitting}
           className="btn-cs-primary w-full"
         >
-          {submitting ? "Subscribing..." : "Subscribe to Newsletter"}
+          {submitting ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" /> Subscribing...
+            </>
+          ) : (
+            "Subscribe to Newsletter"
+          )}
         </button>
       </form>
     </div>

@@ -13,7 +13,7 @@ const gradients = [
   "from-[#BA0C2F] to-[#861F41]", // Red
 ];
 
-export function getGradientForName(name: string): string {
+function getGradientForName(name: string): string {
   // Generate a hash from the name
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
@@ -26,7 +26,7 @@ export function getGradientForName(name: string): string {
   return gradients[index];
 }
 
-export function getInitials(name: string): string {
+function getInitials(name: string): string {
   return name
     .split(" ")
     .map((n) => n[0])
@@ -58,6 +58,7 @@ export function GradientAvatar({
 
   return (
     <div
+      aria-hidden="true"
       className={`${sizeClasses[size]} rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white font-bold shadow-lg ${className}`}
     >
       {initials}

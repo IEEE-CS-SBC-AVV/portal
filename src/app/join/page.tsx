@@ -11,53 +11,66 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { FAQAccordion } from "@/components/FAQAccordion";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
+import { MEMBERSHIP_PRICES, STATS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Join",
   description:
     "Join IEEE Computer Society Student Branch at Amrita. Learn about membership benefits, pricing, and how to become part of our technical community.",
+  openGraph: {
+    title: "Join IEEE CS @ Amrita",
+    description:
+      "Join IEEE Computer Society Student Branch at Amrita. Learn about membership benefits, pricing, and how to become part of our technical community.",
+    images: [
+      {
+        url: "/assets/Society.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Join IEEE CS @ Amrita",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join IEEE CS @ Amrita",
+    description:
+      "Join IEEE Computer Society Student Branch at Amrita. Learn about membership benefits, pricing, and how to become part of our technical community.",
+    images: ["/assets/Society.jpg"],
+  },
 };
 
 export default function JoinPage() {
   return (
     <div>
       <Breadcrumbs segments={[{ label: "Join" }]} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Join IEEE Today
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Become part of the world&apos;s largest technical professional
-              organization dedicated to advancing technology for the benefit of
-              humanity.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.ieee.org/membership/join/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
-              >
-                Join IEEE Membership
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </a>
-              <a
-                href="https://www.computer.org/membership"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
-              >
-                Join Computer Society
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </a>
-            </div>
-          </div>
+      <PageHeader
+        title="Join IEEE Today"
+        description="Become part of the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity."
+      >
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <a
+            href="https://www.ieee.org/membership/join/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cs-white whitespace-nowrap"
+          >
+            Join IEEE
+            <ExternalLink className="h-5 w-5 flex-shrink-0" />
+          </a>
+          <a
+            href="https://www.computer.org/membership"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cs-white whitespace-nowrap"
+          >
+            Join Computer Society
+            <ExternalLink className="h-5 w-5 flex-shrink-0" />
+          </a>
         </div>
-      </section>
+      </PageHeader>
 
       {/* Why Join Section */}
       <section className="py-16 bg-white">
@@ -161,7 +174,7 @@ export default function JoinPage() {
       </section>
 
       {/* Membership Comparison */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -231,7 +244,9 @@ export default function JoinPage() {
                   <div className="text-sm text-gray-600 mb-1">
                     Student Membership
                   </div>
-                  <div className="text-3xl font-bold text-[#00629B]">$32</div>
+                  <div className="text-3xl font-bold text-[#00629B]">
+                    {MEMBERSHIP_PRICES.ieeeStudent}
+                  </div>
                   <div className="text-sm text-gray-600">per year</div>
                 </div>
               </div>
@@ -240,10 +255,10 @@ export default function JoinPage() {
                 href="https://www.ieee.org/membership/join/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-cs-primary w-full block text-center py-3 text-lg"
+                className="btn-cs-primary w-full"
               >
                 Join IEEE
-                <ExternalLink className="inline ml-2 h-5 w-5" />
+                <ExternalLink className="inline ml-2 h-5 w-5 flex-shrink-0" />
               </a>
             </div>
 
@@ -308,9 +323,11 @@ export default function JoinPage() {
                   <div className="text-sm text-gray-600 mb-1">
                     Student Society Membership
                   </div>
-                  <div className="text-3xl font-bold text-[#00629B]">$48</div>
+                  <div className="text-3xl font-bold text-[#00629B]">
+                    {MEMBERSHIP_PRICES.csStudent}
+                  </div>
                   <div className="text-sm text-gray-600">per year</div>
-                  <div className="text-xs text-gray-500 mt-2">
+                  <div className="text-xs text-gray-600 mt-2">
                     (Includes IEEE + Computer Society)
                   </div>
                 </div>
@@ -320,10 +337,10 @@ export default function JoinPage() {
                 href="https://www.computer.org/membership"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-cs-primary w-full block text-center py-3 text-lg"
+                className="btn-cs-primary w-full"
               >
                 Join Computer Society
-                <ExternalLink className="inline ml-2 h-5 w-5" />
+                <ExternalLink className="inline ml-2 h-5 w-5 flex-shrink-0" />
               </a>
             </div>
           </div>
@@ -348,98 +365,34 @@ export default function JoinPage() {
             student branch chapter to participate in workshops, hackathons,
             seminars, and networking events throughout the year.
           </p>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-lg mx-auto">
             <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">25+</div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {STATS.eventsYearly}+
+              </div>
               <div className="text-gray-600">Events per year</div>
             </div>
             <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">150+</div>
+              <div className="text-4xl font-bold text-[#00629B] mb-2">
+                {STATS.members}+
+              </div>
               <div className="text-gray-600">Active members</div>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
-              <div className="text-4xl font-bold text-[#00629B] mb-2">50+</div>
-              <div className="text-gray-600">Workshops conducted</div>
-            </div>
           </div>
-          <Link
-            href="/contact"
-            className="btn-cs-secondary inline-block px-8 py-3"
-          >
+          <Link href="/contact" className="btn-cs-secondary">
             Contact Us to Get Started
           </Link>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-warm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Who can join IEEE?
-              </h3>
-              <p className="text-gray-700">
-                Any student or professional interested in technology and
-                engineering can join IEEE. Student membership is available to
-                undergraduate and graduate students enrolled at least half-time
-                in an accredited institution.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                What&apos;s the difference between IEEE and Computer Society
-                membership?
-              </h3>
-              <p className="text-gray-700">
-                IEEE membership provides access to the broader technology
-                community, while Computer Society membership focuses
-                specifically on computing and includes additional
-                computing-related resources, publications, and events. Computer
-                Society membership includes IEEE membership.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                How do I join your student branch chapter?
-              </h3>
-              <p className="text-gray-700">
-                First, become an IEEE or IEEE Computer Society member through
-                the official IEEE website. Then, contact us through our website
-                or attend one of our events to register with our local chapter.
-                We&apos;ll guide you through the process!
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Is there a fee to join the student branch chapter?
-              </h3>
-              <p className="text-gray-700">
-                Once you have IEEE membership, joining our student branch
-                chapter is typically free. You just need to be an active IEEE
-                member and enrolled at our institution.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                What benefits do I get from the student branch?
-              </h3>
-              <p className="text-gray-700">
-                Access to exclusive workshops, technical seminars, networking
-                events, hackathons, project guidance, career mentorship,
-                leadership opportunities, and a community of like-minded peers
-                passionate about technology.
-              </p>
-            </div>
-          </div>
+          <FAQAccordion />
         </div>
       </section>
 
@@ -456,7 +409,7 @@ export default function JoinPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white mb-8">
             Join thousands of students worldwide who are advancing their careers
             through IEEE membership.
           </p>
@@ -465,15 +418,12 @@ export default function JoinPage() {
               href="https://www.ieee.org/membership/join/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
+              className="btn-cs-white whitespace-nowrap"
             >
-              Join IEEE Now
-              <ExternalLink className="ml-2 h-5 w-5" />
+              Join IEEE
+              <ExternalLink className="h-5 w-5 flex-shrink-0" />
             </a>
-            <Link
-              href="/contact"
-              className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition inline-flex items-center justify-center"
-            >
+            <Link href="/contact" className="btn-cs-white whitespace-nowrap">
               Have Questions? Contact Us
             </Link>
           </div>
