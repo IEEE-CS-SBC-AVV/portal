@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getEvents, getNews } from "@/lib/contents";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://cs.avv.ie";
+  const baseUrl = SITE_CONFIG.url;
 
   const staticPages = [
     { route: "", priority: 1.0, changeFrequency: "monthly" as const },
@@ -39,21 +40,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  const events = getEvents();
-  const eventEntries = events.map((event) => ({
-    url: `${baseUrl}/events/${event.slug}`,
-    lastModified: new Date(event.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  let eventEntries: MetadataRoute.Sitemap[number][] = [];
+  try {
+    const events = getEvents();
+    eventEntries = events.map((event) => ({
+      url: `${baseUrl}/events/${event.slug}`,
+      lastModified: new Date(event.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }));
+  } catch (error) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Failed to load events for sitemap:", error);
+    }
+    eventEntries = [];
+  }
 
-  const news = getNews();
-  const newsEntries = news.map((article) => ({
-    url: `${baseUrl}/news/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  let newsEntries: MetadataRoute.Sitemap[number][] = [];
+  try {
+    const news = getNews();
+    newsEntries = news.map((article) => ({
+      url: `${baseUrl}/news/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
+  } catch (error) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Failed to load news for sitemap:", error);
+    }
+    newsEntries = [];
+  }
 
   return [...staticEntries, ...eventEntries, ...newsEntries];
 }

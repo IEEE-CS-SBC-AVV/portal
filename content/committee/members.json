@@ -1,12 +1,13 @@
 {
   "facultyAdvisor": {
+    "id": "faculty-advisor",
     "name": "Dr. Nitha P.K",
     "designation": "Faculty Advisor",
     "department": "Amrita School of Artificial Intelligence",
     "email": null,
     "phone": "+91-8547155168",
-    "photo": "/images/committee/faculty-advisor.jpg",
-    "bio": "Faculty advisor guiding the IEEE Computer Society Student Chapter at Amrita School of Artificial Intelligence."
+    "photo": null,
+    "bio": "Faculty advisor providing guidance and mentorship to the IEEE Computer Society Student Chapter at Amrita School of Artificial Intelligence."
   },
   "executive": [
     {
@@ -18,8 +19,8 @@
       "email": "srimanrakshan@gmail.com",
       "linkedin": "https://www.linkedin.com/in/sriman-rakshan-n-336532303/",
       "phone": "+91-9445678199",
-      "photo": "/images/committee/sriman-rakshan-chair.jpg",
-      "bio": "Leading the chapter with strategic vision and organizational leadership.",
+      "photo": "/images/committee/sriman-rakshan-chair.webp",
+      "bio": "Responsible for overall chapter leadership, strategic direction, and external representation.",
       "responsibilities": [
         "Overall chapter leadership",
         "Strategic planning",
@@ -35,8 +36,8 @@
       "email": "djishnuteja2006@ieee.com",
       "linkedin": "https://www.linkedin.com/in/jishnu-teja-dandamudi-858028289",
       "phone": "+91-7397468974",
-      "photo": "/images/committee/jishnu-teja-dandamudi-vice-chair.jpg",
-      "bio": "Supporting chapter leadership and internal coordination.",
+      "photo": "/images/committee/jishnu-teja-dandamudi-vice-chair.webp",
+      "bio": "Assists the chair with chapter operations, internal coordination, and member engagement.",
       "responsibilities": [
         "Assisting chair",
         "Internal coordination",
@@ -52,8 +53,8 @@
       "email": "gowtham200626@gmail.com",
       "linkedin": "https://www.linkedin.com/in/gowtham-dhanaraju-4b482a28a/",
       "phone": "+91-7094905515",
-      "photo": "/images/committee/gowtham-sd-secretary.jpg",
-      "bio": "Managing documentation and official communications.",
+      "photo": "/images/committee/gowtham-sd-secretary.webp",
+      "bio": "Manages meeting documentation, records, and official communications for the chapter.",
       "responsibilities": [
         "Meeting documentation",
         "Records maintenance",
@@ -69,8 +70,8 @@
       "email": "rupakandula21@gmail.com",
       "linkedin": "https://www.linkedin.com/in/rupa-kandula-kv2007",
       "phone": "+91-9281444700",
-      "photo": "/images/committee/rupa-kandula-vice-secretary.png",
-      "bio": "Assisting the secretary in documentation and coordination.",
+      "photo": "/images/committee/rupa-kandula-vice-secretary.webp",
+      "bio": "Supports the secretary with documentation, communications, and committee coordination.",
       "responsibilities": [
         "Supporting record maintenance",
         "Assisting official communications",
@@ -88,8 +89,8 @@
       "email": "cb.ai.u4aid23115@cb.students.amrita.edu",
       "linkedin": "https://www.linkedin.com/in/jeevakamal-k-r-248435280/",
       "phone": "+91-9385967737",
-      "photo": "",
-      "bio": "Overseeing finances and budgeting.",
+      "photo": null,
+      "bio": "Manages the chapter's finances, budgeting, and expense tracking.",
       "responsibilities": [
         "Financial planning",
         "Expense tracking",
@@ -107,8 +108,8 @@
       "email": "gowtham.k1626@gmail.com",
       "linkedin": "https://www.linkedin.com/in/gowtham-kumaresan-a74295294/",
       "phone": null,
-      "photo": "/images/committee/gowtham-kumaresan-ecc.jpg",
-      "bio": "Supporting core technical and operational activities."
+      "photo": "/images/committee/gowtham-kumaresan-ecc.webp",
+      "bio": "Supports technical and operational activities within the chapter."
     }
   ],
   "webmaster": [
@@ -121,8 +122,8 @@
       "email": "nidishsr@gmail.com",
       "linkedin": "https://www.linkedin.com/in/nidishsr/",
       "phone": null,
-      "photo": "/images/committee/nidish-sr-webmaster.jpg",
-      "bio": "Maintaining and developing the chapter website."
+      "photo": "/images/committee/nidish-sr-webmaster.webp",
+      "bio": "Responsible for the development and maintenance of the chapter website."
     }
   ],
   "publicity": [
@@ -135,8 +136,8 @@
       "email": "aryamanatil@gmail.com",
       "linkedin": "https://www.linkedin.com/in/aryananda-m-9466a0384",
       "phone": null,
-      "photo": "/images/committee/aryananda-m-content-lead.jpg",
-      "bio": "Creating and managing chapter content."
+      "photo": "/images/committee/aryananda-m-content-lead.webp",
+      "bio": "Manages content creation and social media presence for the chapter."
     },
     {
       "id": "content-lead-2",
@@ -147,8 +148,8 @@
       "email": "neelanjanananma@gmail.com",
       "linkedin": "https://www.linkedin.com/in/neelanjana-j-anil-92050b37b",
       "phone": null,
-      "photo": "/images/committee/neelanjana-j-anil-content-lead.jpg",
-      "bio": "Handling editorial and content strategy."
+      "photo": "/images/committee/neelanjana-j-anil-content-lead.webp",
+      "bio": "Handles editorial strategy and content development for chapter communications."
     }
   ],
   "design": [
@@ -161,8 +162,8 @@
       "email": "kathir2006velan@gmail.com",
       "linkedin": "https://www.linkedin.com/in/kathirvelan11",
       "phone": null,
-      "photo": "",
-      "bio": "Responsible for visual identity and design."
+      "photo": null,
+      "bio": "Creates visual assets including posters, banners, and digital content for chapter events."
     },
     {
       "id": "design-lead-2",
@@ -172,8 +173,9 @@
       "year": "Undergraduate",
       "email": "kumarsasi04060@gmail.com",
       "linkedin": "https://www.linkedin.com/in/sasi-kumar-aaa046280/",
-      "photo": "/images/committee/sasikumar-p-design-lead.png",
-      "bio": "Designing promotional and digital assets."
+      "phone": null,
+      "photo": "/images/committee/sasikumar-p-design-lead.webp",
+      "bio": "Designs promotional materials and digital assets for chapter events and communications."
     }
   ],
   "newsletter": [
@@ -186,8 +188,8 @@
       "email": "cksaijitesh@gmail.com",
       "linkedin": "https://www.linkedin.com/in/sai-jitesh-c-k-7b212439b",
       "phone": null,
-      "photo": "/images/committee/sai-jitesh-c.k-newsletter.jpg",
-      "bio": "Managing newsletters and written communications."
+      "photo": "/images/committee/sai-jitesh-c.k-newsletter.webp",
+      "bio": "Manages newsletter content and written communications for the chapter."
     },
     {
       "id": "newsletter-2",
@@ -198,22 +200,22 @@
       "email": "amaravanimeka@gmail.com",
       "linkedin": "https://www.linkedin.com/in/rohithmeka",
       "phone": null,
-      "photo": "",
-      "bio": "Assisting with publications and content distribution."
+      "photo": null,
+      "bio": "Supports the newsletter team with content distribution and audience engagement."
     }
   ],
-  "wice": [
+  "wie": [
     {
       "id": "wice-chair",
       "name": "Smera Kini",
-      "role": "WICE Representative",
+      "role": "WIE Representative",
       "department": "Artificial Intelligence",
       "year": "Undergraduate",
       "email": "smeraskini@gmail.com",
       "linkedin": "https://www.linkedin.com/in/smera-s-kini-505895290/",
       "phone": null,
-      "photo": "",
-      "bio": "Promoting Women in Computer Science initiatives and inclusion."
+      "photo": null,
+      "bio": "Promotes Women in Computer Science initiatives and fosters an inclusive environment within the chapter."
     }
   ]
 }

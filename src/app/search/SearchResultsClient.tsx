@@ -4,12 +4,19 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Calendar, FileText } from "lucide-react";
 import EventFilterClient from "@/components/EventFilterClient";
-import type { Event } from "@/components/EventFilterClient";
-import type { NewsItem } from "@/lib/contents";
+import type { Event } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
+
+interface NewsSearchItem {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+}
 
 interface SearchResultsClientProps {
   events: Event[];
-  news: NewsItem[];
+  news: NewsSearchItem[];
 }
 
 export default function SearchResultsClient({
@@ -38,8 +45,30 @@ export default function SearchResultsClient({
 
   const totalResults = filteredEvents.length + filteredNews.length;
 
+  if (!query.trim()) {
+    return (
+      <div className="py-12 bg-warm min-h-[50vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="cs-card p-12 text-center">
+            <h2 className="text-xl font-medium text-gray-900 mb-2">
+              Search the site
+            </h2>
+            <p className="text-gray-600">
+              Enter a search term to find events, news, and more.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="py-12 bg-gray-50 min-h-[50vh]">
+    <div
+      className="py-12 bg-warm min-h-[50vh]"
+      aria-live="polite"
+      role="region"
+      aria-label="Search results"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800">
@@ -53,10 +82,10 @@ export default function SearchResultsClient({
         </div>
 
         {totalResults === 0 ? (
-          <div className="bg-white rounded-xl shadow-sm p-12 text-center border border-gray-200">
-            <h3 className="text-xl font-medium text-gray-900 mb-2">
+          <div className="cs-card p-12 text-center">
+            <h2 className="text-xl font-medium text-gray-900 mb-2">
               No results found
-            </h3>
+            </h2>
             <p className="text-gray-600">
               We couldn&apos;t find anything matching &quot;{query}&quot;. Try
               adjusting your search terms.
@@ -84,18 +113,14 @@ export default function SearchResultsClient({
                     <Link
                       key={article.slug}
                       href={`/news/${article.slug}`}
-                      className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:border-[#00629B]/30 hover:shadow-md transition no-underline"
+                      className="cs-card p-6"
                     >
                       <h4 className="text-lg font-bold text-gray-900 mb-2">
                         {article.title}
                       </h4>
-                      <p className="text-sm text-gray-500 mb-2 flex items-center gap-1">
+                      <p className="text-sm text-gray-600 mb-2 flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {new Date(article.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
+                        {formatDate(article.date)}
                       </p>
                       <p className="text-gray-600 text-sm line-clamp-2">
                         {article.excerpt}

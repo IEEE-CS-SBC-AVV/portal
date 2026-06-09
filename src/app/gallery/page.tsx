@@ -1,43 +1,77 @@
-import { Camera } from "lucide-react";
+import { Linkedin, Instagram, Camera } from "lucide-react";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description:
     "Photo gallery of IEEE Computer Society Student Branch events and activities at Amrita Vishwa Vidyapeetham.",
+  openGraph: {
+    title: "Gallery | IEEE CS @ Amrita",
+    description:
+      "Photo gallery of IEEE Computer Society Student Branch events and activities at Amrita Vishwa Vidyapeetham.",
+    images: [
+      {
+        url: "/assets/Society.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IEEE CS @ Amrita Gallery",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gallery | IEEE CS @ Amrita",
+    description:
+      "Photo gallery of IEEE Computer Society Student Branch events and activities at Amrita Vishwa Vidyapeetham.",
+    images: ["/assets/Society.jpg"],
+  },
 };
 
 export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Breadcrumbs segments={[{ label: "Gallery" }]} />
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-10 w-40 h-40 bg-white rounded-full mix-blend-overlay filter blur-2xl"></div>
-          <div className="absolute bottom-10 right-20 w-60 h-60 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Capturing moments from our chapter&apos;s journey
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Gallery"
+        description="Capturing moments from our chapter's journey"
+      />
 
-      <section className="py-24">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Camera className="w-16 h-16 text-[#00629B] mx-auto mb-6 opacity-60" />
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Snapping Shots
-          </h2>
-          <p className="text-lg text-gray-600 mb-4">
-            We&apos;re busy capturing moments from our events, workshops, and
-            activities. Photos will appear here soon!
-          </p>
-          <div className="inline-flex items-center gap-2 text-[#00629B] font-semibold">
-            <span className="w-2 h-2 bg-[#00629B] rounded-full animate-pulse" />
-            Under Progress
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-20 h-20 bg-[#00629B]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Camera className="w-10 h-10 text-[#00629B]" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Photo Gallery Coming Soon
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              We&apos;re collecting photos from our events and activities. While
+              we build the gallery, follow us on social media for the latest
+              snapshots and updates.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/computer-society-avv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cs-secondary"
+              >
+                <Linkedin className="w-5 h-5" />
+                Follow on LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/cs_asai_cbe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cs-secondary"
+              >
+                <Instagram className="w-5 h-5" />
+                Follow on Instagram
+              </a>
+            </div>
           </div>
         </div>
       </section>

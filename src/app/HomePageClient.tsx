@@ -2,15 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Users, Calendar, BookOpen, Award, CheckCircle } from "lucide-react";
-import { motion, Variants } from "framer-motion";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
+import dynamic from "next/dynamic";
+import { Users, Calendar, CheckCircle } from "lucide-react";
+import { motion, type Variants, useInView } from "framer-motion";
+import { useRef } from "react";
+import { STATS } from "@/lib/constants";
+
+const CountUp = dynamic(() => import("react-countup"), { ssr: false });
+
+const STAT_ITEMS = [
+  { icon: Users, count: STATS.members, label: "Active Members", suffix: "+" },
+  {
+    icon: Calendar,
+    count: STATS.eventsYearly,
+    label: "Events Yearly",
+    suffix: "+",
+  },
+] as const;
 
 export default function HomePageClient() {
-  const [statsRef, statsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, {
+    once: true,
+    margin: "-100px",
   });
 
   const fadeUpVariant: Variants = {
@@ -35,20 +49,16 @@ export default function HomePageClient() {
   return (
     <div className="min-h-screen bg-white transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] text-white overflow-hidden before:absolute before:inset-0 before:bg-black/25 before:z-[1]">
-        <motion.div
-          initial={{ scale: 1.1, filter: "brightness(0.42)" }}
-          animate={{ scale: 1.01 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: "url('/assets/home.jpeg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-          }}
+      <section className="relative min-h-[500px] text-white overflow-hidden before:absolute before:inset-0 before:bg-black/40 before:z-[1]">
+        <Image
+          src="/assets/campus.jpeg"
+          alt="Amrita Vishwa Vidyapeetham campus"
+          fill
+          priority
+          loading="eager"
+          className="object-cover object-center"
+          sizes="100vw"
         />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           <motion.div
             variants={staggerContainer}
@@ -56,19 +66,11 @@ export default function HomePageClient() {
             animate="visible"
             className="text-center"
           >
-            <motion.div variants={fadeUpVariant} className="mb-4" />
-
             <motion.div variants={fadeUpVariant} className="mb-12">
-              <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight mb-2 drop-shadow-lg"
-                style={{ color: "#FFFFFF" }}
-              >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 drop-shadow-lg text-white">
                 IEEE Computer Society Student Branch Chapter
               </h2>
-              <p
-                className="text-xl md:text-2xl font-semibold drop-shadow-lg"
-                style={{ color: "#FFFFFF" }}
-              >
+              <p className="text-xl md:text-2xl font-semibold drop-shadow-lg text-white">
                 Amrita Vishwa Vidyapeetham, Coimbatore Campus
               </p>
             </motion.div>
@@ -83,6 +85,7 @@ export default function HomePageClient() {
             xmlns="http://www.w3.org/2000/svg"
             className="w-full h-auto block"
             preserveAspectRatio="none"
+            aria-hidden="true"
           >
             <path
               d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
@@ -98,18 +101,8 @@ export default function HomePageClient() {
         ref={statsRef}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { icon: Users, count: 150, label: "Active Members", suffix: "+" },
-              {
-                icon: Calendar,
-                count: 25,
-                label: "Events Yearly",
-                suffix: "+",
-              },
-              { icon: BookOpen, count: 50, label: "Workshops", suffix: "+" },
-              { icon: Award, count: 10, label: "Awards Won", suffix: "+" },
-            ].map((stat, idx) => (
+          <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {STAT_ITEMS.map((stat, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
@@ -134,7 +127,7 @@ export default function HomePageClient() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 bg-gray-50 transition-colors duration-300 overflow-hidden">
+      <section className="py-20 bg-warm transition-colors duration-300 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -214,9 +207,9 @@ export default function HomePageClient() {
                   href="https://www.ieee.org/membership/join/index.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-[#00629B] to-[#004B76] !text-white px-8 py-3 rounded-lg font-bold text-base hover:opacity-90 transition no-underline shadow-md"
+                  className="btn-cs-secondary w-full"
                 >
-                  Become a Member
+                  Join IEEE
                 </a>
               </div>
             </motion.div>
@@ -275,9 +268,9 @@ export default function HomePageClient() {
                   href="https://www.computer.org/membership"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-[#00629B] to-[#004B76] !text-white px-8 py-3 rounded-lg font-bold text-base hover:opacity-90 transition no-underline shadow-md"
+                  className="btn-cs-secondary w-full"
                 >
-                  Join CS Now
+                  Join Computer Society
                 </a>
               </div>
             </motion.div>
@@ -324,6 +317,7 @@ export default function HomePageClient() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -341,7 +335,13 @@ export default function HomePageClient() {
 
       {/* Call to Action Section */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#00629B] to-[#002855] text-white">
-        <div className="absolute inset-0 bg-[url('/assets/home.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <Image
+          src="/assets/campus.jpeg"
+          alt="Amrita Vishwa Vidyapeetham campus"
+          fill
+          className="object-cover object-center opacity-10"
+          sizes="100vw"
+        />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -352,22 +352,16 @@ export default function HomePageClient() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-md">
               Ready to Get Involved?
             </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
               Join our vibrant community of technology enthusiasts and
               innovators. Together, we&apos;re advancing technology for
               humanity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/join"
-                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition shadow-xl hover:shadow-2xl inline-block text-center no-underline hover:-translate-y-0.5 duration-200"
-              >
+              <Link href="/join" className="btn-cs-white">
                 Become a Member
               </Link>
-              <Link
-                href="/contact"
-                className="bg-white text-[#00629B] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition shadow-xl hover:shadow-2xl inline-block text-center no-underline hover:-translate-y-0.5 duration-200"
-              >
+              <Link href="/contact" className="btn-cs-white">
                 Contact Us
               </Link>
             </div>

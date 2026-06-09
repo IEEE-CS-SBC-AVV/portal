@@ -1,59 +1,49 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getEvents } from "@/lib/contents";
+import { toClientEvent } from "@/lib/events";
 import EventFilterClient from "@/components/EventFilterClient";
-import type { Event } from "@/components/EventFilterClient";
+import type { Event } from "@/lib/types";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Browse upcoming and past events organized by IEEE Computer Society Student Branch at Amrita — workshops, seminars, hackathons, and more.",
+    "Browse upcoming and past events organized by IEEE Computer Society Student Branch Chapter at Amrita Vishwa Vidyapeetham, Coimbatore — workshops, seminars, hackathons, and more.",
+  openGraph: {
+    title: "Events | IEEE CS @ Amrita",
+    description:
+      "Browse upcoming and past events organized by IEEE Computer Society Student Branch Chapter at Amrita Vishwa Vidyapeetham, Coimbatore — workshops, seminars, hackathons, and more.",
+    images: [
+      {
+        url: "/assets/Society.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IEEE CS @ Amrita Events",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Events | IEEE CS @ Amrita",
+    description:
+      "Browse upcoming and past events from the IEEE Computer Society Student Branch Chapter at Amrita.",
+    images: ["/assets/Society.jpg"],
+  },
 };
 
 export default function EventsPage() {
   const mdEvents = getEvents();
-
-  const events: Event[] = mdEvents.map((mdEvent, index) => ({
-    id: mdEvent.slug || `event-${index}`,
-    title: mdEvent.title,
-    date: mdEvent.date,
-    time: mdEvent.time || "TBD",
-    location: mdEvent.location,
-    type: (
-      [
-        "workshop",
-        "seminar",
-        "hackathon",
-        "webinar",
-        "competition",
-        "social",
-        "other",
-      ] as const
-    ).includes(mdEvent.type as Event["type"])
-      ? (mdEvent.type as Event["type"])
-      : "seminar",
-    description: mdEvent.excerpt,
-    speaker: mdEvent.speakers?.[0]?.name || undefined,
-  }));
+  const events: Event[] = mdEvents.map(toClientEvent);
 
   return (
     <div>
       <Breadcrumbs segments={[{ label: "Events" }]} />
-      {/* Page Header */}
-      <section className="bg-gradient-to-r from-[#00629B] to-[#002855] text-white py-12">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-10 w-40 h-40 bg-white rounded-full mix-blend-overlay filter blur-2xl"></div>
-          <div className="absolute bottom-10 right-20 w-60 h-60 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Join us for workshops, seminars, hackathons, and more to enhance
-            your skills and network with peers
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Events"
+        description="Join us for workshops, seminars, hackathons, and more to enhance your skills and network with peers"
+      />
 
       {/* Filter Section */}
       <EventFilterClient events={events} />
@@ -64,16 +54,13 @@ export default function EventsPage() {
           <h2 className="text-3xl font-bold mb-4">
             Want to Organize an Event?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white mb-8">
             We&apos;re always looking for new ideas and passionate organizers.
             Get in touch with us!
           </p>
-          <a
-            href="/contact"
-            className="bg-white text-[#00629B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block no-underline"
-          >
+          <Link href="/contact" className="btn-cs-white">
             Contact Us
-          </a>
+          </Link>
         </div>
       </section>
     </div>
