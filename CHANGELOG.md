@@ -5,6 +5,10 @@
 ### Added
 
 - CHANGELOG.md file
+- Shared `ErrorFallback` component reducing 14 error.tsx files to ~200 lines
+- `FAQAccordion` component with ARIA accordion pattern on Join page
+- `ShareButtons` on news detail pages (previously only on events)
+- `ScrollToTop` button for long pages
 
 ### Fixed
 
@@ -19,6 +23,10 @@
 - Emoji icons in About page now have `aria-hidden="true"`
 - Loading skeleton for events page now includes CTA section
 - Gitignore: removed duplicate patterns, fixed `#Misc` header, removed stray `*.` pattern
+- EventCard derived state: `useState`+`useEffect`+eslint-disable replaced with `useMemo`
+- News listing: `toLocaleDateString("en-US")` replaced with `formatDate()` from utils
+- Contact page: `text-gray-500` → `text-gray-600` (WCAG AA contrast)
+- Office Hours section passes WCAG AA contrast requirements
 
 ### Changed
 
@@ -30,11 +38,27 @@
 - Gallery page: replaced committee photo grid with "Snapping Shots" placeholder
 - Committee page: replaced inline `MemberCard` (always gradient) with `MemberCard` component (photo + gradient fallback)
 - IEEE/CS Society card images: consistent `w-44 h-44` containers with `object-contain`
+- Button consistency: all ad-hoc button styling replaced with `btn-cs-*` classes
+- Committee grid: standardized to `flex-wrap justify-center` with uniform card widths
+- CSS `btn-cs-white` changed from `display: inline-block` to `inline-flex` for icon+text alignment
+- Hero image: added `loading="eager"` for LCP optimization
+- Card consistency: About benefit cards, search results, FAQ accordion use `cs-card`
+- Membership directory filter input uses `cs-input` instead of hand-rolled classes
+- Inline `style={{ color: "#FFFFFF" }}` replaced with `text-white`
+- Join page buttons: removed overriding `block text-center py-3 text-lg` classes
 
 ### Removed
 
 - `src/types/index.ts` (dead code, 151 lines)
 - `src/lib/design-utils.ts` (dead code, 391 lines)
+- `src/lib/utils.test.ts` (duplicate of `__tests__/utils.test.ts`)
+- 4 pass-through layouts (`events/layout.tsx`, `join/layout.tsx`, `gallery/layout.tsx`, `collabratec/layout.tsx`)
+- 5 unused Skeleton exports from `Skeleton.tsx`
+- `--cs-ice-blue` custom property from globals.css
+- `public/favicon.ico` (duplicate, App Router uses `src/app/favicon.ico`)
+- `content/events/template.txt` (stray doc in content pipeline)
+- `AUDIT_FINDINGS.md`, `PROBLEMS.md`, `PROBLEMS2.md`, `PROBLEMS3.md` (completed audit docs)
+- `tsconfig.tsbuildinfo` (build artifact)
 
 ## [Phase 2] — 2026-02-25
 
@@ -48,7 +72,7 @@
 - RSS feed for events (`/feed.xml`)
 - Dynamic sitemap (`/sitemap.xml`)
 - JSON-LD structured data (OrganizationSchema + BreadcrumbSchema)
-- Contact form with React Hook Form + EmailJS integration
+- Contact form with React Hook Form + Formspree integration
 - Newsletter signup component
 - Scope-members page with search/filter
 - Collabratec information page

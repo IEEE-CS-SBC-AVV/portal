@@ -8,7 +8,7 @@ Official website for the IEEE Computer Society Student Branch Chapter at Amrita 
 - **Language:** TypeScript (strict)
 - **Styling:** TailwindCSS v4
 - **UI:** React 19, Lucide Icons, Framer Motion
-- **Forms:** React Hook Form + EmailJS
+- **Forms:** React Hook Form + Formspree
 - **Content:** Markdown (gray-matter) for events & news
 - **Deployment:** Vercel (auto-deploy from main)
 - **CI/CD:** GitHub Actions
@@ -46,10 +46,10 @@ npm run format          # Prettier
 - **Events** — Workshops, seminars, hackathons with filtering + detail pages
 - **News** — Article listing + detail pages
 - **Gallery** — Photo gallery (under progress)
-- **Contact** — Contact form (EmailJS), map, office hours, social links
+- **Contact** — Contact form (Formspree), map, office hours, social links
 - **Join** — IEEE/CS membership pricing, FAQ, newsletter signup
 - **Collabratec** — IEEE Collabratec platform overview
-- **Membership** — Member directory placeholder
+- **Membership** — Member directory with photos and contact info
 - **Scope Members** — Searchable member directory with gradient avatars
 - **Search** — Full-text event search
 
@@ -77,7 +77,7 @@ Follows **IEEE Computer Society Brand Guidelines** with WCAG AA compliance.
 ## Current Features
 
 - IEEE CS brand-compliant design
-- Contact form with EmailJS integration
+- Contact form with Formspree integration
 - Event filtering (All/Upcoming/Completed) + detail pages
 - News article listing + detail pages
 - Member cards with photos and gradient avatar fallbacks
